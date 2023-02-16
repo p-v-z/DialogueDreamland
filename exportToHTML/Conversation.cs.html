@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Conversation.cs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #dcdcdc;}
+.s1 { color: #569cd6;}
+.s2 { color: #dcdcdc;}
+.s3 { color: #57a64a;}
+</style>
+</head>
+<body bgcolor="#1e1e1e">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Conversation.cs</font>
+</center></td></tr></table>
+<pre>
+<span class="s1">namespace </span><span class="s0">DD</span>
+<span class="s2">{</span>
+	<span class="s2">[</span><span class="s0">System</span><span class="s2">.</span><span class="s0">Serializable</span><span class="s2">]</span>
+	<span class="s1">public class </span><span class="s0">Conversation</span>
+	<span class="s2">{</span>
+		<span class="s3">// The message sent by the player</span>
+		<span class="s1">public string </span><span class="s0">playerMessage;</span>
+
+		<span class="s3">// The response from the NPC</span>
+		<span class="s1">public string </span><span class="s0">npcResponse;</span>
+
+		<span class="s1">public </span><span class="s0">Conversation</span><span class="s2">(</span><span class="s1">string </span><span class="s0">playerMessage, </span><span class="s1">string </span><span class="s0">npcResponse</span><span class="s2">)</span>
+		<span class="s2">{</span>
+			<span class="s1">this</span><span class="s2">.</span><span class="s0">playerMessage </span><span class="s2">= </span><span class="s0">playerMessage;</span>
+			<span class="s1">this</span><span class="s2">.</span><span class="s0">npcResponse </span><span class="s2">= </span><span class="s0">npcResponse;</span>
+		<span class="s2">}</span>
+	<span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

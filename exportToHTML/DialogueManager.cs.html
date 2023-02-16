@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>DialogueManager.cs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #569cd6;}
+.s1 { color: #dcdcdc;}
+.s2 { color: #dcdcdc;}
+.s3 { color: #57a64a;}
+</style>
+</head>
+<body bgcolor="#1e1e1e">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DialogueManager.cs</font>
+</center></td></tr></table>
+<pre><span class="s0">using </span><span class="s1">UnityEngine;</span>
+<span class="s0">using </span><span class="s1">UnityEngine</span><span class="s2">.</span><span class="s1">Events;</span>
+
+<span class="s0">namespace </span><span class="s1">DD</span>
+<span class="s2">{</span>
+	<span class="s0">public class </span><span class="s1">DialogueManager : MonoBehaviour</span>
+	<span class="s2">{</span>
+		<span class="s0">public </span><span class="s1">UnityEvent OnDialogueStarted;</span>
+		<span class="s0">public </span><span class="s1">UnityEvent OnDialogueEnded;</span>
+
+		<span class="s0">public void </span><span class="s1">StartDialogue</span><span class="s2">(</span><span class="s1">NPC npc</span><span class="s2">)</span>
+		<span class="s2">{</span>
+			<span class="s3">// Trigger the OnDialogueStarted event</span>
+			<span class="s1">OnDialogueStarted</span><span class="s2">.</span><span class="s1">Invoke</span><span class="s2">()</span><span class="s1">;</span>
+
+			<span class="s3">// Start the dialogue with the given NPC</span>
+			<span class="s1">npc</span><span class="s2">.</span><span class="s1">StartDialogue</span><span class="s2">()</span><span class="s1">;</span>
+
+			<span class="s3">// Trigger the OnDialogueEnded event</span>
+			<span class="s1">OnDialogueEnded</span><span class="s2">.</span><span class="s1">Invoke</span><span class="s2">()</span><span class="s1">;</span>
+		<span class="s2">}</span>
+	<span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
