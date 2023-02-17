@@ -1,5 +1,5 @@
 # DialogueDreamland
-A Unity project that uses ChatGPT to give NPCs personalities.
+A Unity project that uses ChatGPT to give NPCs personalities 🤖💬
 
 ## Unity version:
 [2022.2.1f1](./ProjectSettings/ProjectVersion.txt)
