@@ -12,9 +12,15 @@ namespace DD
             Temperature = temperature;
         }
 
-        public string PersonalityName { get; }
-        public int MaxTokens { get; }
-        public float Temperature { get;}
+        public string PersonalityName { get => personalityName; private set => personalityName = value; }
+        [SerializeField] private string personalityName;
+        
+        public float Temperature { get => temperature; private set => temperature = value; }
+        [SerializeField] private float temperature;
+        
+        public int MaxTokens { get => maxTokens; private set => maxTokens = value; }
+        [SerializeField] private int maxTokens;
+        
         public abstract void Apply(NPC npc);
     }
 }
