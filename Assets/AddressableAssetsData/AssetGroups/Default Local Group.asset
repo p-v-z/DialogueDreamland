@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c286209cf1516814f92f3c1092a833e3
+  m_SerializeEntries:
+  - m_GUID: 7a53b03397e27f549916c12488526a63
+    m_Address: Assets/DDAssets/PolygonCity/Models/Materials/PolygonCity_Texture_01_C.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f40884f6ff6397a4c88c06f7ad8cedfb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5e70521ac0b292a45af5dd35167c28f5, type: 2}
+    - {fileID: 11400000, guid: 3e0a22c3ca05cd841afc6b0d1c0e00bf, type: 2}

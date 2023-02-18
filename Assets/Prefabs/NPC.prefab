@@ -57,7 +57,8 @@ PrefabInstance:
       value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5761709189624006156, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5325206501142859530, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}

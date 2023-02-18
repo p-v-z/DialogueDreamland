@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Spawnable
+  m_EditorClassIdentifier: 
+  m_GroupName: Spawnable
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 942f55430193faa4ea9d86b80f7dc220
+  m_SerializeEntries:
+  - m_GUID: 5e488cfd825ce044395037d93a9d8eb6
+    m_Address: Character_BusinessMan_Shirt_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 471247d5cf89b2c46bcde0f08524197e
+    m_Address: Character_BusinessMan_Suit_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6412c6bdd410913469520a05a1632885
+    m_Address: Character_BusinessWoman_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 236e70cfb8ad0fc448c79a2155a5d3c2
+    m_Address: Character_Female_Coat_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 841e8e4f1a54c754396b7559d1cc6fad
+    m_Address: Character_Female_Jacket_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adad89669382b0743a2c2f162c9601b0
+    m_Address: Character_Female_Police_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48b470c6a762f60438c631f219257520
+    m_Address: Character_Male_Hoodie_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f6cbb0f4dd572e47ab1ee6c2a3a36d1
+    m_Address: Character_Male_Jacket_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 498a13929c1393e44be1126bcadc448b
+    m_Address: Character_Male_Police_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f40884f6ff6397a4c88c06f7ad8cedfb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4e902690a55c76e4288675e533c5bd01, type: 2}
+    - {fileID: 11400000, guid: b123b940eafb3b747a88b47631963ac1, type: 2}
