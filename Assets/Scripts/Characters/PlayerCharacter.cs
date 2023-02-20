@@ -8,5 +8,9 @@ namespace DD
 		{
 			Debug.Log("Player character enabled");
 		}
+
+		// TODO: Add character controller
+
+		// TODO: Add way to interact with NPC
 	}
 }
