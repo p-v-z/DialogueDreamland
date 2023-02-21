@@ -17,6 +17,7 @@
 
 # Asset store plugins
 [Aa]ssets/Plugins/Sirenix*
+[Aa]ssets/Plugins/Demigiant*
 
 # IDEs
 .vs/
