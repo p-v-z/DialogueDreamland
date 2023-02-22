@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using Lightbug.CharacterControllerPro.Core;
+using Sirenix.OdinInspector;
 using UnityEngine;
 namespace DD
 {
@@ -13,6 +14,7 @@ namespace DD
 
 		private Rigidbody rb; // Reference to player's Rigidbody component
 		
+		private CharacterActor actor;
 		private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
 		private void Awake()
@@ -21,20 +23,14 @@ namespace DD
 			{
 				rb = GetComponent<Rigidbody>(); // Get the Rigidbody component on start
 			}
+			actor = GetComponent<CharacterActor>();
 		}
 
-		private void FixedUpdate()
-		{
-			animator.SetBool(IsWalking, rb.velocity.magnitude != 0);
-		}
-
-		public void HandleCharacterMovement(Vector2 movement)
-		{
-			// Normalize movement vector to have consistent speed in all directions
-			var normalized = movement.normalized * config.moveSpeed;
-			
-			// Don't use velocity to move X and Z axis
-			rb.MovePosition(rb.position + new Vector3(normalized.x, 0, normalized.y) * Time.fixedDeltaTime);
-		}
+		
+		// public void HandleCharacterMovement(Vector2 movement)
+		// {
+		// 	
+		// 	actor.Move(movement);
+		// }
 	}
 }

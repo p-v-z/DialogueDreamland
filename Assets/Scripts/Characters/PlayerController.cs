@@ -1,15 +1,19 @@
 ﻿using System;
+using Lightbug.CharacterControllerPro.Core;
 using UnityEngine;
 namespace DD
 {
 	/// <summary>
 	/// The PlayerController is a CharacterController that handles input from the player.
 	/// </summary>
+	[RequireComponent(typeof(CharacterActor))]
 	public class PlayerController : CharacterController
 	{
+		
+
 		public Action<Vector2> OnMove = delegate { }; 
 		
-		private void Update()
+		private void FixedUpdate()
 		{
 			// Get horizontal and vertical input from the player
 			var moveHorizontal = Input.GetAxis("Horizontal");
@@ -17,7 +21,8 @@ namespace DD
 
 			// Move the player in the direction of the input
 			var movement = new Vector2(moveHorizontal, moveVertical);
-			OnMove.Invoke(movement);
+			// HandleCharacterMovement(movement);
+			// OnMove.Invoke(movement);
 		}
 	}
 }

@@ -8,5 +8,6 @@ namespace DD
 	{
 		public AnimatorController animatorController;
 		public float moveSpeed = 5f;
+		public float rotationSpeed = 5f;
 	}
 }

@@ -8,11 +8,13 @@ namespace DD
 	public class PlayerCharacter : Character
 	{
 		[SerializeField] private PlayerController playerController;
+
 		
 		public void OnEnable()
 		{
 			Debug.Log("Player character enabled");
-			playerController.OnMove += playerController.HandleCharacterMovement;
+			// playerController.OnMove += playerController.HandleCharacterMovement;
+			// actor.Move();
 		}
 
 		// TODO: Add way to interact with NPC
