@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65,6 +65,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 855267452582704259}
   m_SourcePrefab: {fileID: 100100000, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
+--- !u!114 &1932681953818217881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2055160330573647812, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
+  m_PrefabInstance: {fileID: 456876295128973917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742592588465900887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657f66e7c8834b3cbbacbbb8f7630a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5742592588465900887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5325206501142859530, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
@@ -82,7 +93,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bff9c8d6b364309ab67cbf05343feb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behavior: {fileID: 0}
-  dialogue: {fileID: 0}
+  controller: {fileID: 1932681953818217881}
   personality: {fileID: 0}
-  id: 
+  config: {fileID: 11400000, guid: bdd3c450e2032b1489125ea79dd33efb, type: 2}

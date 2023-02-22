@@ -6,28 +6,25 @@ namespace DD
 {
 	public class NPC : Character
 	{
-		public NPCBehavior behavior;
-		public NPCDialogue dialogue;
-
 		[SerializeField, Required] public Personality personality;
+		[SerializeField, Required] private CConfig config;
 		
 		// Conversation history with the player
 		private List<Conversation> conversationHistory = new List<Conversation>();
 
-		private void Start()
+		private async void Start()
 		{
-			personality.Model.InstantiateAsync(transform);
+			var initHandler = personality.Model.InstantiateAsync(transform);
+			await initHandler.Task;
+
+			var animatorController = initHandler.Result.GetComponentInChildren<Animator>();
+			animatorController.runtimeAnimatorController = config.animatorController;
 		}
 		
 		public void StartDialogue()
 		{
+			Debug.Log("Start dialogue");
 			personality.Apply(this);
-			dialogue.StartDialogue();
-		}
-
-		public void UpdateBehavior()
-		{
-			behavior.UpdateBehavior();
 		}
 	}
 }

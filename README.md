@@ -37,7 +37,3 @@ A Unity project that uses ChatGPT to give NPCs personalities
 <div align="center">
    <p>Made by <a href="https://github.com/p-v-z">Petrie van Zyl</a></p>
 </div>
-
-https://assetstore.unity.com/packages/tools/visual-scripting/dotween-pro-32416
-https://assetstore.unity.com/packages/tools/visual-scripting/dotween-pro-32416
-https://assetstore.unity.com/packages/tools/visual-scripting/dotween-pro-32416
