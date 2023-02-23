@@ -53,6 +53,11 @@ ExportedObj/
 # Unity3D generated file on crash reports
 sysinfo.txt
 
+# Unity3D Local user settings
+UserSettings/EditorUserSettings.asset
+# Unity3D local default layout
+UserSettings/Layouts/default-2022.dwlt
+
 # Builds
 *.apk
 *.unitypackage

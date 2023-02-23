@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657707, g: 0.49641186, b: 0.5748162, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657785, g: 0.4964131, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -848,6 +848,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 422212, guid: 521c305b3d17bc149affb6c1f1016889, type: 3}
   m_PrefabInstance: {fileID: 365714240}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &407446849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1500015548, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
+  m_PrefabInstance: {fileID: 1979108063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &600660913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1560,9 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452e5ccfe20ff074fa56372b1069e59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandlerSettings:
-    inputHandler: {fileID: 0}
-    humanInputType: 0
+  inputHandlerSettings: {inputHandler: {fileID: 0}, humanInputType: 0}
   axes: Camera
   zoomAxis: Camera Zoom
   targetTransform: {fileID: 1979108064}
@@ -1589,10 +1592,22 @@ MonoBehaviour:
   collisionAffectsZoom: 0
   detectionRadius: 0.5
   layerMask:
-    serializedVersion: 2
     m_Bits: 0
   considerKinematicRigidbodies: 1
   considerDynamicRigidbodies: 1
+  characterActor: {fileID: 0}
+  characterRigidbody: {fileID: 0}
+  currentDistanceToTarget: 0
+  smoothedDistanceToTarget: 0
+  deltaYaw: 0
+  deltaPitch: 0
+  deltaZoom: 0
+  lerpedCharacterUp: {x: 0, y: 1, z: 0}
+  viewReference: {fileID: 0}
+  bodyRenderers: []
+  characterPosition: {x: 0, y: 0, z: 0}
+  lerpedHeight: 0
+  previousLerpedCharacterUp: {x: 0, y: 1, z: 0}
 --- !u!1001 &1979108063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1601,6 +1616,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 217009845}
     m_Modifications:
+    - target: {fileID: 385539849, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
+      propertyPath: overrideAnimatorController
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500015550, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
+      propertyPath: inputHandlerSettings.inputHandler
+      value: 
+      objectReference: {fileID: 1979108066}
+    - target: {fileID: 1500015550, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
+      propertyPath: inputHandlerSettings.humanInputType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1652,13 +1679,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1500015548, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1979108066}
   m_SourcePrefab: {fileID: 100100000, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
 --- !u!4 &1979108064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459788524936105052, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
   m_PrefabInstance: {fileID: 1979108063}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1979108066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407446849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575ce14d56024994aa42ea997e082174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActionsAsset: {fileID: -944628639613478452, guid: d07b909880188bf46bb5a69a65ddc0e0, type: 3}
+  filterByActionMap: 1
+  gameplayActionMap: Gameplay
+  filterByControlScheme: 1
+  controlSchemeName: Keyboard Mouse
 --- !u!1001 &4474476152875432601
 PrefabInstance:
   m_ObjectHideFlags: 0

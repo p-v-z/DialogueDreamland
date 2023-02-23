@@ -1,15 +1,14 @@
 {
   "dependencies": {
     "com.jetbrains.riderflow": "2022.1.5-248",
-    "com.unity.addressables": "1.21.2",
+    "com.unity.addressables": "1.21.8",
     "com.unity.cinemachine": "2.9.5",
     "com.unity.collab-proxy": "1.17.7",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.18",
+    "com.unity.inputsystem": "1.4.4",
     "com.unity.textmeshpro": "3.0.6",
-    "com.unity.timeline": "1.7.2",
     "com.unity.ugui": "1.0.0",
-    "com.unity.visualscripting": "1.7.8",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

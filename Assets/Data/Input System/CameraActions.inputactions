@@ -1,0 +1,79 @@
+{
+    "name": "CameraActions",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "a38025cb-322e-44ab-b344-774c37278210",
+            "actions": [
+                {
+                    "name": "Camera",
+                    "type": "Value",
+                    "id": "6ab36143-f7ac-4597-8390-366102523d82",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Camera Zoom",
+                    "type": "Value",
+                    "id": "e117d52a-54c6-449c-ac72-69c11e2b4d43",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a1023b90-cf98-4aa6-b9e1-dcd9fd758c3f",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=0.1,y=0.1)",
+                    "groups": "Keyboard Mouse",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "825bbe67-de89-45bc-9beb-e22a5f59bb0b",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad;UI",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1b5ccea-49c1-459d-80b8-d9af6ce5df3a",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard Mouse",
+                    "action": "Camera Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard Mouse",
+            "bindingGroup": "Keyboard Mouse",
+            "devices": []
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": []
+        },
+        {
+            "name": "UI",
+            "bindingGroup": "UI",
+            "devices": []
+        }
+    ]
+}
