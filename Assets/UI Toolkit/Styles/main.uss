@@ -1,0 +1,59 @@
+.button {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: var(--primary-color);
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    align-self: center;
+    border-left-color: rgba(255, 255, 255, 0.51);
+    border-right-color: rgba(255, 255, 255, 0.51);
+    border-top-color: rgba(255, 255, 255, 0.51);
+    border-bottom-color: rgba(255, 255, 255, 0.51);
+}
+
+.button:hover {
+    background-color: rgb(156, 245, 167);
+}
+
+.button:active {
+    background-color: rgb(45, 58, 46);
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+    color: rgb(138, 222, 226);
+}
+
+#TxtInput {
+}
+
+TextField > Label {
+    display: none;
+    visibility: hidden;
+}
+
+TextField > #unity-text-input {
+    white-space: normal;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.message.user > #unity-text-input {
+    -unity-text-align: upper-right;
+}
+
+.message.ai > #unity-text-input {
+}
+
+.message > #unity-text-input {
+    width: auto;
+}
+
+.user > #unity-text-input {
+    background-color: rgb(119, 195, 236);
+}
+
+.ai > #unity-text-input {
+}

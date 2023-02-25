@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="TxtDialogue" src="project://database/Assets/UI%20Toolkit/TxtDialogue.uxml?fileID=9197481963319205126&amp;guid=be33cf7da81354a1db74e1ecddcfc70f&amp;type=3#TxtDialogue" />
+    <Style src="project://database/Assets/UI%20Toolkit/main.uss?fileID=7433441132597879392&amp;guid=b6c1b0b92e7304269914a3d8bf611f79&amp;type=3#main" />
+    <ui:GroupBox style="position: absolute; bottom: 0; align-self: center; left: 0; right: 0;">
+        <ui:GroupBox name="ChatHistory">
+            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" name="TxtResponse" class="message ai" />
+            <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" name="TxtSaid" class="message user" />
+            <ui:Instance template="TxtDialogue" name="TxtDialogue" />
+        </ui:GroupBox>
+        <ui:GroupBox name="ChatInput" class="user" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(255, 255, 255); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+            <ui:TextField picking-mode="Ignore" label="Text Field" value="we  hav a teae aw iw inow oinqoinqw oiqwoigsnoi aoif oioaw n ofaio goinawo in ionf o atially a I wn to say" name="TxtInput" multiline="true" />
+            <ui:Button text="Say" display-tooltip-when-elided="true" class="button" />
+        </ui:GroupBox>
+        <ui:Button text="Talk" display-tooltip-when-elided="true" name="BtnTalk" class="button" style="width: 50%;" />
+    </ui:GroupBox>
+</ui:UXML>

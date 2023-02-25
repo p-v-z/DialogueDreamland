@@ -10,7 +10,6 @@ namespace DD
 	/// </summary>
 	public class CharacterController : MonoBehaviour
 	{
-		[Required, SerializeField] private CConfig config;
 		[Required, SerializeField] private Animator animator; // Reference to animator component
 
 		private Rigidbody rb; // Reference to player's Rigidbody component

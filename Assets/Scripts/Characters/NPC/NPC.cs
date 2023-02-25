@@ -7,7 +7,6 @@ namespace DD
 	public class NPC : Character
 	{
 		[SerializeField, Required] public Personality personality;
-		[SerializeField, Required] private CConfig config;
 		
 		// Conversation history with the player
 		private List<Conversation> conversationHistory = new List<Conversation>();
@@ -18,7 +17,6 @@ namespace DD
 			await initHandler.Task;
 
 			var animatorController = initHandler.Result.GetComponentInChildren<Animator>();
-			animatorController.runtimeAnimatorController = config.animatorController;
 		}
 		
 		public void StartDialogue()

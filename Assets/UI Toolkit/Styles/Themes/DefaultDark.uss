@@ -1,0 +1,6 @@
+:root {
+  --primary-color: #1d2b39;
+  --secondary-color: #673533;
+  --font-size: 16px;
+  --font-family: "Arial";
+}
