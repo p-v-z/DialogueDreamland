@@ -14,7 +14,6 @@
 }
 
 .button:hover {
-    background-color: rgb(156, 245, 167);
 }
 
 .button:active {
@@ -40,20 +39,35 @@ TextField > #unity-text-input {
     border-bottom-right-radius: 5px;
 }
 
-.message.user > #unity-text-input {
-    -unity-text-align: upper-right;
-}
-
-.message.ai > #unity-text-input {
-}
-
 .message > #unity-text-input {
     width: auto;
 }
 
-.user > #unity-text-input {
-    background-color: rgb(119, 195, 236);
+.ai > #TxtSaid > #unity-text-input {
+    background-color: var(--quaternary-color);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
-.ai > #unity-text-input {
+.user > #TxtSaid > #unity-text-input {
+    background-color: var(--tertiary-color);
+    -unity-text-align: upper-right;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: rgb(255, 255, 255);
+    -unity-font: url('project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
+}
+
+#ChatInput {
+    background-color: var(--secondary-color);
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0);
+}
+
+#TxtDialogue {
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
 }

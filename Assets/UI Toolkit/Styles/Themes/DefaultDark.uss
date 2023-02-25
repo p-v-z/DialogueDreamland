@@ -1,6 +1,9 @@
 :root {
-  --primary-color: #1d2b39;
-  --secondary-color: #673533;
+  --primary-color: #F7DAE5;
+  --secondary-color: #FFF2E1;
+  --tertiary-color: #C3E2E6;
+  --quaternary-color: #D0CCE0;
+  
   --font-size: 16px;
   --font-family: "Arial";
 }

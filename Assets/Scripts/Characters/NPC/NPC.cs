@@ -9,7 +9,7 @@ namespace DD
 		[SerializeField, Required] public Personality personality;
 		
 		// Conversation history with the player
-		private List<Conversation> conversationHistory = new List<Conversation>();
+		private List<Conversation> conversationHistory = new ();
 
 		private async void Start()
 		{

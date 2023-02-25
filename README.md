@@ -1,9 +1,9 @@
 # Dialogue Dreamland 🤖💬
 A Unity project that uses ChatGPT to give NPCs personalities. 
- 
-❗<span style="color: red;">**Important:**</span>
+
+<span style="color: red;">**Important**</span>❗
 The assets in this project are not contained in this repository. See
-[Not included](#not-included) for a list of assets used in this project.
+[Not included❗](#not-included) for a list of assets used in this project.
 
 ## Unity version:
 [2022.2.1f1](./ProjectSettings/ProjectVersion.txt)
@@ -15,26 +15,27 @@ The assets in this project are not contained in this repository. See
 ## Plugin Contents
 
 ### Tools
-- [RiderFlow](https://www.jetbrains.com/riderflow/) - Scenery tool to build and manage your 3D space
+- [RiderFlow](https://www.jetbrains.com/riderflow/) (Optional)  - Scenery tool to build and manage your 3D space.
 
 ### Unity Packages
 - [Cinemachine](https://unity.com/unity/features/editor/art-and-design/cinemachine) to manage the camera.
-- [Unity Addressables](https://docs.unity3d.com/Manual/Addressables.html) to load assets at runtime.
+- [Unity Addressables](https://docs.unity3d.com/Manual/com.unity.addressables.html) to load assets at runtime.
 - [Unity Input System](https://docs.unity3d.com/Manual/com.unity.inputsystem.html) to handle input.
 - [Unity TextMeshPro](https://docs.unity3d.com/Manual/com.unity.textmeshpro.html) to render text.
 - [UI Toolkit](https://docs.unity3d.com/Manual/UIElements.html) to create the UI.
 
-
-### Not included
-- DDAssets
+### Not included❗
+The following paid assets from the [Unity Asset Store](https://assetstore.unity.com/) are not included in this repository, but are **required to run the project**. If you would like to use this project, you will need to purchase and import the assets into the following folder structure inside `/DialogueDreamland/Assets/`:
+- `DDAssets/`
     - [Mega Animations Pack](https://assetstore.unity.com/packages/3d/animations/mega-animations-pack-162341)
     - [Character Controller Pro](https://assetstore.unity.com/packages/tools/physics/character-controller-pro-159150)
     - [POLYGON City - Low Poly 3D Art by Synty](https://assetstore.unity.com/packages/3d/environments/urban/polygon-city-low-poly-3d-art-by-synty-95214)
     - [POLYGON Icons Pack - Low Poly 3D Art by Synty](https://assetstore.unity.com/packages/3d/gui/polygon-icons-pack-low-poly-3d-art-by-synty-202117)
-- Plugins
+- `Plugins/`
   - [Odin Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
   - [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
-## TODO:
+
+## TODO
 - Build a UI that allows the user to interact with the NPCs.
     - Input field for the user to type a message.
     - Output field for the NPC to respond.
