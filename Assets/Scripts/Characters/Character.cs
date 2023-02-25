@@ -9,7 +9,5 @@ namespace DD
 	{
 		// Unique identifier for this Character
 		public string ID { get; private set; }
-		
-		private CharacterController controller;
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using Lightbug.CharacterControllerPro.Core;
 using Sirenix.OdinInspector;
 using UnityEngine;
+
 namespace DD
 {
 	/// <summary>
@@ -17,7 +18,7 @@ namespace DD
 		private CharacterActor actor;
 		private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
-		private void Awake()
+		private void Awake() 
 		{
 			if (rb == null)
 			{
@@ -25,12 +26,5 @@ namespace DD
 			}
 			actor = GetComponent<CharacterActor>();
 		}
-
-		
-		// public void HandleCharacterMovement(Vector2 movement)
-		// {
-		// 	
-		// 	actor.Move(movement);
-		// }
 	}
 }

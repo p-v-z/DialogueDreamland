@@ -175,25 +175,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 855267452582704259, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
-      propertyPath: config
-      value: 
-      objectReference: {fileID: 11400000, guid: bdd3c450e2032b1489125ea79dd33efb, type: 2}
-    - target: {fileID: 855267452582704259, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
-      propertyPath: personality
-      value: 
-      objectReference: {fileID: 11400000, guid: aeac050c209ed491ebd3ce2cd5a68aaa, type: 2}
-    - target: {fileID: 5742592588465900887, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5742592588465900887, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_Name
       value: NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742592588465900887, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -342,7 +326,6 @@ GameObject:
   m_Component:
   - component: {fileID: 240610847}
   - component: {fileID: 240610846}
-  - component: {fileID: 240610845}
   m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
@@ -350,26 +333,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &240610845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240610844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &240610846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,11 +810,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 422212, guid: 521c305b3d17bc149affb6c1f1016889, type: 3}
   m_PrefabInstance: {fileID: 365714240}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &407446849 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1500015548, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
-  m_PrefabInstance: {fileID: 1979108063}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &600660913
 PrefabInstance:
@@ -1491,6 +1449,7 @@ GameObject:
   - component: {fileID: 1782686648}
   - component: {fileID: 1782686647}
   - component: {fileID: 1782686649}
+  - component: {fileID: 1782686650}
   m_Layer: 0
   m_Name: DevCam
   m_TagString: Untagged
@@ -1565,7 +1524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452e5ccfe20ff074fa56372b1069e59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandlerSettings: {inputHandler: {fileID: 0}, humanInputType: 0}
+  inputHandlerSettings:
+    inputHandler: {fileID: 1782686650}
+    humanInputType: 0
   axes: Camera
   zoomAxis: Camera Zoom
   targetTransform: {fileID: 1979108064}
@@ -1592,22 +1553,27 @@ MonoBehaviour:
   collisionAffectsZoom: 0
   detectionRadius: 0.5
   layerMask:
+    serializedVersion: 2
     m_Bits: 0
   considerKinematicRigidbodies: 1
   considerDynamicRigidbodies: 1
-  characterActor: {fileID: 0}
-  characterRigidbody: {fileID: 0}
-  currentDistanceToTarget: 0
-  smoothedDistanceToTarget: 0
-  deltaYaw: 0
-  deltaPitch: 0
-  deltaZoom: 0
-  lerpedCharacterUp: {x: 0, y: 1, z: 0}
-  viewReference: {fileID: 0}
-  bodyRenderers: []
-  characterPosition: {x: 0, y: 0, z: 0}
-  lerpedHeight: 0
-  previousLerpedCharacterUp: {x: 0, y: 1, z: 0}
+--- !u!114 &1782686650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782686646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575ce14d56024994aa42ea997e082174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActionsAsset: {fileID: -944628639613478452, guid: 38a77f4da5934844d9a9cbf3f2676918, type: 3}
+  filterByActionMap: 0
+  gameplayActionMap: Gameplay
+  filterByControlScheme: 0
+  controlSchemeName: Keyboard Mouse
 --- !u!1001 &1979108063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1616,18 +1582,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 217009845}
     m_Modifications:
-    - target: {fileID: 385539849, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
-      propertyPath: overrideAnimatorController
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1500015550, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
-      propertyPath: inputHandlerSettings.inputHandler
+    - target: {fileID: 456876294828678487, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
+      propertyPath: movementReferenceParameters.externalReference
       value: 
-      objectReference: {fileID: 1979108066}
-    - target: {fileID: 1500015550, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
-      propertyPath: inputHandlerSettings.humanInputType
-      value: 2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1782686648}
     - target: {fileID: 459788524936105052, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1679,33 +1637,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1500015548, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1979108066}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
 --- !u!4 &1979108064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 459788524936105052, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
   m_PrefabInstance: {fileID: 1979108063}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1979108066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407446849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575ce14d56024994aa42ea997e082174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActionsAsset: {fileID: -944628639613478452, guid: d07b909880188bf46bb5a69a65ddc0e0, type: 3}
-  filterByActionMap: 1
-  gameplayActionMap: Gameplay
-  filterByControlScheme: 1
-  controlSchemeName: Keyboard Mouse
 --- !u!1001 &4474476152875432601
 PrefabInstance:
   m_ObjectHideFlags: 0
