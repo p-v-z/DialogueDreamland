@@ -3,7 +3,7 @@ A Unity project that uses ChatGPT to give NPCs personalities.
  
 <span style="color: red;">Important:</span>
 The assets in this project are not contained in this repository. See
-[Not included](#notincluded) for a list of assets used in this project.
+[Not included](#not-included) for a list of assets used in this project.
 
 ## Unity version:
 [2022.2.1f1](./ProjectSettings/ProjectVersion.txt)
