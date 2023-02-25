@@ -25,7 +25,7 @@ The assets in this project are not contained in this repository. See
 - [UI Toolkit](https://docs.unity3d.com/Manual/UIElements.html) to create the UI.
 
 
-### Not included {#notincluded}
+### Not included
 - DDAssets
     - [Mega Animations Pack](https://assetstore.unity.com/packages/3d/animations/mega-animations-pack-162341)
     - [Character Controller Pro](https://assetstore.unity.com/packages/tools/physics/character-controller-pro-159150)
