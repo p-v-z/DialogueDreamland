@@ -1,11 +1,6 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
 	
-}
-
-public class Singleton
-{
-	// TODO:
 }

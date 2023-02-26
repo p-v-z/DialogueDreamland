@@ -71,3 +71,7 @@ TextField > #unity-text-input {
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
 }
+
+.hidden {
+    display: none;
+}
