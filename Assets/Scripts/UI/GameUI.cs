@@ -78,7 +78,7 @@ namespace DD.UI
         public void AddChatHistoryItem(bool player, string text)
         {
             var item = chatDialogue.Instantiate();
-            var messageText = item.Q<TextField>("TxtDialogue");
+            var messageText = item.Q<TextField>("TxtSaid");
             messageText.value = text;
             item.AddToClassList("chat-history-item");
             item.AddToClassList(player ? "user" : "ai");

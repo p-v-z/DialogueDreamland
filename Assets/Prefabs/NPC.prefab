@@ -89,6 +89,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 815020694}
   m_SourcePrefab: {fileID: 100100000, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
+--- !u!4 &221797475128439525 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 379671472075862200, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
+  m_PrefabInstance: {fileID: 456876295128973917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5742592588465900887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5325206501142859530, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
@@ -107,7 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   personality: {fileID: 11400000, guid: fb7d2ca560de3b64a8536174c8dbcf64, type: 2}
-  config: {fileID: 11400000, guid: bdd3c450e2032b1489125ea79dd33efb, type: 2}
+  graphicsParent: {fileID: 221797475128439525}
+  controller: {fileID: 9100000, guid: 4c77323136b9524478f3a5c86ed70c71, type: 2}
+  avatar: {fileID: 9000000, guid: 897b34267f422c1499700402763d096e, type: 3}
 --- !u!114 &815020694
 MonoBehaviour:
   m_ObjectHideFlags: 0

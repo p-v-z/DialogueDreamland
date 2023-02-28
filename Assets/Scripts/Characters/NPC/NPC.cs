@@ -1,22 +1,25 @@
-﻿using System.Collections.Generic;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
-using DD.API;
 using DD.UI;
+using UnityEditor.Animations;
 
 namespace DD
 {
 	public class NPC : Character
 	{
 		[SerializeField, Required] public Personality personality;
-		
+		[SerializeField, Required] private Transform graphicsParent;
+		[SerializeField, Required] private AnimatorController controller;
+		[SerializeField, Required] private Avatar avatar;
 
 		private async void Start()
 		{
-			var initHandler = personality.Model.InstantiateAsync(transform);
+			var initHandler = personality.Model.InstantiateAsync(graphicsParent);
 			await initHandler.Task;
 
 			var animatorController = initHandler.Result.GetComponentInChildren<Animator>();
+			animatorController.runtimeAnimatorController = controller;
+			animatorController.avatar = avatar;
 		}
 		
 		public void StartDialogue(PlayerController player)

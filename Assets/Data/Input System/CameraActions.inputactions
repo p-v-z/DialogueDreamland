@@ -11,7 +11,8 @@
                     "id": "6ab36143-f7ac-4597-8390-366102523d82",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Camera Zoom",
@@ -19,7 +20,17 @@
                     "id": "e117d52a-54c6-449c-ac72-69c11e2b4d43",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Camera Activate",
+                    "type": "Button",
+                    "id": "c9ffcd6f-337e-4372-8268-064b05fa13b4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -53,6 +64,17 @@
                     "processors": "",
                     "groups": "Keyboard Mouse",
                     "action": "Camera Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1fe30b1-62eb-463a-add0-017e85d64700",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard Mouse",
+                    "action": "Camera Activate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

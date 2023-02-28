@@ -1,18 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="TxtDialogue" src="project://database/Assets/UI%20Toolkit/TxtDialogue.uxml?fileID=9197481963319205126&amp;guid=be33cf7da81354a1db74e1ecddcfc70f&amp;type=3#TxtDialogue" />
     <Style src="project://database/Assets/UI%20Toolkit/Styles/main.uss?fileID=7433441132597879392&amp;guid=b6c1b0b92e7304269914a3d8bf611f79&amp;type=3#main" />
     <ui:GroupBox focusable="true" style="position: absolute; bottom: 0; align-self: center; left: 0; right: 0;">
-        <ui:GroupBox name="ChatHistory">
-            <ui:Instance template="TxtDialogue" name="TxtDialogue" class="ai">
-                <AttributeOverrides element-name="TxtSaid" value="This could be a really long message, bult lets start here: there should always be one thing to keep in mind." />
-            </ui:Instance>
-            <ui:Instance template="TxtDialogue" name="TxtDialogue" class="user">
-                <AttributeOverrides element-name="TxtSaid" value="Ok, and what would that be?" />
-            </ui:Instance>
-            <ui:Instance template="TxtDialogue" name="TxtDialogue" class="ai">
-                <AttributeOverrides element-name="TxtSaid" value="This could be a really long message, bult lets start here: there should always be one thing to keep in mind." />
-            </ui:Instance>
-        </ui:GroupBox>
+        <ui:GroupBox name="ChatHistory" />
         <ui:GroupBox name="ChatInput" focusable="true" class="user" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
             <ui:TextField picking-mode="Ignore" label="Text Field" value="we  hav a teae aw iw inow oinqoinqw oiqwoigsnoi aoif oioaw n ofaio goinawo in ionf o atially a I wn to say weqwe qeww qqweqw qweq qwe qwe qe qwe qw " name="TxtInput" multiline="true" />
             <ui:Button text="Say" display-tooltip-when-elided="true" name="BtnSay" class="button" />
