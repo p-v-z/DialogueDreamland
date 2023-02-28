@@ -3,7 +3,7 @@
     <ui:GroupBox focusable="true" style="position: absolute; bottom: 0; align-self: center; left: 0; right: 0;">
         <ui:GroupBox name="ChatHistory" />
         <ui:GroupBox name="ChatInput" focusable="true" class="user" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-            <ui:TextField picking-mode="Ignore" label="Text Field" value="we  hav a teae aw iw inow oinqoinqw oiqwoigsnoi aoif oioaw n ofaio goinawo in ionf o atially a I wn to say weqwe qeww qqweqw qweq qwe qwe qe qwe qw " name="TxtInput" multiline="true" />
+            <ui:TextField picking-mode="Ignore" label="Text Field" name="TxtInput" multiline="true" />
             <ui:Button text="Say" display-tooltip-when-elided="true" name="BtnSay" class="button" />
         </ui:GroupBox>
         <ui:Button text="Talk" display-tooltip-when-elided="true" name="BtnTalk" class="button" style="width: 50%;" />

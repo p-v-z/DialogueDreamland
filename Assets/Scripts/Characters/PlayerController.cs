@@ -27,7 +27,7 @@ namespace DD
         private void HandleTalk()
         {
             if (currentNPC == null) return;
-
+            
             GameUI.Instance.btnTalk.clicked -= HandleTalk;
             currentNPC.StartDialogue(this);
             isTalking = true;

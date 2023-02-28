@@ -16,6 +16,7 @@ The assets in this project are not contained in this repository. See
 
 ### Tools
 - [RiderFlow](https://www.jetbrains.com/riderflow/) (Optional)  - Scenery tool to build and manage your 3D space.
+- [ChatGPTWrapper](https://github.com/p-v-z/ChatGPT-Wrapper-For-Unity) - Submodule to a fork of [ChatGPT-Wrapper-For-Unity](https://github.com/GraesonB/ChatGPT-Wrapper-For-Unityy) by [GraesonB](https://github.com/GraesonB).
 
 ### Unity Packages
 - [Cinemachine](https://unity.com/unity/features/editor/art-and-design/cinemachine) to manage the camera.
@@ -36,16 +37,19 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
   - [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
 
 ## TODO
-- Build a UI that allows the user to interact with the NPCs.
-    - Input field for the user to type a message.
-    - Output field for the NPC to respond.
-    - Button to send the message.
-    - Button to clear the input field.
-    - Button to stop chatting
-- Build a Character system that can be used for both the player and NPCs.
-- Build a Chat system that will handle the ChatGPT API calls.
 - World UX
     - Fix colliders and layers so that camera doesn't clip through the floor or walls.
+- NPCs
+    - Add various NPC personality definitions.
+- Build a UI that allows the user to interact with the NPCs.
+    - Button to stop chatting
+    - Button to clear the input field.~~
+    - Animation to show the NPC is typing.
+    - ~~Input field for the user to type a message.~~
+    - ~~Output field for the NPC to respond.~~
+    - ~~Button to send the message.~~
+- ~~Build a Character system that can be used for both the player and NPCs.~~
+- ~~Build a Chat system that will handle the ChatGPT API calls.~~
 
 <br>
 <div align="center">
