@@ -12,7 +12,7 @@ namespace DD
         private const float TalkDistance = 2f;
         private const float ChatCheckInterval = 0.2f;
 
-        private List<Character> characters = new();
+        private List<Character> npcs = new();
         private CharacterBody body;
         private NPC currentNPC;
         private bool isTalking;
@@ -20,7 +20,7 @@ namespace DD
 
         private void Start()
         {
-            characters = FindObjectsOfType<Character>().ToList().Where(c => c is NPC).ToList();
+            npcs = FindObjectsOfType<Character>().ToList().Where(c => c is NPC).ToList();
             GameUI.Instance.btnTalk.clicked += HandleTalk;
         }
 
@@ -29,7 +29,7 @@ namespace DD
             if (currentNPC == null) return;
 
             GameUI.Instance.btnTalk.clicked -= HandleTalk;
-            currentNPC.StartDialogue();
+            currentNPC.StartDialogue(this);
             isTalking = true;
         }
 
@@ -54,7 +54,7 @@ namespace DD
         private void CheckForNPC()
         {
             // Find closest NPC
-            var closest = characters.OrderBy(c => Vector3.Distance(transform.position, c.transform.position)).FirstOrDefault();
+            var closest = npcs.OrderBy(c => Vector3.Distance(transform.position, c.transform.position)).FirstOrDefault();
             if (closest.SafeIsUnityNull())
             {
                 Debug.LogWarning($"No closest NPC found");

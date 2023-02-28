@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657707, g: 0.49641186, b: 0.5748162, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657785, g: 0.4964131, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 855267452582704259, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
+      propertyPath: personality
+      value: 
+      objectReference: {fileID: 11400000, guid: aeac050c209ed491ebd3ce2cd5a68aaa, type: 2}
     - target: {fileID: 5742592588465900887, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -764,6 +768,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 422212, guid: 521c305b3d17bc149affb6c1f1016889, type: 3}
   m_PrefabInstance: {fileID: 365714240}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &597659009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597659012}
+  - component: {fileID: 597659011}
+  - component: {fileID: 597659010}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &597659010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597659009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c8ce202a745a240b2ed507d5ed2823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _apiKey: 
+  _model: 1
+  _maxTokens: 3072
+  _temperature: 0.6
+  _chatbotName: ChatGPT
+  _initialPrompt: You are ChatGPT, a large language model trained by OpenAI.
+  chatGPTResponse:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &597659011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597659009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb7f716544e4ccdb7a1845b676c86c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatGPTConversation: {fileID: 597659010}
+  OnDialogueStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDialogueEnded:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &597659012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597659009}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &600660913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1254,6 +1331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab93ac57169714d209644cbc2a23c603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chatDialogue: {fileID: 9197481963319205126, guid: be33cf7da81354a1db74e1ecddcfc70f, type: 3}
 --- !u!1001 &1533464341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1671,6 +1749,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: caee6c5b595694a1fa862c5cbf8cabf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2012062405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012062407}
+  - component: {fileID: 2012062406}
+  - component: {fileID: 2012062408}
+  m_Layer: 0
+  m_Name: APIUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2012062406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012062405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: ed7a46b10613b428a847f9abb3b374f1, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 0c09b0682208bee47973445abcb4e20c, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &2012062407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012062405}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2012062408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012062405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda907a572208294d8e3ee040806900e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4474476152875432601

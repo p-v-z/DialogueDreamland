@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/main.uss?fileID=7433441132597879392&amp;guid=b6c1b0b92e7304269914a3d8bf611f79&amp;type=3#main" />
+    <ui:GroupBox name="APIUI">
+        <ui:Label tabindex="-1" text="Please enter your OpenAI API key:" display-tooltip-when-elided="true" />
+        <ui:TextField label="Text Field" value="sk-" name="TxtKeyAPI" max-length="64" />
+        <ui:Label tabindex="-1" text="https://platform.openai.com/account/api-keys" display-tooltip-when-elided="true" />
+        <ui:Label tabindex="-1" text="Please note that the key is only stored locally." display-tooltip-when-elided="true" />
+        <ui:Button text="Set" display-tooltip-when-elided="true" name="BtnSet" class="button" />
+    </ui:GroupBox>
+</ui:UXML>

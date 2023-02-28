@@ -75,3 +75,13 @@ TextField > #unity-text-input {
 .hidden {
     display: none;
 }
+
+#APIUI {
+    background-color: var(--quaternary-color);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 60%;
+    align-self: center;
+}

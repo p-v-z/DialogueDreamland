@@ -6,11 +6,15 @@ namespace DD.UI
 {
     public class GameUI : Singleton<GameUI>
     {
+        [SerializeField] private VisualTreeAsset chatDialogue;
+        
         public Button btnTalk { get; private set; }
+        
         private Button btnSay;
 
         private GroupBox grpChatHistory;
         private GroupBox grpChatInput;
+
 
         private UIDocument rootDoc;
         private VisualElement root;
@@ -69,6 +73,16 @@ namespace DD.UI
             {
                 SetItemActive(item, active);
             }
+        }
+        
+        public void AddChatHistoryItem(bool player, string text)
+        {
+            var item = chatDialogue.Instantiate();
+            var messageText = item.Q<TextField>("TxtDialogue");
+            messageText.value = text;
+            item.AddToClassList("chat-history-item");
+            item.AddToClassList(player ? "user" : "ai");
+            grpChatHistory.Add(item);
         }
     }
 }

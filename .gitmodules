@@ -1,3 +1,6 @@
 [submodule "Assets/DDAssets"]
 	path = Assets/DDAssets
 	url = https://github.com/p-v-z/DDAssets
+[submodule "Assets/Scripts/ChatGPTWrapper"]
+	path = Assets/Scripts/ChatGPTWrapper
+	url = https://github.com/p-v-z/ChatGPT-Wrapper-For-Unity.git

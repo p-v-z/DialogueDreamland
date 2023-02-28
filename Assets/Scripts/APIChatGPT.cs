@@ -7,18 +7,28 @@ using UnityEngine.Networking;
 
 namespace DD.API
 {
-	public static class API
+	[Obsolete("Use ChatGPTWrapper instead", true)]
+	public static class APIChatGPT
 	{
 		// API endpoint and access token
-		private const string API_ENDPOINT = "https://api.openai.com/v1/engines/davinci-codex/completions";
-		private const string API_KEY = "YOUR_API_KEY_HERE";
+		private const string APIEndpoint = "https://api.openai.com/v1/engines/davinci-codex/completions";
+
+		private static string GetAPIKey() => PlayerPrefs.GetString("API_KEY");
 		
 		// Sends a message to the NPC and returns their response
 		public static IEnumerator SendMessage(string message, IPersonality personality, Action<string> callback, List<Conversation> conversationHistory)
 		{
+			// Check if the API key is set
+			var apiKey = GetAPIKey();
+			if (string.IsNullOrEmpty(apiKey))
+			{
+				Debug.LogError("API key is not set");
+				yield break;
+			}
+
 			// Build the request
-			var request = UnityWebRequest.PostWwwForm(API_ENDPOINT, "");
-			request.SetRequestHeader("Authorization", $"Bearer {API_KEY}");
+			var request = UnityWebRequest.PostWwwForm(APIEndpoint, "");
+			request.SetRequestHeader("Authorization", $"Bearer {apiKey}");
 			request.SetRequestHeader("Content-Type", "application/json");
 
 			// Build the JSON body
