@@ -6,7 +6,7 @@ The assets in this project are not contained in this repository. See
 [Not included❗](#not-included) for a list of assets used in this project.
 
 ## Unity version:
-[2022.2.1f1](./ProjectSettings/ProjectVersion.txt)
+[2023.1.0b5](./ProjectSettings/ProjectVersion.txt)
 
 ## Goal
 - Build a Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NPCs distinct personalities.
