@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using ChatGPTWrapper;
+using DD.API;
 using DD.UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,7 +10,7 @@ namespace DD
 {
 	public class DialogueManager : Singleton<DialogueManager>
 	{
-		[SerializeField] ChatGPTConversation chatGPTConversation;
+		[SerializeField] CustomChatGPT chatGPTConversation;
 		
 		public UnityEvent OnDialogueStarted = new UnityEvent();
 		public UnityEvent OnDialogueEnded = new UnityEvent();
