@@ -14,7 +14,8 @@ namespace DD.UI
 
         private GroupBox grpChatHistory;
         private GroupBox grpChatInput;
-
+        
+        private TextField txtChatInput;
 
         private UIDocument rootDoc;
         private VisualElement root;
@@ -31,6 +32,8 @@ namespace DD.UI
 
             btnSay = root.Q<Button>("BtnSay");
             btnSay.RegisterCallback<ClickEvent>(HandleSay);
+            txtChatInput = root.Q<TextField>("TxtInput");
+            txtChatInput.RegisterCallback<KeyDownEvent>(HandleKeyDown);
 
             grpChatHistory = root.Q<GroupBox>("ChatHistory");
             grpChatInput = root.Q<GroupBox>("ChatInput");
@@ -40,10 +43,23 @@ namespace DD.UI
             SetChatHistoryActive(false);
             SetChatInputActive(false);
         }
+        
+        private void HandleKeyDown(KeyDownEvent evt)
+        {
+            if (evt.keyCode == KeyCode.Return)
+            {
+                Debug.Log("Enter pressed ");
+            }
+        }
 
         private void HandleSay(ClickEvent evt)
         {
             Debug.Log($"Say: {evt.target}");
+            
+            SetChatInputActive(false);
+            AddChatHistoryItem(true, txtChatInput.value);
+            DialogueManager.Instance.SaySomething(txtChatInput.value);
+            
         }
 
         private void HandleTalk(ClickEvent evt)

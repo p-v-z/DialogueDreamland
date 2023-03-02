@@ -4,7 +4,6 @@ namespace DD.API
 {
 	public class CustomChatGPT : ChatGPTConversation
 	{
-		// API endpoint and access token
 		public bool Ready => _selectedModel != null; 
 		public void SetupGPT(string apiKey, string chatBotName, string initialPrompt, int maxTokens, float temperature)
 		{

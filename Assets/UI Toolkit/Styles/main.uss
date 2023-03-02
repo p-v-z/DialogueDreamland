@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 .button {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -23,12 +27,8 @@
     color: rgb(138, 222, 226);
 }
 
-#TxtInput {
-}
-
-TextField > Label {
-    display: none;
-    visibility: hidden;
+.message > #unity-text-input {
+    width: auto;
 }
 
 TextField > #unity-text-input {
@@ -37,10 +37,6 @@ TextField > #unity-text-input {
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-}
-
-.message > #unity-text-input {
-    width: auto;
 }
 
 .ai > #TxtSaid > #unity-text-input {
@@ -62,18 +58,25 @@ TextField > #unity-text-input {
     -unity-font: url('project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
 }
 
+TextField > Label {
+    display: none;
+    visibility: hidden;
+}
+
 #ChatInput {
     background-color: var(--secondary-color);
     -unity-background-image-tint-color: rgba(0, 0, 0, 0);
+    flex-direction: row;
+}
+
+#TxtInput {
+    width: 85%;
+    flex-direction: row;
 }
 
 #TxtDialogue {
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-}
-
-.hidden {
-    display: none;
 }
 
 #APIUI {
@@ -84,4 +87,7 @@ TextField > #unity-text-input {
     border-bottom-right-radius: 15px;
     width: 60%;
     align-self: center;
+}
+
+#BtnSay {
 }

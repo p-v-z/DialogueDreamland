@@ -14,9 +14,11 @@ namespace DD
 
 		private async void Start()
 		{
+			// Instantiate the NPC model
 			var initHandler = personality.Model.InstantiateAsync(graphicsParent);
 			await initHandler.Task;
 
+			// Setup avatar and animator
 			var animatorController = initHandler.Result.GetComponentInChildren<Animator>();
 			animatorController.runtimeAnimatorController = controller;
 			animatorController.avatar = avatar;
@@ -32,10 +34,10 @@ namespace DD
 			player.transform.LookAt(transform);
 			
 			// Show NPC intro
-			DialogueManager.Instance.StartDialogue(this, HandleIntro);;
+			DialogueManager.Instance.StartDialogue(this, HandleIntroResponse);;
 		}
 
-		public void HandleIntro(string npcIntro)
+		private static void HandleIntroResponse(string npcIntro)
 		{
 			DialogueManager.Instance.AddToConversation(new Conversation(null, npcIntro));
 			

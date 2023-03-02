@@ -18,6 +18,13 @@ namespace DD
 		// Conversation history with the player
 		public void AddToConversation(Conversation conv) => conversationHistory.Add(conv);
 		private readonly List<Conversation> conversationHistory = new ();
+		
+		private NPC currentNPC;
+		private List<Conversation> currentConversation;
+		private readonly Dictionary<NPC, List<Conversation>> npcConversations = new ();
+
+		private string lastPlayerMessage;
+
 
 		private Action<string> introHandler;
 
@@ -34,6 +41,9 @@ namespace DD
 		{
 			this.introHandler = introHandler;
 			
+			// Set the current NPC
+			currentNPC = npc;
+
 			// Trigger the OnDialogueStarted event
 			OnDialogueStarted.Invoke();
 			GameUI.Instance.SetTalkBtnActive(false);
@@ -53,8 +63,20 @@ namespace DD
 			Debug.Log("Setting up ChatGPT");
 			chatGPTConversation.SetupGPT(apiKey, botName, primer, npc.personality.MaxTokens, npc.personality.Temperature);
 			chatGPTConversation.chatGPTResponse.AddListener(HandleChatResponse);
-			
 			StartCoroutine(ChatRoutine(primer));
+		}
+		
+		public void EndDialogue()
+		{
+			// Trigger the OnDialogueEnded event
+			OnDialogueEnded.Invoke();
+			GameUI.Instance.SetTalkBtnActive(true);
+			GameUI.Instance.SetChatHistoryActive(false);
+			GameUI.Instance.SetChatInputActive(false);
+			
+			currentNPC = null;
+			currentConversation = null;
+			chatGPTConversation.chatGPTResponse.RemoveListener(HandleChatResponse);
 		}
 
 		/// <summary>
@@ -77,10 +99,49 @@ namespace DD
 		private void HandleChatResponse(string response)
 		{
 			Debug.Log($"ChatGPT response: {response}");
+			
+			// Make sure we are still in the conversation
+			if (currentNPC == null)
+			{
+				Debug.LogWarning("Chat response when current NPC is null - player probably left the conversation");
+				return;
+			}
+			
+			// Add the response to the conversation history
+			var converse = new Conversation(lastPlayerMessage, response);
+			if (npcConversations.ContainsKey(currentNPC))
+			{
+				Debug.Log($"Added conversation to history: {converse.playerMessage} - {converse.npcResponse}");	
+				currentConversation = npcConversations[currentNPC];
+				currentConversation.Add(converse);
+			}
+			else
+			{
+				Debug.Log("Adding new conversation to history");
+				var newConversation = new List<Conversation> {converse};
+				npcConversations.Add(currentNPC,  newConversation);
+				currentConversation = newConversation;
+			}
+
+			// Update UI
 			GameUI.Instance.AddChatHistoryItem(false, response);
 			GameUI.Instance.SetChatInputActive(true);
-			introHandler.Invoke(response);
-			introHandler = null;
+			
+			// Invoke the intro handler
+			if (introHandler != null)
+			{
+				introHandler.Invoke(response);
+				introHandler = null;
+			}
+		}
+		
+		/// <summary>
+		/// Handles chat input from the player
+		/// </summary>
+		public void SaySomething(string playerInput)
+		{
+			lastPlayerMessage = playerInput;
+			chatGPTConversation.SendToChatGPT(playerInput);
 		}
 	}
 }

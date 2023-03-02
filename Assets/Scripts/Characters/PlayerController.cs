@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using DD.UI;
 using Lightbug.CharacterControllerPro.Core;
+using Lightbug.CharacterControllerPro.Demo;
+using Lightbug.CharacterControllerPro.Implementation;
 using Sirenix.Utilities;
 using UnityEngine;
 
@@ -31,6 +33,10 @@ namespace DD
             GameUI.Instance.btnTalk.clicked -= HandleTalk;
             currentNPC.StartDialogue(this);
             isTalking = true;
+            
+            // Disable CharacterControllerPro's movement
+            var normalMovement = GetComponentInChildren<NormalMovement>();
+            normalMovement.enabled = false;
         }
 
         public void StopTalking()
