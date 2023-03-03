@@ -4,14 +4,10 @@ namespace DD.API
 {
 	public class CustomChatGPT : ChatGPTConversation
 	{
-		public bool Ready => _selectedModel != null; 
-		public void SetupGPT(string apiKey, string chatBotName, string initialPrompt, int maxTokens, float temperature)
+		public void Setup(string apiKey, string initialPrompt)
 		{
-			_apiKey = apiKey;
-			_chatbotName = chatBotName;
-			_initialPrompt = initialPrompt;
-			_maxTokens = maxTokens;
-			_temperature = temperature;
+			SetApiKey(apiKey);
+			ResetChat(initialPrompt);
 		}
 	}
 }

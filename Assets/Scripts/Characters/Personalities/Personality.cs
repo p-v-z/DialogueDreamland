@@ -7,10 +7,7 @@ namespace DD
     public interface IPersonality
     {
         string PersonalityName { get; set; }
-        float Temperature { get; }
-        int MaxTokens { get; }
         string PrimerPrompt { get; }
-        
         void Apply(NPC npc);
     }
     
@@ -21,18 +18,6 @@ namespace DD
         /// </summary>
         public string PersonalityName { get => personalityName; set => personalityName = value; }
         [SerializeField] private string personalityName;
-
-        /// <summary>
-        /// Randomness of the generated response.
-        /// </summary>
-        public float Temperature { get => temperature; protected set => temperature = value; }
-        [SerializeField, Range(0, 1)] private float temperature;
-
-        /// <summary>
-        /// Optional parameter used in the OpenAI GPT API to specify the maximum number of tokens that the API should generate as output.
-        /// </summary>
-        public int MaxTokens { get => maxTokens; protected set => maxTokens = value; }
-        [SerializeField, Range(1, 2048)] private int maxTokens;
 
         /// <summary>
         /// The prompt that the API will use to base the character's personality on.

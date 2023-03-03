@@ -5,11 +5,9 @@ namespace DD
 	[CreateAssetMenu(fileName = "New Friendly Personality")]
 	public class Friendly : Personality
 	{
-		public Friendly(string personalityName, int maxTokens, float temperature)
+		public Friendly(string personalityName)
 		{
 			PersonalityName = personalityName;
-			MaxTokens = maxTokens;
-			Temperature = temperature;
 		}
 
 		public override void Apply(NPC npc)

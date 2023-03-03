@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -38,7 +37,6 @@ namespace DD.UI
             grpChatHistory = root.Q<GroupBox>("ChatHistory");
             grpChatInput = root.Q<GroupBox>("ChatInput");
             
-            // SetItemsActive(new List<VisualElement> {btnTalk, btnSay, grpChatHistory, grpChatInput}, false);
             SetTalkBtnActive(false);
             SetChatHistoryActive(false);
             SetChatInputActive(false);
@@ -48,18 +46,28 @@ namespace DD.UI
         {
             if (evt.keyCode == KeyCode.Return)
             {
-                Debug.Log("Enter pressed ");
+                Speak();
             }
         }
 
         private void HandleSay(ClickEvent evt)
         {
-            Debug.Log($"Say: {evt.target}");
+            Speak();
+        }
+
+        private void Speak()
+        {
+            // Get input
+            var currentInput = txtChatInput.value;
+            Debug.Log($"Speaking: {currentInput}");
             
+            // Add to chat history and send to DialogueManager
+            AddChatHistoryItem(true, currentInput);
+            DialogueManager.Instance.SaySomething(currentInput);
+            
+            // Clear input and disable
+            txtChatInput.value = "";
             SetChatInputActive(false);
-            AddChatHistoryItem(true, txtChatInput.value);
-            DialogueManager.Instance.SaySomething(txtChatInput.value);
-            
         }
 
         private void HandleTalk(ClickEvent evt)
@@ -80,14 +88,6 @@ namespace DD.UI
             else
             {
                 item.AddToClassList("hidden");
-            }
-        }
-        
-        private void SetItemsActive<T>(IEnumerable<T> items, bool active) where T : VisualElement
-        {
-            foreach (var item in items)
-            {
-                SetItemActive(item, active);
             }
         }
         

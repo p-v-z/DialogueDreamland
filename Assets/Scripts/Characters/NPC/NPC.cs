@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using DD.UI;
+using Lightbug.CharacterControllerPro.Demo;
 using UnityEditor.Animations;
 
 namespace DD
@@ -26,6 +27,11 @@ namespace DD
 		
 		public void StartDialogue(PlayerController player)
 		{
+			
+			// Disable CharacterControllerPro's movement
+			var normalMovement = GetComponentInChildren<NormalMovement>();
+			normalMovement.enabled = false;
+			
 			Debug.Log("Start dialogue");
 			personality.Apply(this);
 			
@@ -39,13 +45,9 @@ namespace DD
 
 		private static void HandleIntroResponse(string npcIntro)
 		{
-			DialogueManager.Instance.AddToConversation(new Conversation(null, npcIntro));
-			
 			Debug.Log($"Handle intro\n{npcIntro}");
-			// Show the intro text
+			DialogueManager.Instance.AddToConversation(new Conversation(null, npcIntro));
 			GameUI.Instance.SetChatHistoryActive(true);
-
-			// Show player text input
 		}
 	}
 }

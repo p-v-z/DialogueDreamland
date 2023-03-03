@@ -37,9 +37,9 @@ namespace DD
 		/// <summary>
 		/// This is called when the player starts a conversation with an NPC
 		/// </summary>
-		public void StartDialogue(NPC npc, Action<string> introHandler)
+		public void StartDialogue(NPC npc, Action<string> dialogueIntro)
 		{
-			this.introHandler = introHandler;
+			this.introHandler = dialogueIntro;
 			
 			// Set the current NPC
 			currentNPC = npc;
@@ -52,16 +52,15 @@ namespace DD
 
 			// Validate that api key, bot name, and primer are not empty
 			var apiKey = PlayerPrefs.GetString("API_KEY");
-			var botName = npc.personality.PersonalityName;
 			var primer = npc.personality.PrimerPrompt;
-			if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(botName) || string.IsNullOrEmpty(primer))
+			if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(primer))
 			{
 				Debug.LogError("API key, bot name, or primer prompt is empty");
 				return;
 			}
 
 			Debug.Log("Setting up ChatGPT");
-			chatGPTConversation.SetupGPT(apiKey, botName, primer, npc.personality.MaxTokens, npc.personality.Temperature);
+			chatGPTConversation.Setup(apiKey, primer);
 			chatGPTConversation.chatGPTResponse.AddListener(HandleChatResponse);
 			StartCoroutine(ChatRoutine(primer));
 		}
@@ -87,8 +86,7 @@ namespace DD
 		{
 			Debug.Log("Enabling ChatGPT");
 			chatGPTConversation.enabled = true;
-			yield return new WaitUntil(() => chatGPTConversation.Ready);
-			
+			yield return new WaitForSeconds(0.5f);
 			Debug.Log("Sending primer prompt to ChatGPT");
 			chatGPTConversation.SendToChatGPT(primer);
 		}
