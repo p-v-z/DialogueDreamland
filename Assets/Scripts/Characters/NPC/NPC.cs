@@ -2,7 +2,6 @@
 using UnityEngine;
 using DD.UI;
 using Lightbug.CharacterControllerPro.Demo;
-using UnityEditor.Animations;
 
 namespace DD
 {
@@ -10,7 +9,7 @@ namespace DD
 	{
 		[SerializeField, Required] public Personality personality;
 		[SerializeField, Required] private Transform graphicsParent;
-		[SerializeField, Required] private AnimatorController controller;
+		[SerializeField, Required] private RuntimeAnimatorController controller;
 		[SerializeField, Required] private Avatar avatar;
 
 		private async void Start()

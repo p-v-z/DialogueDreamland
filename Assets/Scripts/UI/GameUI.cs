@@ -9,7 +9,7 @@ namespace DD.UI
         
         public Button btnTalk { get; private set; }
         
-        private Button btnSay;
+        private Button btnSay, btnClear;
 
         private GroupBox grpChatHistory;
         private GroupBox grpChatInput;
@@ -28,6 +28,8 @@ namespace DD.UI
 
             btnTalk = root.Q<Button>("BtnTalk");
             btnTalk.RegisterCallback<ClickEvent>(HandleTalk);
+            btnClear = root.Q<Button>("BtnClearCache");
+            btnClear.RegisterCallback<ClickEvent>(HandleClear);
 
             btnSay = root.Q<Button>("BtnSay");
             btnSay.RegisterCallback<ClickEvent>(HandleSay);
@@ -42,6 +44,14 @@ namespace DD.UI
             SetChatInputActive(false);
         }
         
+        private void HandleClear(ClickEvent evt)
+        {
+            PlayerPrefs.DeleteKey("API_KEY");
+            var keyUI = FindAnyObjectByType<API_UI>(FindObjectsInactive.Include);
+            keyUI.ClearText();
+            keyUI.gameObject.SetActive(true);
+        }
+
         private void HandleKeyDown(KeyDownEvent evt)
         {
             if (evt.keyCode == KeyCode.Return)

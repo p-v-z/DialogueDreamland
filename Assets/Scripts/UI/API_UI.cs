@@ -25,6 +25,11 @@ public class API_UI : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    public void ClearText()
+    {
+        txtKey.Clear();
+    }
     
     private void HandleSet(ClickEvent evt)
     {
