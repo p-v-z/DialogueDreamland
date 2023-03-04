@@ -54,9 +54,7 @@ ExportedObj/
 sysinfo.txt
 
 # Unity3D Local user settings
-UserSettings/EditorUserSettings.asset
-# Unity3D local default layout
-UserSettings/Layouts/default-2022.dwlt
+UserSettings/
 
 # Builds
 *.apk
