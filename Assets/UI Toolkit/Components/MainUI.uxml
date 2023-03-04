@@ -8,4 +8,5 @@
         </ui:GroupBox>
         <ui:Button text="Talk" display-tooltip-when-elided="true" name="BtnTalk" class="button" style="width: 50%;" />
     </ui:GroupBox>
+    <ui:Button text="♲" display-tooltip-when-elided="true" name="BtnClearCache" enable-rich-text="true" class="button" />
 </ui:UXML>

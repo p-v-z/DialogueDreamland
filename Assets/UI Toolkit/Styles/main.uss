@@ -91,3 +91,10 @@ TextField > Label {
 
 #BtnSay {
 }
+
+#BtnClearCache {
+    -unity-font-style: bold;
+    font-size: 20px;
+    align-self: flex-end;
+    -unity-font-definition: url('project://database/Assets/TextMesh%20Pro/Fonts/NotoEmoji-Regular%20SDF.asset?fileID=11400000&guid=ee20740ade1e42f4898815e9339c23e3&type=2#NotoEmoji-Regular SDF');
+}

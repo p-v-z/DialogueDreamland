@@ -1,64 +1,74 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>{{{ PRODUCT_NAME }}}</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>{{{ PRODUCT_NAME }}}</title>
+	<link rel="stylesheet" href="styles.css">
+	</head>
 
-  <body>
-    <!-- Temporary test buttons -->
-    <button class="textBtn" id="test" onclick="console.log('hi')">hi</button>
-    <button class="textBtn" id="test2" onclick="myFunction()">try me</button>
+	<body>
+		<!-- Temporary test buttons -->
+		<button class="textBtn" id="test" onclick="console.log('hi')">hi</button>
+		<button class="textBtn" id="test2" onclick="myFunction()">try me</button>
 
-    <!-- Main canvas -->
-    <canvas id="unity-canvas"></canvas>
+		<!-- Main canvas -->
+		<canvas id="unity-canvas"></canvas>
 
-    <!-- Loading bar -->
-    <div id="unity-loading-bar">
-      <div id="unity-progress-bar"></div>
-    </div>
+		<!-- Loading bar -->
+		<div id="unity-loading-bar">
+		<div id="unity-progress-bar"></div>
+		</div>
 
-    <!-- Scripts -->
-    <script src="Build/DD.loader.js"></script>
-    <script src="./unity-io.js"></script>
-    <script>
-      var config = {
-        dataUrl: "Build/{{{ DATA_FILENAME }}}",
-        frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
-        codeUrl: "Build/{{{ CODE_FILENAME }}}",
+		<!-- Scripts -->
+		<script src="Build/DD.loader.js"></script>
+		<script src="./unity-io.js"></script>
+		<script>
+			var config = {
+				dataUrl: "Build/{{{ DATA_FILENAME }}}",
+				frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+				codeUrl: "Build/{{{ CODE_FILENAME }}}",
 #if MEMORY_FILENAME
-        memoryUrl: "Build/{{{ MEMORY_FILENAME }}}",
+				memoryUrl: "Build/{{{ MEMORY_FILENAME }}}",
 #endif
 #if SYMBOLS_FILENAME
-        symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
+				symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
 #endif
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "{{{ COMPANY_NAME }}}",
-        productName: "{{{ PRODUCT_NAME }}}",
-        productVersion: "{{{ PRODUCT_VERSION }}}",
-      }
+				streamingAssetsUrl: "StreamingAssets",
+				companyName: "{{{ COMPANY_NAME }}}",
+				productName: "{{{ PRODUCT_NAME }}}",
+				productVersion: "{{{ PRODUCT_VERSION }}}",
+			}
 
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBar = document.querySelector("#unity-progress-bar");
-      var script = document.createElement("script");
-      
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
-      script.src = loaderUrl;
-      script.onload = function () {
-        createUnityInstance(canvas, config, function (progress) {
-          progressBar.style.width = 100 * progress + "%";
-        })
-        .then(function (unityInstance) { 
-          document.unityInstance = unityInstance;
-          loadingBar.style.display = "none"; 
-        })
-        .catch(function (message) { alert(message); });
-      };
-      document.body.appendChild(script);
-    </script>
-  </body>
+			var canvas = document.querySelector("#unity-canvas");
+			var loadingBar = document.querySelector("#unity-loading-bar");
+			var progressBar = document.querySelector("#unity-progress-bar");
+			var script = document.createElement("script");
+			
+			// Load build js script
+			var buildUrl = "Build";
+			var loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
+			script.src = loaderUrl;
+			script.onload = function () {
+				// Create Unity instance
+				createUnityInstance(canvas, config, function (progress) {
+					progressBar.style.width = 100 * progress + "%";
+				})
+				.then(function (unityInstance) { 
+					// Store instance and hide loader
+					document.unityInstance = unityInstance;
+					loadingBar.style.display = "none"; 
+				})
+				.catch(function (message) { alert(message); });
+			};
+			document.body.appendChild(script);
+
+			// Listen for Copy/Paste
+			document.addEventListener("keydown", function(event) {
+				if (event.ctrlKey && event.keyCode === 86) {
+					unityPaste();
+				}
+			});
+		</script>
+	</body>
 </html>

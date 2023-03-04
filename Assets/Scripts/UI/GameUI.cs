@@ -40,6 +40,7 @@ namespace DD.UI
             grpChatInput = root.Q<GroupBox>("ChatInput");
             
             SetTalkBtnActive(false);
+            SetClearBtnActive(false);
             SetChatHistoryActive(false);
             SetChatInputActive(false);
         }
@@ -50,6 +51,7 @@ namespace DD.UI
             var keyUI = FindAnyObjectByType<API_UI>(FindObjectsInactive.Include);
             keyUI.ClearText();
             keyUI.gameObject.SetActive(true);
+            SetClearBtnActive(false);
         }
 
         private void HandleKeyDown(KeyDownEvent evt)
@@ -85,11 +87,12 @@ namespace DD.UI
             Debug.Log($"Talk: {evt.target}");
         }
 
+        public void SetClearBtnActive(bool active) => SetItemActive(btnClear, active);
         public void SetTalkBtnActive(bool active) => SetItemActive(btnTalk, active);
         public void SetChatHistoryActive(bool active) => SetItemActive(grpChatHistory, active);
         public void SetChatInputActive(bool active) => SetItemActive(grpChatInput, active);
 
-        private void SetItemActive<T>(T item, bool active) where T : VisualElement
+        public static void SetItemActive<T>(T item, bool active) where T : VisualElement
         {
             if (active)
             {

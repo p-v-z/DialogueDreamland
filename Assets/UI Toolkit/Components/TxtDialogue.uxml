@@ -1,4 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Styles/main.uss?fileID=7433441132597879392&amp;guid=b6c1b0b92e7304269914a3d8bf611f79&amp;type=3#main" />
-    <ui:TextField picking-mode="Ignore" label="Text Field" name="TxtSaid" readonly="true" multiline="true" class="message" style="-unity-font-definition: url(&apos;project://database/Assets/TextMesh%20Pro/Fonts/NotoEmoji-Regular.ttf?fileID=12800000&amp;guid=6591397a5a20d674883172a77eed0a9e&amp;type=3#NotoEmoji-Regular&apos;); -unity-font-style: normal;" />
+    <ui:TextField picking-mode="Ignore" label="Text Field" name="TxtSaid" readonly="true" multiline="true" class="message" style="-unity-font-style: normal; -unity-font-definition: url(&apos;project://database/Assets/TextMesh%20Pro/Fonts/NotoEmoji-Regular.ttf?fileID=12800000&amp;guid=6591397a5a20d674883172a77eed0a9e&amp;type=3#NotoEmoji-Regular&apos;);" />
 </ui:UXML>

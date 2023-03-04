@@ -1,44 +1,62 @@
+using DD.WebGl;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class API_UI : MonoBehaviour
+namespace DD.UI
 {
-    private Button btnSet;
-
-    private TextField txtKey;
-
-    void Awake()
+    public class API_UI : MonoBehaviour
     {
-        var rootDoc = GetComponent<UIDocument>();
-        var root = rootDoc.rootVisualElement;
+        public void ClearText() => txtKey.Clear();
         
-        btnSet = root.Q<Button>("BtnSet");
-        btnSet.RegisterCallback<ClickEvent>(HandleSet);
+        private Button btnSet;
+        private TextField txtKey;
         
-        txtKey = root.Q<TextField>("TxtKeyAPI");
-        
-        // Check if the API key is already set
-        var key = PlayerPrefs.GetString("API_KEY");
-        if (!string.IsNullOrEmpty(key))
+
+        private void OnEnable()
         {
-            // Hide the UI
-            gameObject.SetActive(false);
-        }
-    }
+            Debug.Log("Enable API UI");
+            var rootDoc = GetComponent<UIDocument>();
+            var root = rootDoc.rootVisualElement;
+            btnSet = root.Q<Button>("BtnSet");
+            txtKey = root.Q<TextField>("TxtKeyAPI");
+            btnSet.RegisterCallback<ClickEvent>(HandleSet);
+            
+            // Check if the API key is already set
+            var key = PlayerPrefs.GetString("API_KEY");
+            if (!string.IsNullOrEmpty(key))
+            {
+                // Hide the UI
+                gameObject.SetActive(false);
+                GameUI.Instance.SetClearBtnActive(true);
+            }
 
-    public void ClearText()
-    {
-        txtKey.Clear();
-    }
-    
-    private void HandleSet(ClickEvent evt)
-    {
-        // TODO: Validate input
+            InterOp.OnPaste += HandlePaste;
+        }
+
+        private void OnDisable()
+        {
+            InterOp.OnPaste -= HandlePaste;
+            btnSet.UnregisterCallback<ClickEvent>(HandleSet);
+        }
+
+        private void HandlePaste(string clipboard)
+        {
+            Debug.Log("Pasted from browser: " + clipboard);
+            txtKey.value = clipboard;
+        }
         
-        var key = txtKey.value;
-        PlayerPrefs.SetString("API_KEY", key);
-        
-        // Hide the UI
-        gameObject.SetActive(false);
+        private void HandleSet(ClickEvent evt)
+        {
+            Debug.Log("Handle set");
+            // TODO: Validate input
+
+            var key = txtKey.value;
+            PlayerPrefs.SetString("API_KEY", key);
+
+            // Hide the UI
+            // enabled = false;
+            gameObject.SetActive(false);
+            GameUI.Instance.SetClearBtnActive(true);
+        }
     }
 }
