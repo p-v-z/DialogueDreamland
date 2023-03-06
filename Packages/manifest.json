@@ -1,15 +1,16 @@
 {
   "dependencies": {
-    "com.jetbrains.riderflow": "2022.1.5-248",
+    "com.jetbrains.riderflow": "2023.1.0-21",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.addressables": "1.21.8",
     "com.unity.cinemachine": "2.9.5",
-    "com.unity.collab-proxy": "2.0.0",
     "com.unity.feature.development": "1.0.2",
     "com.unity.ide.rider": "3.0.18",
     "com.unity.inputsystem": "1.5.0",
+    "com.unity.nuget.newtonsoft-json": "3.0.2",
     "com.unity.textmeshpro": "4.0.0-pre.2",
     "com.unity.ugui": "1.0.0",
+    "com.unity.vectorgraphics": "2.0.0-preview.20",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

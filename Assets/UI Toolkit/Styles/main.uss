@@ -87,6 +87,11 @@ TextField > Label {
     border-bottom-right-radius: 15px;
     width: 60%;
     align-self: center;
+    justify-content: space-evenly;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #BtnSay {

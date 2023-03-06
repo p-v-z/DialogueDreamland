@@ -41,6 +41,7 @@ MonoBehaviour:
   m_enableEmojiSupport: 1
   m_MissingCharacterSpriteUnicode: 0
   m_EmojiFallbackTextAssets:
+  - {fileID: 11400000, guid: bf51f03d8faabff4ea41627efc473be9, type: 2}
   - {fileID: 11400000, guid: ee20740ade1e42f4898815e9339c23e3, type: 2}
   m_defaultColorGradientPresetsPath: Color Gradient Presets/
   m_defaultStyleSheet: {fileID: 11400000, guid: f952c082cb03451daed3ee968ac6c63e, type: 2}

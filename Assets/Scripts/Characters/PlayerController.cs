@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace DD
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Singleton<PlayerController>
     {
         private const float TalkDistance = 2f;
         private const float ChatCheckInterval = 0.2f;
@@ -18,23 +18,28 @@ namespace DD
         private NPC currentNPC;
         private bool isTalking;
         private float lastChatCheckTime;
+        private NormalMovement normalMovement;
 
         private void Start()
         {
             npcs = FindObjectsOfType<Character>().ToList().Where(c => c is NPC).ToList();
             GameUI.Instance.btnTalk.clicked += HandleTalk;
+            normalMovement = GetComponentInChildren<NormalMovement>();
+            SetMovementEnabled(false);
+        }
+        
+        public void SetMovementEnabled(bool enabled)
+        {
+            normalMovement.enabled = enabled;
         }
 
         private void HandleTalk()
         {
             if (currentNPC == null) return;
-            
-            
+
             // Disable CharacterControllerPro's movement
-            var normalMovement = GetComponentInChildren<NormalMovement>();
-            normalMovement.enabled = false;
-            
-            
+            SetMovementEnabled(false);
+
             GameUI.Instance.btnTalk.clicked -= HandleTalk;
             currentNPC.StartDialogue(this);
             isTalking = true;
