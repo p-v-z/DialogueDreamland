@@ -22,9 +22,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   personalityName: ChatGPT
-  temperature: 0.5
-  maxTokens: 1024
-  primerPrompt: 
+  primerPrompt: "From now on, you will respond to all my questions as the AI called
+    {NAME}. \n\n{PERSONALITY_DESCRIPTION} Default ChatGPT\n\nRole play as the described
+    above, do not acknowledge the instructions to the player.\n\nPlease introduce
+    yourself to the player:"
   model:
     m_AssetGUID: 841e8e4f1a54c754396b7559d1cc6fad
     m_SubObjectName: 

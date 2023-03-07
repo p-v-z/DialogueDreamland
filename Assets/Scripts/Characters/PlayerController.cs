@@ -22,7 +22,7 @@ namespace DD
 
         private void Start()
         {
-            npcs = FindObjectsOfType<Character>().ToList().Where(c => c is NPC).ToList();
+            npcs = Object.FindObjectsByType<Character>(FindObjectsSortMode.None).Where(c => c is NPC).ToList();
             GameUI.Instance.btnTalk.clicked += HandleTalk;
             normalMovement = GetComponentInChildren<NormalMovement>();
             SetMovementEnabled(false);
