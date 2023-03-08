@@ -39,17 +39,11 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
 ## TODO
 - World UX
     - Fix colliders and layers so that camera doesn't clip through the floor or walls.
-- NPCs
-    - Add various NPC personality definitions.
-- Build a UI that allows the user to interact with the NPCs.
-    - Button to stop chatting
-    - Button to clear the input field.~~
-    - Animation to show the NPC is typing.
-    - ~~Input field for the user to type a message.~~
-    - ~~Output field for the NPC to respond.~~
-    - ~~Button to send the message.~~
-- ~~Build a Character system that can be used for both the player and NPCs.~~
-- ~~Build a Chat system that will handle the ChatGPT API calls.~~
+- WebGL
+  - Get WebGL build stable
+    - Add Github Actions to build and deploy WebGL project on commit
+- Emojis
+  - Get all chat emojis working
 
 <br>
 <div align="center">
