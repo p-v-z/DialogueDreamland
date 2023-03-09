@@ -11,7 +11,6 @@ using UnityEngine.U2D;
 
 public class SpriteCreator : MonoBehaviour
 {
-   //[MenuItem("Assets/Create/TextMeshPro/Sprite Asset", false, 150)]
         static void CreateSpriteAsset()
         {
             Object[] targets = Selection.objects;
@@ -45,7 +44,6 @@ public class SpriteCreator : MonoBehaviour
                 CreateSpriteAssetFromSelectedObject(target);
             }
         }
-
 
         public static void CreateSpriteAssetFromSelectedObject(Object target)
         {
@@ -94,18 +92,13 @@ public class SpriteCreator : MonoBehaviour
             // Get the Sprites contained in the Sprite Sheet
             EditorUtility.SetDirty(spriteAsset);
 
-            //spriteAsset.sprites = sprites;
-
+            // spriteAsset.sprites = sprites;
             // Set source texture back to Not Readable.
             //texImporter.isReadable = false;
 
             AssetDatabase.SaveAssets();
-
             AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(spriteAsset));  // Re-import font asset to get the new updated version.
-
-            //AssetDatabase.Refresh();
         }
-
 
         static void PopulateSpriteTables(Texture source, ref List<SpriteCharacter> spriteCharacterTable, ref List<SpriteGlyph> spriteGlyphTable)
         {
@@ -156,7 +149,6 @@ public class SpriteCreator : MonoBehaviour
             }
         }
 
-
         static void PopulateSpriteTables(SpriteAtlas spriteAtlas, ref List<SpriteCharacter> spriteCharacterTable, ref List<SpriteGlyph> spriteGlyphTable)
         {
             // Get number of sprites contained in the sprite atlas.
@@ -186,7 +178,6 @@ public class SpriteCreator : MonoBehaviour
                 spriteCharacterTable.Add(spriteCharacter);
             }
         }
-
 
         /// <summary>
         /// Create and add new default material to sprite asset.
