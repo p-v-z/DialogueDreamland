@@ -8,7 +8,6 @@ namespace DD
 		public override void EnterBehaviour(float dt)
 		{
 			// Do nothing
-			Debug.Log("NPC AI Started");
 		}
 
 		public override void UpdateBehaviour(float dt)

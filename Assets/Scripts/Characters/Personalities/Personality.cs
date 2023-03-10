@@ -32,5 +32,10 @@ namespace DD
         [SerializeField, AssetsOnly] private AssetReference model; 
         
         public abstract void Apply(NPC npc);
+        
+        public void AddNameToPrompt()
+        {
+            PrimerPrompt = PrimerPrompt.Replace("{NAME}", personalityName);
+        }
     }
 }

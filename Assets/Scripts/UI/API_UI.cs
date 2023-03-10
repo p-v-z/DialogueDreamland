@@ -15,7 +15,6 @@ namespace DD.UI
 
         private void OnEnable()
         {
-            Debug.Log("Enable API UI");
             var rootDoc = GetComponent<UIDocument>();
             var root = rootDoc.rootVisualElement;
             btnSet = root.Q<Button>("BtnSet");
@@ -27,8 +26,20 @@ namespace DD.UI
                 Debug.Log("Key changed");
                 var valid = ValidateKey(evt.newValue);
                 btnSet.SetEnabled(valid);
+                
+                txtKey.RemoveFromClassList("valid");
+                txtKey.RemoveFromClassList("invalid");
+                if (evt.newValue != "")
+                {
+                    txtKey.AddToClassList(valid ? "valid" : "invalid");
+                }
+
+                if (valid)
+                {
+                    btnSet.Focus();
+                }
+                    
                 GameUI.SetItemActive(btnGetKey, !valid);
-                PlayerController.Instance.SetMovementEnabled(valid);
             });
             
             btnSet.RegisterCallback<ClickEvent>(HandleSet);
@@ -44,10 +55,13 @@ namespace DD.UI
             currentKey = PlayerPrefs.GetString("API_KEY");
             if (!ValidateKey(currentKey))
             {
-                // Hide the UI
-                gameObject.SetActive(false);
-                GameUI.Instance.SetClearBtnActive(true);
+                gameObject.SetActive(true);
+                GameUI.Instance.SetClearBtnActive(false);
                 currentKey = null;
+            }
+            else
+            {
+                SetAPIKey(currentKey);
             }
 
             InterOp.OnPaste += HandlePaste;
@@ -80,16 +94,23 @@ namespace DD.UI
         
         private void HandleSet(ClickEvent evt)
         {
-            Debug.Log("Handle set");
+            SetAPIKey();
+        }
+        
+        void SetAPIKey(string providedKey = "")
+        {
+            Debug.Log("Handle set API key");
             // TODO: Validate input
-
-            var key = txtKey.value;
+            var hasProvidedKey = !string.IsNullOrEmpty(providedKey);
+            var key =  hasProvidedKey ? providedKey : txtKey.value;
             PlayerPrefs.SetString("API_KEY", key);
 
             // Hide the UI
-            // enabled = false;
             gameObject.SetActive(false);
             GameUI.Instance.SetClearBtnActive(true);
+            
+            // Enable player
+            PlayerController.Instance.SetMovementEnabled(true);
         }
     }
 }

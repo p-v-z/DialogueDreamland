@@ -22,6 +22,8 @@ namespace DD
 			var animatorController = initHandler.Result.GetComponentInChildren<Animator>();
 			animatorController.runtimeAnimatorController = controller;
 			animatorController.avatar = avatar;
+			
+			personality.AddNameToPrompt();
 		}
 		
 		public void StartDialogue(PlayerController player)

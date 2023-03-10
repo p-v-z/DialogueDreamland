@@ -65,18 +65,6 @@ namespace DD
 			StartCoroutine(ChatRoutine(primer));
 		}
 		
-		public void EndDialogue()
-		{
-			// Trigger the OnDialogueEnded event
-			OnDialogueEnded.Invoke();
-			GameUI.Instance.SetTalkBtnActive(true);
-			GameUI.Instance.SetChatHistoryActive(false);
-			GameUI.Instance.SetChatInputActive(false);
-			
-			currentNPC = null;
-			currentConversation = null;
-			chatGPTConversation.chatGPTResponse.RemoveListener(HandleChatResponse);
-		}
 
 		/// <summary>
 		/// ChatGPTConversation is disabled by default, so we need to enable it and give it a chance to assign it's values
@@ -140,6 +128,19 @@ namespace DD
 		{
 			lastPlayerMessage = playerInput;
 			chatGPTConversation.SendToChatGPT(playerInput);
+		}
+		
+		public void EndDialogue()
+		{
+			// Trigger the OnDialogueEnded event
+			OnDialogueEnded.Invoke();
+			GameUI.Instance.SetTalkBtnActive(true);
+			GameUI.Instance.SetChatHistoryActive(false);
+			GameUI.Instance.SetChatInputActive(false);
+			
+			currentNPC = null;
+			currentConversation = null;
+			chatGPTConversation.chatGPTResponse.RemoveListener(HandleChatResponse);
 		}
 	}
 }

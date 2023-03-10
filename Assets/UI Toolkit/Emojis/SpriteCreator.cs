@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,186 +10,188 @@ using UnityEngine.U2D;
 
 public class SpriteCreator : MonoBehaviour
 {
-        static void CreateSpriteAsset()
+    private static void CreateSpriteAsset()
+    {
+        var targets = Selection.objects;
+
+        if (targets == null)
         {
-            Object[] targets = Selection.objects;
-
-            if (targets == null)
-            {
-                Debug.LogWarning("A Sprite Texture must first be selected in order to create a Sprite Asset.");
-                return;
-            }
-
-            // Make sure TMP Essential Resources have been imported in the user project.
-            if (TMP_Settings.instance == null)
-            {
-                Debug.Log("Unable to create sprite asset. Please import the TMP Essential Resources.");
-
-                // Show Window to Import TMP Essential Resources
-                return;
-            }
-
-            for (int i = 0; i < targets.Length; i++)
-            {
-                Object target = targets[i];
-
-                // Make sure the selection is a font file
-                if (target == null || target.GetType() != typeof(Texture2D))
-                {
-                    Debug.LogWarning("Selected Object [" + target.name + "] is not a Sprite Texture. A Sprite Texture must be selected in order to create a Sprite Asset.", target);
-                    continue;
-                }
-
-                CreateSpriteAssetFromSelectedObject(target);
-            }
+            Debug.LogWarning("A Sprite Texture must first be selected in order to create a Sprite Asset.");
+            return;
         }
 
-        public static void CreateSpriteAssetFromSelectedObject(Object target)
+        // Make sure TMP Essential Resources have been imported in the user project.
+        if (TMP_Settings.instance == null)
         {
-            Debug.Log("Creating Sprite Asset from selected object.");
-            
-            // Get the path to the selected asset.
-            string filePathWithName = AssetDatabase.GetAssetPath(target);
-            string fileNameWithExtension = Path.GetFileName(filePathWithName);
-            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(filePathWithName);
-            string filePath = filePathWithName.Replace(fileNameWithExtension, "");
-            string uniquePath = AssetDatabase.GenerateUniqueAssetPath(filePath + fileNameWithoutExtension + "Custom.asset");
+            Debug.Log("Unable to create sprite asset. Please import the TMP Essential Resources.");
 
-            // Create new Sprite Asset
-            SpriteAsset spriteAsset = ScriptableObject.CreateInstance<SpriteAsset>();
-            AssetDatabase.CreateAsset(spriteAsset, uniquePath);
-            // spriteAsset.version = "1.1.0";
-
-            // Compute the hash code for the sprite asset.
-            spriteAsset.hashCode = TMP_TextUtilities.GetSimpleHashCode(spriteAsset.name);
-            Debug.Log($"Sprite Asset Hash Code: {spriteAsset.hashCode}");
-
-            List<SpriteGlyph> spriteGlyphTable = new List<SpriteGlyph>();
-            List<SpriteCharacter> spriteCharacterTable = new List<SpriteCharacter>();
-
-            if (target.GetType() == typeof(Texture2D))
-            {
-                Texture2D sourceTex = target as Texture2D;
-
-                // Assign new Sprite Sheet texture to the Sprite Asset.
-                // spriteAsset.spriteSheet = sourceTex;
-                
-
-                PopulateSpriteTables(sourceTex, ref spriteCharacterTable, ref spriteGlyphTable);
-
-                // TODO:
-                // spriteAsset.spriteCharacterTable = spriteCharacterTable;
-                // spriteAsset.spriteGlyphTable = spriteGlyphTable;
-
-                // Add new default material for sprite asset.
-                AddDefaultMaterial(spriteAsset);
-            }
-
-            // Update Lookup tables.
-            spriteAsset.UpdateLookupTables();
-
-            // Get the Sprites contained in the Sprite Sheet
-            EditorUtility.SetDirty(spriteAsset);
-
-            // spriteAsset.sprites = sprites;
-            // Set source texture back to Not Readable.
-            //texImporter.isReadable = false;
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(spriteAsset));  // Re-import font asset to get the new updated version.
+            // Show Window to Import TMP Essential Resources
+            return;
         }
 
-        static void PopulateSpriteTables(Texture source, ref List<SpriteCharacter> spriteCharacterTable, ref List<SpriteGlyph> spriteGlyphTable)
+        foreach (var target in targets)
         {
-            Debug.Log("Creating new Sprite Asset.");
-
-            string filePath = AssetDatabase.GetAssetPath(source);
-
-            // Get all the Sprites sorted by Index
-            Sprite[] sprites = AssetDatabase.LoadAllAssetsAtPath(filePath).Select(x => x as Sprite).Where(x => x != null).OrderByDescending(x => x.rect.y).ThenBy(x => x.rect.x).ToArray();
-
-            for (int i = 0; i < sprites.Length; i++)
+            // Make sure the selection is a font file
+            if (target == null || target.GetType() != typeof(Texture2D))
             {
-                Debug.Log("Adding item to Sprite Table");
-                Sprite sprite = sprites[i];
-
-                SpriteGlyph spriteGlyph = new SpriteGlyph();
-                spriteGlyph.index = (uint)i;
-                spriteGlyph.metrics = new GlyphMetrics(sprite.rect.width, sprite.rect.height, -sprite.pivot.x, sprite.rect.height - sprite.pivot.y, sprite.rect.width);
-                spriteGlyph.glyphRect = new GlyphRect(sprite.rect);
-                spriteGlyph.scale = 1.0f;
-                spriteGlyph.sprite = sprite;
-
-                spriteGlyphTable.Add(spriteGlyph);
-
-                SpriteCharacter spriteCharacter = new SpriteCharacter(0xFFFE, spriteGlyph);
-
-                // Special handling for .notdef sprite name.
-                string fileNameToLowerInvariant = sprite.name.ToLowerInvariant();
-                if (fileNameToLowerInvariant == ".notdef" || fileNameToLowerInvariant == "notdef")
-                {
-                    Debug.Log("Found def, setting unicode to 0");
-                    spriteCharacter.unicode = 0;
-                    spriteCharacter.name = fileNameToLowerInvariant;
-                }
-                else
-                {
-                    Debug.Log("No def");
-                    if (!string.IsNullOrEmpty(sprite.name) && sprite.name.Length > 2 && sprite.name[0] == '0' && (sprite.name[1] == 'x' || sprite.name[1] == 'X'))
-                    {
-                        spriteCharacter.unicode = (uint)TMP_TextUtilities.StringHexToInt(sprite.name.Remove(0, 2));
-                    }
-                    spriteCharacter.name = sprite.name;
-                }
-
-                spriteCharacter.scale = 1.0f;
-
-                spriteCharacterTable.Add(spriteCharacter);
+                Debug.LogWarning("Selected Object [" + target.name + "] is not a Sprite Texture. A Sprite Texture must be selected in order to create a Sprite Asset.", target);
+                continue;
             }
+
+            CreateSpriteAssetFromSelectedObject(target);
+        }
+    }
+
+    public static void CreateSpriteAssetFromSelectedObject(Object target)
+    {
+        Debug.Log("Creating Sprite Asset from selected object.");
+
+        // Get the path to the selected asset.
+        var filePathWithName = AssetDatabase.GetAssetPath(target);
+        var fileNameWithExtension = Path.GetFileName(filePathWithName);
+        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(filePathWithName);
+        var filePath = filePathWithName.Replace(fileNameWithExtension, "");
+        var uniquePath = AssetDatabase.GenerateUniqueAssetPath(filePath + fileNameWithoutExtension + "Custom.asset");
+
+        // Create new Sprite Asset
+        var spriteAsset = ScriptableObject.CreateInstance<SpriteAsset>();
+        AssetDatabase.CreateAsset(spriteAsset, uniquePath);
+        // spriteAsset.version = "1.1.0";
+
+        // Compute the hash code for the sprite asset.
+        spriteAsset.hashCode = TMP_TextUtilities.GetSimpleHashCode(spriteAsset.name);
+        Debug.Log($"Sprite Asset Hash Code: {spriteAsset.hashCode}");
+
+        var spriteGlyphTable = new List<SpriteGlyph>();
+        var spriteCharacterTable = new List<SpriteCharacter>();
+
+        if (target is Texture2D sourceTex)
+        {
+            // TODO:
+            // Assign new Sprite Sheet texture to the Sprite Asset.
+            // spriteAsset.spriteSheet = sourceTex;
+
+            PopulateSpriteTables(sourceTex, ref spriteCharacterTable, ref spriteGlyphTable);
+
+            // TODO:
+            // spriteAsset.spriteCharacterTable = spriteCharacterTable;
+            // spriteAsset.spriteGlyphTable = spriteGlyphTable;
+
+            // Add new default material for sprite asset.
+            AddDefaultMaterial(spriteAsset);
         }
 
-        static void PopulateSpriteTables(SpriteAtlas spriteAtlas, ref List<SpriteCharacter> spriteCharacterTable, ref List<SpriteGlyph> spriteGlyphTable)
+        // Update Lookup tables.
+        spriteAsset.UpdateLookupTables();
+
+        // Get the Sprites contained in the Sprite Sheet
+        EditorUtility.SetDirty(spriteAsset);
+
+        // spriteAsset.sprites = sprites;
+        // Set source texture back to Not Readable.
+        //texImporter.isReadable = false;
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(spriteAsset)); // Re-import font asset to get the new updated version.
+    }
+
+    private static void PopulateSpriteTables(Texture source, ref List<SpriteCharacter> spriteCharacterTable, ref List<SpriteGlyph> spriteGlyphTable)
+    {
+        Debug.Log("Creating new Sprite Asset.");
+
+        var filePath = AssetDatabase.GetAssetPath(source);
+
+        // Get all the Sprites sorted by Index
+        var sprites = AssetDatabase.LoadAllAssetsAtPath(filePath).Select(x => x as Sprite).Where(x => x != null).OrderByDescending(x => x.rect.y).ThenBy(x => x.rect.x).ToArray();
+
+        for (var i = 0; i < sprites.Length; i++)
         {
-            // Get number of sprites contained in the sprite atlas.
-            int spriteCount = spriteAtlas.spriteCount;
-            Sprite[] sprites = new Sprite[spriteCount];
+            Debug.Log("Adding item to Sprite Table");
+            var sprite = sprites[i];
 
-            // Get all the sprites
-            spriteAtlas.GetSprites(sprites);
-
-            for (int i = 0; i < sprites.Length; i++)
+            var spriteGlyph = new SpriteGlyph
             {
-                Sprite sprite = sprites[i];
+                index = (uint)i,
+                metrics = new GlyphMetrics(sprite.rect.width, sprite.rect.height, -sprite.pivot.x, sprite.rect.height - sprite.pivot.y, sprite.rect.width),
+                glyphRect = new GlyphRect(sprite.rect),
+                scale = 1.0f,
+                sprite = sprite
+            };
 
-                SpriteGlyph spriteGlyph = new SpriteGlyph();
-                spriteGlyph.index = (uint)i;
-                spriteGlyph.metrics = new GlyphMetrics(sprite.textureRect.width, sprite.textureRect.height, -sprite.pivot.x, sprite.textureRect.height - sprite.pivot.y, sprite.textureRect.width);
-                spriteGlyph.glyphRect = new GlyphRect(sprite.textureRect);
-                spriteGlyph.scale = 1.0f;
-                spriteGlyph.sprite = sprite;
+            spriteGlyphTable.Add(spriteGlyph);
 
-                spriteGlyphTable.Add(spriteGlyph);
+            var spriteCharacter = new SpriteCharacter(0xFFFE, spriteGlyph);
 
-                SpriteCharacter spriteCharacter = new SpriteCharacter(0xFFFE, spriteGlyph);
+            // Special handling for .notdef sprite name.
+            var fileNameToLowerInvariant = sprite.name.ToLowerInvariant();
+            if (fileNameToLowerInvariant == ".notdef" || fileNameToLowerInvariant == "notdef")
+            {
+                Debug.Log("Found def, setting unicode to 0");
+                spriteCharacter.unicode = 0;
+                spriteCharacter.name = fileNameToLowerInvariant;
+            }
+            else
+            {
+                Debug.Log("No def");
+                if (!string.IsNullOrEmpty(sprite.name) && sprite.name.Length > 2 && sprite.name[0] == '0' && (sprite.name[1] == 'x' || sprite.name[1] == 'X'))
+                {
+                    spriteCharacter.unicode = (uint)TMP_TextUtilities.StringHexToInt(sprite.name.Remove(0, 2));
+                }
                 spriteCharacter.name = sprite.name;
-                spriteCharacter.scale = 1.0f;
-
-                spriteCharacterTable.Add(spriteCharacter);
             }
-        }
 
-        /// <summary>
-        /// Create and add new default material to sprite asset.
-        /// </summary>
-        /// <param name="spriteAsset"></param>
-        static void AddDefaultMaterial(SpriteAsset spriteAsset)
+            spriteCharacter.scale = 1.0f;
+
+            spriteCharacterTable.Add(spriteCharacter);
+        }
+    }
+
+    private static void PopulateSpriteTables(SpriteAtlas spriteAtlas, ref List<SpriteCharacter> spriteCharacterTable, ref List<SpriteGlyph> spriteGlyphTable)
+    {
+        // Get number of sprites contained in the sprite atlas.
+        var spriteCount = spriteAtlas.spriteCount;
+        var sprites = new Sprite[spriteCount];
+
+        // Get all the sprites
+        spriteAtlas.GetSprites(sprites);
+
+        for (var i = 0; i < sprites.Length; i++)
         {
-            Shader shader = Shader.Find("TextMeshPro/Sprite");
-            Material material = new Material(shader);
-            material.SetTexture(ShaderUtilities.ID_MainTex, spriteAsset.spriteSheet);
+            var sprite = sprites[i];
 
-            spriteAsset.material = material;
-            material.name = spriteAsset.name + " Material";
-            AssetDatabase.AddObjectToAsset(material, spriteAsset);
+            var spriteGlyph = new SpriteGlyph
+            {
+                index = (uint)i,
+                metrics = new GlyphMetrics(sprite.textureRect.width, sprite.textureRect.height, -sprite.pivot.x, sprite.textureRect.height - sprite.pivot.y, sprite.textureRect.width),
+                glyphRect = new GlyphRect(sprite.textureRect),
+                scale = 1.0f,
+                sprite = sprite
+            };
+
+            spriteGlyphTable.Add(spriteGlyph);
+
+            var spriteCharacter = new SpriteCharacter(0xFFFE, spriteGlyph)
+            {
+                name = sprite.name,
+                scale = 1.0f
+            };
+
+            spriteCharacterTable.Add(spriteCharacter);
         }
+    }
+
+    /// <summary>
+    /// Create and add new default material to sprite asset.
+    /// </summary>
+    /// <param name="spriteAsset"></param>
+    private static void AddDefaultMaterial(SpriteAsset spriteAsset)
+    {
+        var shader = Shader.Find("TextMeshPro/Sprite");
+        var material = new Material(shader);
+        material.SetTexture(ShaderUtilities.ID_MainTex, spriteAsset.spriteSheet);
+
+        spriteAsset.material = material;
+        material.name = spriteAsset.name + " Material";
+        AssetDatabase.AddObjectToAsset(material, spriteAsset);
+    }
 }

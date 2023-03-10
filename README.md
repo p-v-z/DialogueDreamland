@@ -15,7 +15,6 @@ The assets in this project are not contained in this repository. See
 ## Plugin Contents
 
 ### Tools
-- [RiderFlow](https://www.jetbrains.com/riderflow/) (Optional)  - Scenery tool to build and manage your 3D space.
 - [ChatGPTWrapper](https://github.com/p-v-z/ChatGPT-Wrapper-For-Unity) - Submodule to a fork of [ChatGPT-Wrapper-For-Unity](https://github.com/GraesonB/ChatGPT-Wrapper-For-Unity) by [GraesonB](https://github.com/GraesonB).
 
 ### Unity Packages

@@ -11,7 +11,8 @@
                     "id": "6ab36143-f7ac-4597-8390-366102523d82",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -19,7 +20,8 @@
                     "id": "e117d52a-54c6-449c-ac72-69c11e2b4d43",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Dash",
@@ -27,7 +29,8 @@
                     "id": "f1383ef0-4c7b-41ce-b5a9-c9e6c87b1a5d",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Interact",
@@ -35,7 +38,8 @@
                     "id": "4039f42e-e2fa-40b9-9419-d166c9c77eac",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jet Pack",
@@ -43,7 +47,8 @@
                     "id": "1ae79ede-e504-4069-898f-9f4d680d6810",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Run",
@@ -51,7 +56,8 @@
                     "id": "f03cb4a5-530d-42ae-bdc0-654a730a80df",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Crouch",
@@ -59,7 +65,8 @@
                     "id": "3c46e44f-8a2d-4304-b7e4-7c8f0daf664f",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Pitch",
@@ -67,7 +74,8 @@
                     "id": "04cb3b7e-c578-4ea8-8cc1-65bf8e1073dd",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Roll",
@@ -75,7 +83,17 @@
                     "id": "73f8865c-f597-4409-a3cf-f03e410446ea",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "b2822e94-18a1-4f30-903e-4b84f1a2609a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -104,7 +122,7 @@
                 {
                     "name": "",
                     "id": "a265d717-2b90-44d3-8c4f-93ba0deedb4c",
-                    "path": "<Keyboard>/g",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard Mouse",
@@ -375,6 +393,17 @@
                     "action": "Roll",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "136faca8-b84a-4975-bb27-28acb8b6c424",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard Mouse",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

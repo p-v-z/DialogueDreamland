@@ -101,5 +101,37 @@ TextField > Label {
     -unity-font-style: bold;
     font-size: 20px;
     align-self: flex-end;
-    -unity-font-definition: url('project://database/Assets/TextMesh%20Pro/Fonts/NotoEmoji-Regular%20SDF.asset?fileID=11400000&guid=ee20740ade1e42f4898815e9339c23e3&type=2#NotoEmoji-Regular SDF');
+    /*-unity-font-definition: url('project://database/Assets/TextMesh%20Pro/Fonts/NotoEmoji-Regular%20SDF.asset?fileID=11400000&guid=ee20740ade1e42f4898815e9339c23e3&type=2#NotoEmoji-Regular SDF');*/
+}
+
+TextField > #unity-text-input {
+    white-space: normal;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.valid > #unity-text-input {
+    border-left-color: rgb(185, 233, 184);
+    border-right-color: rgb(185, 233, 184);
+    border-top-color: rgb(185, 233, 184);
+    border-bottom-color: rgb(185, 233, 184);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}
+
+.invalid > #unity-text-input {
+    border-left-color: rgba(255, 0, 0, 0.39);
+    border-right-color: rgba(255, 0, 0, 0.39);
+    border-top-color: rgba(255, 0, 0, 0.39);
+    border-bottom-color: rgba(255, 0, 0, 0.39);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
 }

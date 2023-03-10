@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.jetbrains.riderflow": {
-      "version": "2023.1.0-21",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://npm.pkg.jetbrains.space/public/p/jetbrains-gamedev/jetbrains-gamedev"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -102,6 +95,15 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.postprocessing": {
+      "version": "3.2.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {

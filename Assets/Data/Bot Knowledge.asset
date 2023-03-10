@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3941377ff7849fca903ec3270bc799c, type: 3}
-  m_Name: Defualt - ChatGPT
+  m_Script: {fileID: 11500000, guid: 4431ea1c96114c849215d0f5f384185f, type: 3}
+  m_Name: Bot Knowledge
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,13 +21,4 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  personalityName: ChatGPT
-  primerPrompt: "From now on, you will respond to all my questions as the AI called
-    {NAME}. \n\n{PERSONALITY_DESCRIPTION} Default ChatGPT\n\nRole play as described
-    above, do not acknowledge the instructions to the player.\n\nPlease introduce
-    yourself to the player:"
-  model:
-    m_AssetGUID: 841e8e4f1a54c754396b7559d1cc6fad
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  botInstructions: 
