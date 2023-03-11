@@ -10,39 +10,8 @@ using UnityEngine.U2D;
 
 public class SpriteCreator : MonoBehaviour
 {
-    private static void CreateSpriteAsset()
-    {
-        var targets = Selection.objects;
 
-        if (targets == null)
-        {
-            Debug.LogWarning("A Sprite Texture must first be selected in order to create a Sprite Asset.");
-            return;
-        }
-
-        // Make sure TMP Essential Resources have been imported in the user project.
-        if (TMP_Settings.instance == null)
-        {
-            Debug.Log("Unable to create sprite asset. Please import the TMP Essential Resources.");
-
-            // Show Window to Import TMP Essential Resources
-            return;
-        }
-
-        foreach (var target in targets)
-        {
-            // Make sure the selection is a font file
-            if (target == null || target.GetType() != typeof(Texture2D))
-            {
-                Debug.LogWarning("Selected Object [" + target.name + "] is not a Sprite Texture. A Sprite Texture must be selected in order to create a Sprite Asset.", target);
-                continue;
-            }
-
-            CreateSpriteAssetFromSelectedObject(target);
-        }
-    }
-
-    public static void CreateSpriteAssetFromSelectedObject(Object target)
+    public static void CreateSpriteAssetFromSelectedObject(Object target, SpriteAsset spriteAsset)
     {
         Debug.Log("Creating Sprite Asset from selected object.");
 
@@ -53,11 +22,6 @@ public class SpriteCreator : MonoBehaviour
         var filePath = filePathWithName.Replace(fileNameWithExtension, "");
         var uniquePath = AssetDatabase.GenerateUniqueAssetPath(filePath + fileNameWithoutExtension + "Custom.asset");
 
-        // Create new Sprite Asset
-        var spriteAsset = ScriptableObject.CreateInstance<SpriteAsset>();
-        AssetDatabase.CreateAsset(spriteAsset, uniquePath);
-        // spriteAsset.version = "1.1.0";
-
         // Compute the hash code for the sprite asset.
         spriteAsset.hashCode = TMP_TextUtilities.GetSimpleHashCode(spriteAsset.name);
         Debug.Log($"Sprite Asset Hash Code: {spriteAsset.hashCode}");
@@ -67,16 +31,10 @@ public class SpriteCreator : MonoBehaviour
 
         if (target is Texture2D sourceTex)
         {
-            // TODO:
-            // Assign new Sprite Sheet texture to the Sprite Asset.
-            // spriteAsset.spriteSheet = sourceTex;
-
             PopulateSpriteTables(sourceTex, ref spriteCharacterTable, ref spriteGlyphTable);
 
-            // TODO:
-            // spriteAsset.spriteCharacterTable = spriteCharacterTable;
-            // spriteAsset.spriteGlyphTable = spriteGlyphTable;
-
+            var first = spriteCharacterTable[0];
+            first.unicode = 0;
             // Add new default material for sprite asset.
             AddDefaultMaterial(spriteAsset);
         }
@@ -86,11 +44,6 @@ public class SpriteCreator : MonoBehaviour
 
         // Get the Sprites contained in the Sprite Sheet
         EditorUtility.SetDirty(spriteAsset);
-
-        // spriteAsset.sprites = sprites;
-        // Set source texture back to Not Readable.
-        //texImporter.isReadable = false;
-
         AssetDatabase.SaveAssets();
         AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(spriteAsset)); // Re-import font asset to get the new updated version.
     }
