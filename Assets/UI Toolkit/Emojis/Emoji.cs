@@ -1,4 +1,5 @@
-﻿#nullable enable
+﻿#if UNITY_EDITOR
+#nullable enable
 using System.Collections.Generic;
 
 namespace DD.Dev
@@ -37,3 +38,4 @@ namespace DD.Dev
 		public string? obsoleted_by { get; set; }
 	}
 }
+#endif

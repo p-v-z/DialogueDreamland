@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -35,3 +36,4 @@ namespace DD.Dev
 		}
 	}
 }
+#endif
