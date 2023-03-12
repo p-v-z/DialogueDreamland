@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DD.API;
 using DD.UI;
+using DD.WebGl;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -112,6 +113,9 @@ namespace DD
 			// Update UI
 			GameUI.Instance.AddChatHistoryItem(false, response);
 			GameUI.Instance.SetChatInputActive(true);
+			
+			InterOp.AddChatMessage(response, false);
+			InterOp.SetInputActive(true);
 			
 			// Invoke the intro handler
 			if (introHandler != null)

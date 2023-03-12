@@ -1,16 +1,25 @@
 // Define the template using a template literal
 const templateMessage = `
-	<h1>Hello, {{name}}!</h1>
-	<p>You are {{age}} years old.</p>
+    <div class="chat-message {{owner-class}}">
+	    <p>{{message}}</p>
+    </div>
 `;
 
 // Rewrite Test() to use modern syntax
-const Test = (args) => {
-	console.log('Hello, World!');
-	console.log('args:', args);
+const AddToChat = (msg, player) => {
+	console.log('JS handle chat message');
+	console.log('input:', msg);
+	console.log('player:', player);
 	
 	// Add the instantiated template to the DOM
 	const templateContainer = document.getElementById('unity-chat');
-	// append to inner contents instead
-	templateContainer.innerHTML += templateMessage.replace('{{name}}', 'John').replace('{{age}}', 30);
+	// Append to inner contents instead
+	var newMessage = templateMessage.replace('{{message}}', msg).replace('{{owner-class}}', player ? 'player' : 'ai');
+    templateContainer.innerHTML += newMessage;
 };
+
+const ShowInputAction = (show) => {
+    document.getElementById('unity-chat-input').style.display = show ? 'block' : 'none';
+}
+
+ShowInputAction(false);

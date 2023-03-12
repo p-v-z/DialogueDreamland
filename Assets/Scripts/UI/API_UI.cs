@@ -12,6 +12,8 @@ namespace DD.UI
         private Button btnSet, btnGetKey;
         private TextField txtKey;
         private string currentKey;
+        
+        private bool Log { get; } = false;
 
         private void OnEnable()
         {
@@ -23,7 +25,7 @@ namespace DD.UI
             // On key value change
             txtKey.RegisterCallback<ChangeEvent<string>>(evt =>
             {
-                Debug.Log("Key changed");
+                if (Log) Debug.Log("Key changed");
                 var valid = ValidateKey(evt.newValue);
                 btnSet.SetEnabled(valid);
                 
@@ -88,7 +90,7 @@ namespace DD.UI
 
         private void HandlePaste(string clipboard)
         {
-            Debug.Log("Pasted from browser: " + clipboard);
+            if (Log) Debug.Log("Pasted clipboard from browser");
             txtKey.value = clipboard;
         }
         
@@ -99,7 +101,7 @@ namespace DD.UI
         
         void SetAPIKey(string providedKey = "")
         {
-            Debug.Log("Handle set API key");
+            if (Log) Debug.Log("Handle set API key");
             // TODO: Validate input
             var hasProvidedKey = !string.IsNullOrEmpty(providedKey);
             var key =  hasProvidedKey ? providedKey : txtKey.value;

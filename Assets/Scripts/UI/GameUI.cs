@@ -1,3 +1,4 @@
+using DD.WebGl;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -19,6 +20,8 @@ namespace DD.UI
         private UIDocument rootDoc;
         private VisualElement root;
 
+        private bool Log { get; } = false;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -71,7 +74,7 @@ namespace DD.UI
         {
             // Get input
             var currentInput = txtChatInput.value;
-            Debug.Log($"Speaking: {currentInput}");
+            if (Log) Debug.Log($"Speaking: {currentInput}");
             
             // Add to chat history and send to DialogueManager
             AddChatHistoryItem(true, currentInput);
@@ -80,11 +83,12 @@ namespace DD.UI
             // Clear input and disable
             txtChatInput.value = "";
             SetChatInputActive(false);
+            InterOp.SetInputActive(false);
         }
 
         private void HandleTalk(ClickEvent evt)
         {
-            Debug.Log($"Talk: {evt.target}");
+            if (Log) Debug.Log($"Talk: {evt.target}");
         }
 
         public void SetClearBtnActive(bool active) => SetItemActive(btnClear, active);

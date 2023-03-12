@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>{{{ PRODUCT_NAME }}}</title>
-	<link rel="stylesheet" href="styles.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<title>{{{ PRODUCT_NAME }}}</title>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="chat.css">
 	</head>
 
 	<body>
-		<!-- Temporary test buttons -->
-		<button class="textBtn" id="test" onclick="console.log('hi')">hi</button>
-		<button class="textBtn" id="test2" onclick="myFunction()">try me</button>
-
 		<!-- Main canvas -->
 		<canvas id="unity-canvas"></canvas>
 
@@ -20,9 +17,17 @@
 		<div id="unity-progress-bar"></div>
 		</div>
 
+		<!-- Chat UI -->
+		<div id="unity-chat"></div>
+		<div id="unity-chat-input">
+			<input id="txtChat" type="text" placeholder="Type here to chat..." />
+			<button id="btnSend" type="button">Send</button>
+		</div>
+
 		<!-- Scripts -->
 		<script src="Build/DD.loader.js"></script>
 		<script src="./unity-io.js"></script>
+		<script src="./unity-chat-ui.js"></script>
 		<script>
 			var config = {
 				dataUrl: "Build/{{{ DATA_FILENAME }}}",

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DD.UI;
+using DD.WebGl;
 using Lightbug.CharacterControllerPro.Core;
 using Lightbug.CharacterControllerPro.Demo;
 using Lightbug.CharacterControllerPro.Implementation;
@@ -76,6 +77,8 @@ namespace DD
             SetMovementEnabled(false);
             currentNPC.StartDialogue(this);
             GameUI.Instance.btnTalk.clicked -= HandleTalk;
+            
+            InterOp.AddChatMessage("Hola senorita 😀", true);
         }
 
         private void StopTalking()

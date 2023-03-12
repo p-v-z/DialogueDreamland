@@ -1,11 +1,18 @@
 mergeInto(LibraryManager.library, {
-  CopyToClipboard: function (arg) {
-	console.log("trying to copy");
-    var tempInput = document.createElement("input");
-    tempInput.value = Pointer_stringify(arg);
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-  },
+	AddChatJS: function (msg, player) {
+		console.log("Add HTML dialogue from Unity");
+		console.log("str: " + msg);
+		console.log("player: " + player);
+
+		// get unity-chat-ui.js 
+		var utfString = UTF8ToString(msg);
+		var unityInstance = document.unityInstance;
+		if (unityInstance) {
+			AddToChat(utfString, player);
+		}
+	},
+	ShowInputJS: function (action) {
+	    console.log("Show input from Unity " + action);
+	    ShowInputAction(action);
+	}
 });

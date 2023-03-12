@@ -28,12 +28,9 @@ namespace DD
 		
 		public void StartDialogue(PlayerController player)
 		{
-			
 			// Disable CharacterControllerPro's movement
 			var normalMovement = GetComponentInChildren<NormalMovement>();
 			normalMovement.enabled = false;
-			
-			Debug.Log("Start dialogue");
 			personality.Apply(this);
 			
 			// Look at each other
