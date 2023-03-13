@@ -22,4 +22,13 @@ const ShowInputAction = (show) => {
     document.getElementById('unity-chat-input').style.display = show ? 'block' : 'none';
 }
 
+// Init
+const sendButton = document.getElementById('btnSend');
+sendButton.addEventListener('click', () => {
+	console.log("Trying to send input to Unity");
+	unitySubmitInput();
+	ShowInputAction(false);
+});
+
+// Hide input on start
 ShowInputAction(false);

@@ -1,18 +1,18 @@
+// This file is used to bridge Unity and Javascript, so that we can call Javascript functions from Unity.
 mergeInto(LibraryManager.library, {
+
+	// Add a message to the HTML chat window
 	AddChatJS: function (msg, player) {
 		console.log("Add HTML dialogue from Unity");
-		console.log("str: " + msg);
-		console.log("player: " + player);
-
-		// get unity-chat-ui.js 
 		var utfString = UTF8ToString(msg);
 		var unityInstance = document.unityInstance;
 		if (unityInstance) {
 			AddToChat(utfString, player);
 		}
 	},
+
+	// Show/hide the HTML input
 	ShowInputJS: function (action) {
-	    console.log("Show input from Unity " + action);
 	    ShowInputAction(action);
 	}
 });
