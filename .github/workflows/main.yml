@@ -1,0 +1,86 @@
+name: Unity WebGL Build
+
+# Runs on pushes targeting the default branch
+on:
+  push:
+    branches:
+      - main
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Startup
+      - name: Create annotation for build error
+        run: echo "::notice::Builder ready"
+
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+
+      # Cache
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: WebGL
+
+      # Output
+      - uses: actions/upload-artifact@v2
+        name: Upload WebGL build
+        with:
+          name: Build
+          path: build
+
+      # Setup and configure Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      # List directory contents
+      - name: List directory contents
+        run: |
+          echo "Current directory contents:"
+          ls -al
+
+      # Upload entire repository
+      - name: Upload Page artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          name: "github-pages"
+          path: "./build/WebGL"
+
+      # Deploy to Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        with:
+          folder: WebGL
