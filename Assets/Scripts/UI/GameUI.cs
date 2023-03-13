@@ -51,7 +51,7 @@ namespace DD.UI
         private void HandleClear(ClickEvent evt)
         {
             PlayerPrefs.DeleteKey("API_KEY");
-            var keyUI = FindAnyObjectByType<API_UI>(FindObjectsInactive.Include);
+            var keyUI = FindObjectOfType<API_UI>(true);
             keyUI.ClearText();
             keyUI.gameObject.SetActive(true);
             SetClearBtnActive(false);

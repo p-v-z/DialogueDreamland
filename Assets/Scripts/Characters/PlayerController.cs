@@ -42,7 +42,7 @@ namespace DD
         
         private void Start()
         {
-            npcs = Object.FindObjectsByType<Character>(FindObjectsSortMode.None).Where(c => c is NPC).ToList();
+            npcs = Object.FindObjectsOfType<Character>(false).Where(c => c is NPC).ToList();
             normalMovement = GetComponentInChildren<NormalMovement>();
             SetMovementEnabled(false);
             
