@@ -64,3 +64,6 @@ sysinfo.txt
 crashlytics-build.properties
 
 .DS_Store
+
+# Addressables binary
+Assets\AddressableAssetsData\addressables_content_state.bin

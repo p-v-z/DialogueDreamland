@@ -6,7 +6,7 @@ The assets in this project are not contained in this repository. See
 [Not included❗](#not-included) for a list of assets used in this project.
 
 ## Unity version:
-[2022.2.1f1](./ProjectSettings/ProjectVersion.txt)
+[2021.3.20f1](./ProjectSettings/ProjectVersion.txt)
 
 ## Goal
 - Build a Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NPCs distinct personalities.
@@ -36,13 +36,15 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
   - [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
 
 ## TODO
+- Chat UI
+  - Replace UI Toolkit logic with js interop UI
+  - Style HTML UI
 - World UX
     - Fix colliders and layers so that camera doesn't clip through the floor or walls.
 - WebGL
   - Get WebGL build stable
     - Add Github Actions to build and deploy WebGL project on commit
-- Emojis
-  - Get all chat emojis working
+- Build framework to define formulated base instructions to be given to bots, before and after 
 
 <br>
 <div align="center">
