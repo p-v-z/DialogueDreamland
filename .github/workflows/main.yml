@@ -65,12 +65,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      # List directory contents
-      - name: List directory contents
-        run: |
-          echo "Current directory contents:"
-          ls -al
-
       # Upload entire repository
       - name: Upload Page artifact
         uses: actions/upload-pages-artifact@v1
