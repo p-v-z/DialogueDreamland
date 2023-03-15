@@ -34,8 +34,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
+          ref: cicd
           submodules: recursive
-          ssh-key: ${{ secrets.DD_SSH }}
+          token: ${{ secrets.PAT_TOKEN }}
           lfs: true
           
       # Checkout dependencies
