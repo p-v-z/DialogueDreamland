@@ -41,7 +41,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: p-v-z/DDAssets
-          token: ${{ secrets.DEVELOPER_ACCESS_TOKEN }}
+          ssh-key: ${{ secrets.ASSETS_SSH_KEY }}
+          path: Assets/DDAssets
           lfs: true
 
       # Cache
