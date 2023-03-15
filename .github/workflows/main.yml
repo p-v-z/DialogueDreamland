@@ -60,6 +60,13 @@ jobs:
           echo "Current directory contents:"
           ls -al
 
+      # List directory contents 2
+      - name: List directory contents 2
+        run: |
+          cd ..
+          echo "Current directory contents:"
+          ls -al
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
