@@ -41,7 +41,7 @@ jobs:
       - name: Checkout dependencies
         uses: actions/checkout@v3
         with:
-          ref: cicd
+          ref: main
           repository: p-v-z/DDAssets
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
