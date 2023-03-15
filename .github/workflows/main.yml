@@ -54,6 +54,15 @@ jobs:
           restore-keys: |
             Library-
 
+      # List directory contents
+      - name: List directory contents
+        run: |
+          echo "Current directory contents:"
+          ls -al
+          echo "DD Assets directory contents:"
+          cd DialogueDreamland
+          ls -al
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
@@ -63,6 +72,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
+          projectPath: ./DialogueDreamland
 
       # Output
       - uses: actions/upload-artifact@v2
