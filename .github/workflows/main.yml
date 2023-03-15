@@ -30,25 +30,22 @@ jobs:
       - name: Create annotation for build error
         run: echo "::notice::Builder ready"
 
-      # Checkout
+      # Checkout repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: cicd
-          submodules: recursive
-          token: ${{ secrets.PAT_TOKEN }}
           lfs: true
-          
+
       # Checkout dependencies
-      # - name: Checkout dependencies
-      #   uses: actions/checkout@v2
-      #   with:
-      #     repository: p-v-z/DDAssets
-      #     ssh-key: ${{ secrets.ASSETS_SSH_KEY }}
-      #     path: Assets/DDAssets
-      #     ref: main
-      #     clean: false
-      #     lfs: true
+      - name: Checkout dependencies
+        uses: actions/checkout@v3
+        with:
+          ref: cicd
+          repository: p-v-z/DDAssets
+          token: ${{ secrets.PAT_TOKEN }}
+          path: Assets/DDAssets
+          lfs: true
 
       # Cache
       - uses: actions/cache@v2
