@@ -29,7 +29,7 @@ namespace DD
         /// This is the reference to the 3D model to be used for the character
         /// </summary>
         public AssetReference Model { get => model; protected set => model = value; }
-        [SerializeField, AssetsOnly] private AssetReference model; 
+        [SerializeField] private AssetReference model; 
         
         public abstract void Apply(NPC npc);
         
