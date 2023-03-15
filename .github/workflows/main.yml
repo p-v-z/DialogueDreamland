@@ -44,7 +44,6 @@ jobs:
           ref: cicd
           repository: p-v-z/DDAssets
           token: ${{ secrets.PAT_TOKEN }}
-          path: Assets/DDAssets
           lfs: true
 
       # Cache
