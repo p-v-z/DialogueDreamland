@@ -59,9 +59,6 @@ jobs:
         run: |
           echo "Current directory contents:"
           ls -al
-          echo "DD Assets directory contents:"
-          cd DialogueDreamland
-          ls -al
 
       # Build
       - name: Build project
