@@ -39,3 +39,7 @@ body {
 	border-radius: 10px;
 	transition: 400ms linear;
 }
+
+.hidden {
+	display: none !important;
+}
