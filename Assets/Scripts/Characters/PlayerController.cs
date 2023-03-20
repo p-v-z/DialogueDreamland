@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DD.UI;
-using DD.WebGl;
 using Lightbug.CharacterControllerPro.Core;
 using Lightbug.CharacterControllerPro.Demo;
 using Lightbug.CharacterControllerPro.Implementation;
@@ -49,24 +48,24 @@ namespace DD
             GameUI.Instance.btnTalk.clicked += HandleTalk;
         }
         
-        public void SetMovementEnabled(bool enabled)
+        public void SetMovementEnabled(bool canMove)
         {
             if (normalMovement != null)
             {
-                normalMovement.enabled = enabled;
+                normalMovement.enabled = canMove;
             }
             else
             {
-                StartCoroutine(SetMovementWhenReady(enabled));
+                StartCoroutine(SetMovementWhenReady(canMove));
             }
         }
 
-        private IEnumerator SetMovementWhenReady(bool enabled)
+        private IEnumerator SetMovementWhenReady(bool canMove)
         {
             Debug.Log("Waiting for movement");
             yield return new WaitUntil(() => normalMovement != null);
-            SetMovementEnabled(enabled);
-            Debug.Log("Set movement enabled to " + enabled);
+            SetMovementEnabled(canMove);
+            Debug.Log("Set movement enabled to " + canMove);
         }
 
         private void HandleTalk()
@@ -77,8 +76,6 @@ namespace DD
             SetMovementEnabled(false);
             currentNPC.StartDialogue(this);
             GameUI.Instance.btnTalk.clicked -= HandleTalk;
-            
-            InterOp.AddChatMessage("Hola senorita 😀", true);
         }
 
         private void StopTalking()
@@ -96,7 +93,6 @@ namespace DD
                 var didCancel = inputHandlerSettings.InputHandler.GetBool("Cancel");
                 if (didCancel)
                 {
-                    GameUI.Instance.SetChatHistoryActive(false);
                     StopTalking();
                     SetMovementEnabled(true);
                 }

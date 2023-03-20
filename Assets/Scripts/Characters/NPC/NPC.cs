@@ -1,6 +1,5 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
-using DD.UI;
 using Lightbug.CharacterControllerPro.Demo;
 
 namespace DD
@@ -43,9 +42,7 @@ namespace DD
 
 		private static void HandleIntroResponse(string npcIntro)
 		{
-			Debug.Log($"Handle intro\n{npcIntro}");
 			DialogueManager.Instance.AddToConversation(new Conversation(null, npcIntro));
-			GameUI.Instance.SetChatHistoryActive(true);
 		}
 	}
 }
