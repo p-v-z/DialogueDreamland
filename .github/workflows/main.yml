@@ -77,25 +77,19 @@ jobs:
       #     echo "Current directory contents ($PWD) :"
       #     ls -al
 
-      # Cache
-      - uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-
-
-      # List directory contents
-      - name: List directory contents
-        run: |
-          echo "Current directory contents:"
-          ls -al
+      # # Cache
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: Library
+      #     key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+      #     restore-keys: |
+      #       Library-
 
       # List directory contents 2
-      - name: List directory contents 2
+      - name: List Assets contents
         run: |
-          cd ../..
-          echo "Current directory contents:"
+          cd Assets/
+          echo "Assets contents:"
           ls -al
 
       # Build
