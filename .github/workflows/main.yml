@@ -43,12 +43,18 @@ jobs:
           echo "Current directory contents ($PWD) :"
           ls -al
 
+      - name: Create folder
+        run: |
+          mkdir -p Assets/DDAssets
+          ls Assets/DDAssets
+
       # Checkout dependencies
       - name: Checkout dependencies
         uses: actions/checkout@v3
         with:
           ref: main
           clean: false
+          path: Assets/DDAssets
           repository: p-v-z/DDAssets
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
