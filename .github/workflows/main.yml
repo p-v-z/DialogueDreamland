@@ -34,6 +34,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
+          submodules: true
+          token: ${{ secrets.PAT_TOKEN }}
           ref: cicd
           lfs: true
 
@@ -43,37 +45,37 @@ jobs:
           echo "Current directory contents ($PWD) :"
           ls -al
 
-      # Checkout dependencies
-      - name: Checkout dependencies
-        uses: actions/checkout@v3
-        with:
-          ref: main
-          clean: false
-          repository: p-v-z/DDAssets
-          token: ${{ secrets.PAT_TOKEN }}
-          lfs: true
+      # # Checkout dependencies
+      # - name: Checkout dependencies
+      #   uses: actions/checkout@v3
+      #   with:
+      #     ref: main
+      #     clean: false
+      #     repository: p-v-z/DDAssets
+      #     token: ${{ secrets.PAT_TOKEN }}
+      #     lfs: true
 
-      # command to list the current directory name
-      - name: List directory contents
-        run: |
-          echo "Current directory contents ($PWD) :"
-          ls -al
+      # # command to list the current directory name
+      # - name: List directory contents
+      #   run: |
+      #     echo "Current directory contents ($PWD) :"
+      #     ls -al
 
-      # Checkout dependencies
-      - name: Checkout dependencies
-        uses: actions/checkout@v3
-        with:
-          ref: main
-          clean: false
-          repository: p-v-z/ChatGPT-Wrapper-For-Unity
-          token: ${{ secrets.PAT_TOKEN }}
-          lfs: true
+      # # Checkout dependencies
+      # - name: Checkout dependencies
+      #   uses: actions/checkout@v3
+      #   with:
+      #     ref: main
+      #     clean: false
+      #     repository: p-v-z/ChatGPT-Wrapper-For-Unity
+      #     token: ${{ secrets.PAT_TOKEN }}
+      #     lfs: true
 
-      # command to list the current directory name
-      - name: List directory contents
-        run: |
-          echo "Current directory contents ($PWD) :"
-          ls -al
+      # # command to list the current directory name
+      # - name: List directory contents
+      #   run: |
+      #     echo "Current directory contents ($PWD) :"
+      #     ls -al
 
       # Cache
       - uses: actions/cache@v2
