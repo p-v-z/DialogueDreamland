@@ -1,8 +1,9 @@
 [submodule "Assets/DDAssets"]
 	path = Assets/DDAssets
 	url = ../DDAssets
-	branch = main
+[submodule "Assets/Plugins/DDPlugins"]
+	path = Assets/Plugins/DDPlugins
+	url = ../DDPlugins
 [submodule "Assets/Scripts/ChatGPTWrapper"]
 	path = Assets/Scripts/ChatGPTWrapper
 	url = ../ChatGPT-Wrapper-For-Unity
-	branch = main
