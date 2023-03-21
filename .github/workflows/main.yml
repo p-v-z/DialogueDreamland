@@ -38,10 +38,10 @@ jobs:
           lfs: true
 
       # Create dependencies folder
-      - name: Create dependencies folder
+      - name: Create dependencies folders
         run: |
           mkdir -p Assets/DDAssets
-          ls Assets/DDAssets
+          mkdir -p Assets/Scripts/ChatGPTWrapper
 
       # Checkout dependency DDAssets
       - name: Checkout dependencies
@@ -60,6 +60,7 @@ jobs:
         with:
           ref: main
           clean: false
+          path: Assets/Scripts/ChatGPTWrapper
           repository: p-v-z/ChatGPT-Wrapper-For-Unity
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
