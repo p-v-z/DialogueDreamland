@@ -37,7 +37,13 @@ jobs:
           ref: cicd
           lfs: true
 
-      # Checkout dependencies
+      # Create dependencies folder
+      - name: Create dependencies folder
+        run: |
+          mkdir -p Assets/DDAssets
+          ls Assets/DDAssets
+
+      # Checkout dependency DDAssets
       - name: Checkout dependencies
         uses: actions/checkout@v3
         with:
@@ -48,7 +54,7 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
 
-      # Checkout dependencies
+      # Checkout dependency ChatGPT-Wrapper
       - name: Checkout dependencies
         uses: actions/checkout@v3
         with:
