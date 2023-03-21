@@ -59,6 +59,14 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
 
+      # List DDAssets contents
+      - name: List Assets contents
+        run: |
+          echo "Current directory contents ($PWD) :"
+          ls -al
+          cd Assets/DDAssets
+          echo "DDAssets contents:"
+          ls -al
       # # command to list the current directory name
       # - name: List directory contents
       #   run: |
@@ -89,12 +97,6 @@ jobs:
       #     restore-keys: |
       #       Library-
 
-      # List directory contents 2
-      - name: List Assets contents
-        run: |
-          cd Assets/
-          echo "Assets contents:"
-          ls -al
 
       # Build
       - name: Build project
