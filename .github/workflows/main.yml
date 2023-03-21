@@ -49,7 +49,7 @@ jobs:
         with:
           ref: main
           clean: false
-          path: /Assets/DDAssets
+          path: /Assets/
           repository: p-v-z/DDAssets
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
