@@ -37,17 +37,6 @@ jobs:
           ref: cicd
           lfs: true
 
-      # command to list the current directory name
-      - name: List directory contents
-        run: |
-          echo "Current directory contents ($PWD) :"
-          ls -al
-
-      - name: Create folder
-        run: |
-          mkdir -p Assets/DDAssets
-          ls Assets/DDAssets
-
       # Checkout dependencies
       - name: Checkout dependencies
         uses: actions/checkout@v3
@@ -59,7 +48,17 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
 
-      # List DDAssets contents
+      # Checkout dependencies
+      - name: Checkout dependencies
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          clean: false
+          repository: p-v-z/ChatGPT-Wrapper-For-Unity
+          token: ${{ secrets.PAT_TOKEN }}
+          lfs: true
+
+      # List Assets contents
       - name: List Assets contents
         run: |
           echo "Current directory contents ($PWD) :"
@@ -67,27 +66,6 @@ jobs:
           cd Assets/DDAssets
           echo "DDAssets contents:"
           ls -al
-      # # command to list the current directory name
-      # - name: List directory contents
-      #   run: |
-      #     echo "Current directory contents ($PWD) :"
-      #     ls -al
-
-      # # Checkout dependencies
-      # - name: Checkout dependencies
-      #   uses: actions/checkout@v3
-      #   with:
-      #     ref: main
-      #     clean: false
-      #     repository: p-v-z/ChatGPT-Wrapper-For-Unity
-      #     token: ${{ secrets.PAT_TOKEN }}
-      #     lfs: true
-
-      # # command to list the current directory name
-      # - name: List directory contents
-      #   run: |
-      #     echo "Current directory contents ($PWD) :"
-      #     ls -al
 
       # # Cache
       # - uses: actions/cache@v2
@@ -96,7 +74,6 @@ jobs:
       #     key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
       #     restore-keys: |
       #       Library-
-
 
       # Build
       - name: Build project
@@ -107,6 +84,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
+          allowDirtyBuild: true
 
       # Output
       - uses: actions/upload-artifact@v2
