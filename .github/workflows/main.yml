@@ -30,24 +30,60 @@ jobs:
       - name: Create annotation for build error
         run: echo "::notice::Builder ready"
 
-      # Checkout
+      # Checkout repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          submodules: recursive
+          ref: cicd
+          lfs: true
+
+      # Create dependencies folder
+      - name: Create dependencies folders
+        run: |
+          mkdir -p Assets/DDAssets
+          mkdir -p Assets/Scripts/ChatGPTWrapper
+
+      # Checkout dependency DDAssets
+      - name: Checkout assets
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          clean: false
+          path: Assets/DDAssets
+          repository: p-v-z/DDAssets
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
-          
-      # Checkout dependencies
-      # - name: Checkout dependencies
-      #   uses: actions/checkout@v2
-      #   with:
-      #     repository: p-v-z/DDAssets
-      #     ssh-key: ${{ secrets.ASSETS_SSH_KEY }}
-      #     path: Assets/DDAssets
-      #     ref: main
-      #     clean: false
-      #     lfs: true
+
+      # Checkout dependency DDPlugins
+      - name: Checkout plugins
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          clean: false
+          path: Assets/Plugins/DDPlugins
+          repository: p-v-z/DDPlugins
+          token: ${{ secrets.PAT_TOKEN }}
+          lfs: true
+
+      # Checkout dependency ChatGPT-Wrapper
+      - name: Checkout dependencies
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          clean: false
+          path: Assets/Scripts/ChatGPTWrapper
+          repository: p-v-z/ChatGPT-Wrapper-For-Unity
+          token: ${{ secrets.PAT_TOKEN }}
+          lfs: true
+
+      # List Assets contents
+      - name: List Assets contents
+        run: |
+          echo "Current directory contents ($PWD) :"
+          ls -al
+          cd Assets/DDAssets
+          echo "DDAssets contents:"
+          ls -al
 
       # Cache
       - uses: actions/cache@v2
@@ -66,6 +102,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
+          allowDirtyBuild: true
 
       # Output
       - uses: actions/upload-artifact@v2
