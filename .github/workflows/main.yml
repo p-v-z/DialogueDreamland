@@ -85,13 +85,13 @@ jobs:
           echo "DDAssets contents:"
           ls -al
 
-      # # Cache
-      # - uses: actions/cache@v2
-      #   with:
-      #     path: Library
-      #     key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-      #     restore-keys: |
-      #       Library-
+      # Cache
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
 
       # Build
       - name: Build project
