@@ -37,6 +37,12 @@ jobs:
           ref: cicd
           lfs: true
 
+      # command to list the current directory name
+      - name: List directory contents
+        run: |
+          echo "Current directory contents ($PWD) :"
+          ls -al
+
       # Checkout dependencies
       - name: Checkout dependencies
         uses: actions/checkout@v3
@@ -47,6 +53,12 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
 
+      # command to list the current directory name
+      - name: List directory contents
+        run: |
+          echo "Current directory contents ($PWD) :"
+          ls -al
+
       # Checkout dependencies
       - name: Checkout dependencies
         uses: actions/checkout@v3
@@ -56,6 +68,12 @@ jobs:
           repository: p-v-z/ChatGPT-Wrapper-For-Unity
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
+
+      # command to list the current directory name
+      - name: List directory contents
+        run: |
+          echo "Current directory contents ($PWD) :"
+          ls -al
 
       # Cache
       - uses: actions/cache@v2
@@ -74,7 +92,7 @@ jobs:
       # List directory contents 2
       - name: List directory contents 2
         run: |
-          cd ..
+          cd ../..
           echo "Current directory contents:"
           ls -al
 
