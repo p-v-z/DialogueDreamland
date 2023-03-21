@@ -111,9 +111,6 @@ namespace DD
 			}
 
 			// Update UI
-			GameUI.Instance.AddChatHistoryItem(false, response);
-			GameUI.Instance.SetChatInputActive(true);
-			
 			InterOp.AddChatMessage(response, false);
 			InterOp.SetInputActive(true);
 			
@@ -139,8 +136,9 @@ namespace DD
 			// Trigger the OnDialogueEnded event
 			OnDialogueEnded.Invoke();
 			GameUI.Instance.SetTalkBtnActive(true);
-			GameUI.Instance.SetChatHistoryActive(false);
-			GameUI.Instance.SetChatInputActive(false);
+			// GameUI.Instance.SetChatHistoryActive(false);
+			// GameUI.Instance.SetChatInputActive(false);
+			InterOp.SetInputActive(false);
 			
 			currentNPC = null;
 			currentConversation = null;

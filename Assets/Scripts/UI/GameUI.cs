@@ -1,4 +1,3 @@
-using DD.WebGl;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,13 +9,7 @@ namespace DD.UI
         
         public Button btnTalk { get; private set; }
         
-        private Button btnSay, btnClear;
-
-        private GroupBox grpChatHistory;
-        private GroupBox grpChatInput;
-        
-        private TextField txtChatInput;
-
+        private Button btnClear;
         private UIDocument rootDoc;
         private VisualElement root;
 
@@ -33,19 +26,9 @@ namespace DD.UI
             btnTalk.RegisterCallback<ClickEvent>(HandleTalk);
             btnClear = root.Q<Button>("BtnClearCache");
             btnClear.RegisterCallback<ClickEvent>(HandleClear);
-
-            btnSay = root.Q<Button>("BtnSay");
-            btnSay.RegisterCallback<ClickEvent>(HandleSay);
-            txtChatInput = root.Q<TextField>("TxtInput");
-            txtChatInput.RegisterCallback<KeyDownEvent>(HandleKeyDown);
-
-            grpChatHistory = root.Q<GroupBox>("ChatHistory");
-            grpChatInput = root.Q<GroupBox>("ChatInput");
             
             SetTalkBtnActive(false);
             SetClearBtnActive(false);
-            SetChatHistoryActive(false);
-            SetChatInputActive(false);
         }
         
         private void HandleClear(ClickEvent evt)
@@ -57,35 +40,6 @@ namespace DD.UI
             SetClearBtnActive(false);
         }
 
-        private void HandleKeyDown(KeyDownEvent evt)
-        {
-            if (evt.keyCode == KeyCode.Return)
-            {
-                Speak();
-            }
-        }
-
-        private void HandleSay(ClickEvent evt)
-        {
-            Speak();
-        }
-
-        private void Speak()
-        {
-            // Get input
-            var currentInput = txtChatInput.value;
-            if (Log) Debug.Log($"Speaking: {currentInput}");
-            
-            // Add to chat history and send to DialogueManager
-            AddChatHistoryItem(true, currentInput);
-            DialogueManager.Instance.SaySomething(currentInput);
-            
-            // Clear input and disable
-            txtChatInput.value = "";
-            SetChatInputActive(false);
-            InterOp.SetInputActive(false);
-        }
-
         private void HandleTalk(ClickEvent evt)
         {
             if (Log) Debug.Log($"Talk: {evt.target}");
@@ -93,8 +47,6 @@ namespace DD.UI
 
         public void SetClearBtnActive(bool active) => SetItemActive(btnClear, active);
         public void SetTalkBtnActive(bool active) => SetItemActive(btnTalk, active);
-        public void SetChatHistoryActive(bool active) => SetItemActive(grpChatHistory, active);
-        public void SetChatInputActive(bool active) => SetItemActive(grpChatInput, active);
 
         public static void SetItemActive<T>(T item, bool active) where T : VisualElement
         {
@@ -106,16 +58,6 @@ namespace DD.UI
             {
                 item.AddToClassList("hidden");
             }
-        }
-        
-        public void AddChatHistoryItem(bool player, string text)
-        {
-            var item = chatDialogue.Instantiate();
-            var messageText = item.Q<TextField>("TxtSaid");
-            messageText.value = text;
-            item.AddToClassList("chat-history-item");
-            item.AddToClassList(player ? "user" : "ai");
-            grpChatHistory.Add(item);
         }
     }
 }

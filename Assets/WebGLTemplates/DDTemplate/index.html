@@ -8,24 +8,26 @@
 		<link rel="stylesheet" href="chat.css">
 	</head>
 
-	<body>
+	<body oncontextmenu="return false">
 		<!-- Main canvas -->
 		<canvas id="unity-canvas"></canvas>
 
 		<!-- Loading bar -->
 		<div id="unity-loading-bar">
-		<div id="unity-progress-bar"></div>
+			<div id="unity-progress-bar"></div>
 		</div>
 
 		<!-- Chat UI -->
-		<div id="unity-chat"></div>
-		<div id="unity-chat-input">
-			<input id="txtChat" type="text" placeholder="Type here to chat..." />
-			<button id="btnSend" type="button">Send</button>
+		<div id="unity-chat">
+		 	<div id="chat-messages"></div>
+			<div id="unity-chat-input">
+				<input id="txtChat" type="text" placeholder="Type here to chat..." />
+				<button id="btnSend" type="button">Send</button>
+			</div>
 		</div>
 
 		<!-- Scripts -->
-		<script src="Build/DD.loader.js"></script>
+		<script src="Build/{{{ LOADER_FILENAME }}}"></script>
 		<script src="./unity-io.js"></script>
 		<script src="./unity-chat-ui.js"></script>
 		<script>

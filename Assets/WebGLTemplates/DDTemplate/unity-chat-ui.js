@@ -12,14 +12,14 @@ const AddToChat = (msg, player) => {
 	console.log('player:', player);
 	
 	// Add the instantiated template to the DOM
-	const templateContainer = document.getElementById('unity-chat');
+	const templateContainer = document.getElementById('chat-messages');
 	// Append to inner contents instead
 	var newMessage = templateMessage.replace('{{message}}', msg).replace('{{owner-class}}', player ? 'player' : 'ai');
     templateContainer.innerHTML += newMessage;
 };
 
 const ShowInputAction = (show) => {
-    document.getElementById('unity-chat-input').style.display = show ? 'block' : 'none';
+	document.getElementById('unity-chat-input').classList.toggle('hidden', !show);
 }
 
 // Init

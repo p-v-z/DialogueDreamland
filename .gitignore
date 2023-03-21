@@ -66,4 +66,5 @@ crashlytics-build.properties
 .DS_Store
 
 # Addressables binary
-Assets\AddressableAssetsData\addressables_content_state.bin
+Assets/AddressableAssetsData/**/addressables_content_state.bin
+Assets/AddressableAssetsData/**/addressables_content_state.bin.meta
