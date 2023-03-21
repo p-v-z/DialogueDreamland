@@ -107,7 +107,6 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-          projectPath: ./DialogueDreamland
 
       # Output
       - uses: actions/upload-artifact@v2
