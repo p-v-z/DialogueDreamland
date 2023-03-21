@@ -44,13 +44,24 @@ jobs:
           mkdir -p Assets/Scripts/ChatGPTWrapper
 
       # Checkout dependency DDAssets
-      - name: Checkout dependencies
+      - name: Checkout assets
         uses: actions/checkout@v3
         with:
           ref: main
           clean: false
           path: Assets/DDAssets
           repository: p-v-z/DDAssets
+          token: ${{ secrets.PAT_TOKEN }}
+          lfs: true
+
+      # Checkout dependency DDPlugins
+      - name: Checkout plugins
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          clean: false
+          path: Assets/Plugins/DDPlugins
+          repository: p-v-z/DDPlugins
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
 
