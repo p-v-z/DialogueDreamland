@@ -8,10 +8,10 @@ A Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NP
   You will need your own [ChatGPT API](https://platform.openai.com/account/api-keys) key to play 🗝️
 
   <div class="image-container">
-    <img src=".readme/slideA.png" alt="Image 1">
-    <img src=".readme/slideB.png" alt="Image 2">
-    <img src=".readme/slideC.png" alt="Image 3">
-    <img src=".readme/slideD.png" alt="Image 4">
+    <img style="height:120px" src=".readme/slideA.png" alt="Image 1">
+    <img style="height:120px" src=".readme/slideB.png" alt="Image 2">
+    <img style="height:120px" src=".readme/slideC.png" alt="Image 3">
+    <img style="height:120px" src=".readme/slideD.png" alt="Image 4">
   </div>
 
   <br>🚧 This project is a work in progress 🚧
@@ -76,15 +76,3 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
 <div align="center">
   <p>Made by <a href="https://github.com/p-v-z">Petrie van Zyl</a></p>
 </div>
-
-<head>
-  <style>
-    .image-container {
-      text-align: center;
-    }
-    img {
-      margin: 0px 2A0px;
-      height: 120px;
-    }
-  </style>
-</head>
