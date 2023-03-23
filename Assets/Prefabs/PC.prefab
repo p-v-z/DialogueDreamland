@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.33
+      value: 1.9586172
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.87
+      value: -0.7116006
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9138631
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalRotation.x
@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.40602246
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalRotation.z
@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 47.91
       objectReference: {fileID: 0}
     - target: {fileID: 15298243641183745, guid: 534eb95d3c1cfdb4da9aaebb5484b203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -84,8 +84,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputHandlerSettings:
-    inputHandler: {fileID: 0}
-    humanInputType: 0
+    inputHandler: {fileID: 1979108068}
+    humanInputType: 2
+--- !u!114 &1979108068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742592588465900887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575ce14d56024994aa42ea997e082174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActionsAsset: {fileID: -944628639613478452, guid: d07b909880188bf46bb5a69a65ddc0e0, type: 3}
+  filterByActionMap: 0
+  gameplayActionMap: Gameplay
+  filterByControlScheme: 0
+  controlSchemeName: Keyboard Mouse
 --- !u!1001 &3804986646219545519
 PrefabInstance:
   m_ObjectHideFlags: 0

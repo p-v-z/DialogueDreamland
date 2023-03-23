@@ -600,7 +600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.69
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -608,11 +608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.32
+      value: 9.34
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.80499035
+      value: 0.60217565
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalRotation.x
@@ -620,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.593288
+      value: 0.7983637
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalRotation.z
@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 72.781
+      value: 105.948
       objectReference: {fileID: 0}
     - target: {fileID: 459788524936105052, guid: 1cb2053006e17ea448ca8853aaeeeb4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -10303,14 +10303,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1979108067, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
-      propertyPath: inputHandlerSettings.inputHandler
-      value: 
-      objectReference: {fileID: 1979108068}
-    - target: {fileID: 1979108067, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
-      propertyPath: inputHandlerSettings.humanInputType
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 456876294828678487, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
       propertyPath: movementReferenceParameters.externalReference
       value: 
@@ -10370,23 +10362,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 459788524936105052, guid: cd6dfcb9a9f88a445b63465950400c5e, type: 3}
   m_PrefabInstance: {fileID: 1979108063}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1979108068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180124828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575ce14d56024994aa42ea997e082174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActionsAsset: {fileID: -944628639613478452, guid: d07b909880188bf46bb5a69a65ddc0e0, type: 3}
-  filterByActionMap: 0
-  gameplayActionMap: Gameplay
-  filterByControlScheme: 0
-  controlSchemeName: Keyboard Mouse
 --- !u!1001 &1979510345
 PrefabInstance:
   m_ObjectHideFlags: 0

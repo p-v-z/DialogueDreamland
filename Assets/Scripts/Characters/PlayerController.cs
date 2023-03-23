@@ -101,6 +101,16 @@ namespace DD
                     return;
                 }
             }
+            
+            // If the player is not talking, check if they want to talk to an NPC
+            if (currentNPC != null)
+            {
+                var didTalk = inputHandlerSettings.InputHandler.GetBool("Interact");
+                if (didTalk)
+                {
+                    HandleTalk();
+                }
+            }
 
             // Check if the player is close enough to an NPC every chatCheckInterval seconds
             if (Time.time - lastChatCheckTime > ChatCheckInterval)

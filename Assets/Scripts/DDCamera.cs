@@ -170,13 +170,11 @@ namespace DD
             }
             
             // Update direction if right mouse button is pressed
-            if (Input.GetMouseButton(1))
-            {
-                var cameraAxes = inputHandlerSettings.InputHandler.GetVector2(axes);
-                if (updatePitch) deltaPitch = -cameraAxes.y;
-                if (updateYaw) deltaYaw = cameraAxes.x;
-                if (updateZoom) deltaZoom = -inputHandlerSettings.InputHandler.GetFloat(zoomAxis);
-            }
+            var inputAxis = inputHandlerSettings.InputHandler.GetVector2(axes);
+            var cameraAxes = Input.GetMouseButton(1) ? inputAxis : Vector2.zero;
+            if (updatePitch) deltaPitch = -cameraAxes.y;
+            if (updateYaw) deltaYaw = cameraAxes.x;
+            if (updateZoom) deltaZoom = -inputHandlerSettings.InputHandler.GetFloat(zoomAxis);
 
             // An input axis value (e.g. mouse x) usually gets accumulated over time. So, the higher the frame rate the smaller the value returned.
             // In order to prevent inconsistencies due to frame rate changes, the camera movement uses a fixed delta time, instead of the old regular
