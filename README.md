@@ -3,7 +3,8 @@
 A Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NPCs personalities. It is targeted at a WebGL build that can be used in a browser.
 
 <div align="center">
-  <a style="font-size:24px; font-weight: bold" href="https://p-v-z.github.io/DialogueDreamland/WebGL/">Play now!</a>
+
+  ## [**Play now!**](https://p-v-z.github.io/DialogueDreamland/WebGL/)
 
   You will need your own [ChatGPT API](https://platform.openai.com/account/api-keys) key to play 🗝️
 
@@ -18,8 +19,6 @@ A Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NP
   <br>
   <br>
 </div>
-<hr>
-<br>
 
 ## Project Contents
 
@@ -56,9 +55,6 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
   - [Odin Inspector and Serializer](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041)
   - [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
 
-<br>
-<hr>
-<br>
 
 ## Upcoming Features
 
@@ -70,9 +66,6 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
 - Build framework to define formulated base instructions to be given to bots, before and after
 - Add settings UI to modify gfx settings
 
-<br>
-<hr>
-<br>
 <div align="center">
   <p>Made by <a href="https://github.com/p-v-z">Petrie van Zyl</a></p>
 </div>
