@@ -9040,7 +9040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782686648}
   - component: {fileID: 1782686647}
-  - component: {fileID: 1782686649}
+  - component: {fileID: 1782686651}
   - component: {fileID: 1782686650}
   m_Layer: 0
   m_Name: DevCam
@@ -9103,7 +9103,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1782686649
+--- !u!114 &1782686650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9112,7 +9112,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782686646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452e5ccfe20ff074fa56372b1069e59c, type: 3}
+  m_Script: {fileID: 11500000, guid: 575ce14d56024994aa42ea997e082174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActionsAsset: {fileID: -944628639613478452, guid: 38a77f4da5934844d9a9cbf3f2676918, type: 3}
+  filterByActionMap: 0
+  gameplayActionMap: Gameplay
+  filterByControlScheme: 0
+  controlSchemeName: Keyboard Mouse
+--- !u!114 &1782686651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782686646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5ed427ce26485290fe37e7aa629924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputHandlerSettings:
@@ -9148,23 +9165,6 @@ MonoBehaviour:
     m_Bits: 0
   considerKinematicRigidbodies: 1
   considerDynamicRigidbodies: 1
---- !u!114 &1782686650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782686646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575ce14d56024994aa42ea997e082174, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActionsAsset: {fileID: -944628639613478452, guid: 38a77f4da5934844d9a9cbf3f2676918, type: 3}
-  filterByActionMap: 0
-  gameplayActionMap: Gameplay
-  filterByControlScheme: 0
-  controlSchemeName: Keyboard Mouse
 --- !u!1001 &1800575636
 PrefabInstance:
   m_ObjectHideFlags: 0

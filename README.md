@@ -45,6 +45,7 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
   - Get WebGL build stable
     - Add Github Actions to build and deploy WebGL project on commit
 - Build framework to define formulated base instructions to be given to bots, before and after 
+- Add settings UI to modify gfx settings
 
 <br>
 <div align="center">
