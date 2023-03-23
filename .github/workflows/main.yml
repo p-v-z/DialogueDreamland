@@ -4,7 +4,7 @@ name: Unity WebGL Build
 on:
   push:
     branches:
-      - cicd
+      - main
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
