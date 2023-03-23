@@ -4,7 +4,7 @@ A Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NP
 
 <div align="center">
 
-  ## [**Play now!**](https://p-v-z.github.io/DialogueDreamland/WebGL/)
+  # [**Play ▶️**](https://p-v-z.github.io/DialogueDreamland/WebGL/)
 
   You will need your own [ChatGPT API](https://platform.openai.com/account/api-keys) key to play 🗝️
 
@@ -21,9 +21,6 @@ A Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NP
 </div>
 
 ## Project Contents
-
-<br>
-
 ### **Unity version:** [2021.3.20f1](./ProjectSettings/ProjectVersion.txt)
 
 <span style="color: red;">**Important:**</span>
@@ -57,7 +54,6 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
 
 
 ## Upcoming Features
-
 - Chat UI
   - Replace UI Toolkit logic with js interop UI
   - Style HTML UI
