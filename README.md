@@ -9,10 +9,10 @@ A Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NP
   You will need your own [ChatGPT API](https://platform.openai.com/account/api-keys) key to play 🗝️
 
   <div class="image-container">
-    <img style="height:120px" src=".readme/slideA.png" alt="Image 1">
-    <img style="height:120px" src=".readme/slideB.png" alt="Image 2">
-    <img style="height:120px" src=".readme/slideC.png" alt="Image 3">
-    <img style="height:120px" src=".readme/slideD.png" alt="Image 4">
+    <img src=".readme/slideA.jpg" alt="Image 1">
+    <img src=".readme/slideB.jpg" alt="Image 2">
+    <img src=".readme/slideC.jpg" alt="Image 3">
+    <img src=".readme/slideD.jpg" alt="Image 4">
   </div>
 
   <br>🚧 This project is a work in progress 🚧
