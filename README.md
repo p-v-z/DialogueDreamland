@@ -54,11 +54,14 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
 
 
 ## Upcoming Features
+- API UI - Move to HTML
 - Chat UI
   - Replace UI Toolkit logic with js interop UI
   - Style HTML UI
 - World UX
   - Fix colliders and layers so that camera doesn't clip through the floor or walls.
+  - When you exit conversation, NPC should wave as it generates a 'goodbye' response.
+    - Then the conversation should be summarized and stored somewhere, to be recalled next time you interact with the NPC
 - Build framework to define formulated base instructions to be given to bots, before and after
 - Add settings UI to modify gfx settings
 
