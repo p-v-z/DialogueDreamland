@@ -4,8 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<title>{{{ PRODUCT_NAME }}}</title>
-		<link rel="stylesheet" href="styles.css">
-		<link rel="stylesheet" href="chat.css">
+		<link rel="stylesheet" href="./Styles/styles.css">
+		<link rel="stylesheet" href="./Styles/chat.css">
 	</head>
 
 	<body oncontextmenu="return false">
@@ -21,15 +21,16 @@
 		<div id="unity-chat">
 		 	<div id="chat-messages"></div>
 			<div id="unity-chat-input">
-				<input id="txtChat" type="text" placeholder="Type here to chat..." />
+				<textarea id="txtChat" class='autoExpand' rows='3' data-min-rows='3' placeholder='Type here to chat...' autofocus></textarea>
 				<button id="btnSend" type="button">Send</button>
 			</div>
 		</div>
 
 		<!-- Scripts -->
 		<script src="Build/{{{ LOADER_FILENAME }}}"></script>
-		<script src="./unity-io.js"></script>
-		<script src="./unity-chat-ui.js"></script>
+		<script src="./JS/unity-io.js"></script>
+		<script src="./JS/unity-chat-ui.js"></script>
+		<script src="./JS/text-area.js"></script>
 		<script>
 			var config = {
 				dataUrl: "Build/{{{ DATA_FILENAME }}}",
