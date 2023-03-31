@@ -1,0 +1,82 @@
+﻿* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+#unity-canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+}
+
+#unity-loading-bar {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  width: 40%;
+  height: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+#unity-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1%;
+  height: 100%;
+  background-color: #ccc;
+  border-radius: 10px;
+  transition: 400ms linear;
+}
+
+.hidden {
+  display: none !important;
+}
+
+textarea {
+  display: block;
+  overflow: hidden;
+  padding: 10px;
+  width: -webkit-fill-available;
+  font-size: 14px;
+  margin: 25px;
+  border-radius: 6px;
+  bottom: 0;
+  position: fixed;
+  resize: vertical;
+  max-height: 40%;
+  min-height: 10%;
+  pointer-events: all;
+}
+
+textarea:focus {
+  outline: 3px solid #a6d8e2;
+  transition: outline 0.3s ease-in-out;
+}
+
+.valid {
+  outline: 2px solid #00ff00;
+}
+
+.invalid {
+  outline: 2px solid #ff0000;
+}
+
+#txtApiKey {
+  outline-style: auto;
+}
+
+#api-key {
+  padding-top: 25px;
+}

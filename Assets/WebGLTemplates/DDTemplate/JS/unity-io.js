@@ -8,21 +8,15 @@ const getUnityInstance = () => {
 }
 var unityInstance = getUnityInstance();
 
-const unityPaste = () => {
-	console.log("Trying to paste clipboard to Unity");
-
-	navigator.clipboard.readText()
-	.then((clipboardText) => {
-		console.log("Clipboard content:", clipboardText);
-		getUnityInstance().SendMessage("InterOp", "Paste", clipboardText);
-	})
-	.catch((err) => {
-		console.error("Failed to read clipboard contents: ", err);
-	});
+const unitySubmitApiKey = (key) => {
+	console.log("Submit api key to Unity");
+	getUnityInstance().SendMessage("InterOp", "SubmitApiKey", key);
 }
 
 const unitySubmitInput = () => {
 	var input = document.getElementById("txtChat");
 	console.log("Submit input to Unity, value: " + input.value);
 	getUnityInstance().SendMessage("InterOp", "SubmitChatMessage", input.value);
+	ShowInputAction(false);
+	input.value = "";
 }

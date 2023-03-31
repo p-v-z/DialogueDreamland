@@ -3,5 +3,5 @@
     <ui:GroupBox focusable="true" style="position: absolute; bottom: 0; align-self: center; left: 0; right: 0;">
         <ui:Button text="Talk" display-tooltip-when-elided="true" name="BtnTalk" class="button" style="width: 50%;" />
     </ui:GroupBox>
-    <ui:Button text="Change API Key" display-tooltip-when-elided="true" name="BtnClearCache" enable-rich-text="true" class="button" style="font-size: 11px; -unity-font-style: normal;" />
+    <ui:Button text="Change API Key" display-tooltip-when-elided="true" name="BtnClearCache" enable-rich-text="true" class="button" style="font-size: 11px; -unity-font-style: normal; display: none;" />
 </ui:UXML>
