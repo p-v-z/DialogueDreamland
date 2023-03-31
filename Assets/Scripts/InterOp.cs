@@ -12,18 +12,19 @@ namespace DD.WebGl
 	/// </summary>
     public class InterOp : MonoBehaviour
     {
-        public static Action<string> OnPaste = delegate {};
-
 #region JS -> Unity
 	    /// <summary>
-	    /// Paste clipboard contents from browser
+	    /// Submit a chat message that the player entered into the HTML input
 	    /// </summary>
-	    public void Paste(string clipboard)
+	    public void SubmitApiKey(string key)
 	    {
-		    Debug.Log("Unity handle paste from browser");
-		    OnPaste.Invoke(clipboard);
+			// Store the key
+			PlayerPrefs.SetString("API_KEY", key);
+            // Enable player
+            PlayerController.Instance.SetMovementEnabled(true);
+		    Debug.Log("Set Unity api key from HTML input 🗝️");
 	    }
-        
+
 	    /// <summary>
 	    /// Submit a chat message that the player entered into the HTML input
 	    /// </summary>

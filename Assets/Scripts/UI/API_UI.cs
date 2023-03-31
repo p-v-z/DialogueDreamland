@@ -66,7 +66,7 @@ namespace DD.UI
                 SetAPIKey(currentKey);
             }
 
-            InterOp.OnPaste += HandlePaste;
+            // InterOp.OnPaste += HandlePaste;
         }
         
         private static bool ValidateKey(string apiKey)
@@ -84,7 +84,7 @@ namespace DD.UI
 
         private void OnDisable()
         {
-            InterOp.OnPaste -= HandlePaste;
+            // InterOp.OnPaste -= HandlePaste;
             btnSet.UnregisterCallback<ClickEvent>(HandleSet);
         }
 

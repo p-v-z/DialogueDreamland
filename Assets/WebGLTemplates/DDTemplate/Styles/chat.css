@@ -1,7 +1,17 @@
-﻿.message {
-    display: block;
-    position: absolute;
-    bottom: 0;
+﻿.chat-message {
+    border-radius: 5px;
+    margin: 25px;
+    padding: 10px;
+    text-align: left;
+    width: fit-content;
+}
+
+.chat-message.player {
+    background-color: #81ffc4bd;
+}
+
+.chat-message.ai {
+    background-color: #7f7fffbd;
 }
 
 /* CHAT MESSAGES */
@@ -22,25 +32,4 @@
 
 #chat-messages div {
     margin-bottom: 20px;
-}
-
-/* INPUT */
-#unity-chat-input {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    pointer-events: auto;
-
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-#txtChat {
-    flex-grow: 1;
-}
-
-#btnSend {
-    flex-shrink: 0;
 }

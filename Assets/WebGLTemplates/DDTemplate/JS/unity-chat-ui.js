@@ -1,34 +1,49 @@
 // Define the template using a template literal
 const templateMessage = `
-    <div class="chat-message {{owner-class}}">
-	    <p>{{message}}</p>
-    </div>
+	<div class="chat-message {{owner-class}}">
+		<p>{{message}}</p>
+	</div>
 `;
 
-// Rewrite Test() to use modern syntax
-const AddToChat = (msg, player) => {
-	console.log('JS handle chat message');
-	console.log('input:', msg);
-	console.log('player:', player);
-	
-	// Add the instantiated template to the DOM
-	const templateContainer = document.getElementById('chat-messages');
-	// Append to inner contents instead
-	var newMessage = templateMessage.replace('{{message}}', msg).replace('{{owner-class}}', player ? 'player' : 'ai');
-    templateContainer.innerHTML += newMessage;
+const unityChat = document.getElementById('unity-chat');
+const txtChat = document.getElementById('txtChat');
+
+const escapeHTML = (unsafe) => {
+	return unsafe
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
 };
 
+const AddToChat = (msg, player) => {
+	console.log('JS handle chat message: ' + msg + ' from player: ' + player);
+
+	// Escape HTML special characters and replace line breaks with <br> elements
+	const formattedMsg = escapeHTML(msg).replace(/\n/g, '<br>');
+
+	// Add the instantiated template to the DOM
+	const templateContainer = document.getElementById('chat-messages');
+
+	// Append to inner contents instead
+	var newMessage = templateMessage.replace('{{message}}', formattedMsg).replace('{{owner-class}}', player ? 'player' : 'ai');
+	templateContainer.innerHTML += newMessage;
+};
+
+// Show or hide the input text area
 const ShowInputAction = (show) => {
-	document.getElementById('unity-chat-input').classList.toggle('hidden', !show);
+	txtChat.classList.toggle('hidden', !show);
+	setWebInput(show);
+	if (show) {
+		txtChat.focus();
+	}
 }
 
-// Init
-const sendButton = document.getElementById('btnSend');
-sendButton.addEventListener('click', () => {
-	console.log("Trying to send input to Unity");
-	unitySubmitInput();
-	ShowInputAction(false);
-});
+const setWebInput = (active) => {
+	// Direct input to web UI if active, otherwise it goes to Unity
+	unityChat.classList.toggle('active', active);
+}
 
 // Hide input on start
 ShowInputAction(false);

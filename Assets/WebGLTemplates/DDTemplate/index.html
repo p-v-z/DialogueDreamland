@@ -17,17 +17,22 @@
 			<div id="unity-progress-bar"></div>
 		</div>
 
+		<!-- API Key -->
+		<div id="api-key">
+			<label for="txtApiKey">Enter your API Key from <a href="https://platform.openai.com/account/api-keys" target="_blank">Open AI</a>:</label>
+			<input id="txtApiKey" placeholder="sk-" type="password" maxlength="53" autofocus>
+			<button id="btnApiKey">Submit</button>
+		</div>
+
 		<!-- Chat UI -->
 		<div id="unity-chat">
 		 	<div id="chat-messages"></div>
-			<div id="unity-chat-input">
-				<button id="btnSend" type="button">Send</button>
-			</div>
+			<textarea id="txtChat" class='autoExpand' rows='3' data-min-rows='3' placeholder='Type here to chat...' autofocus></textarea>
 		</div>
-		<textarea id="txtChat" class='autoExpand' rows='3' data-min-rows='3' placeholder='Type here to chat...' autofocus></textarea>
 
 		<!-- Scripts -->
 		<script src="Build/{{{ LOADER_FILENAME }}}"></script>
+		<script src="./JS/api-key.js"></script>
 		<script src="./JS/unity-io.js"></script>
 		<script src="./JS/unity-chat-ui.js"></script>
 		<script src="./JS/text-area.js"></script>
@@ -70,13 +75,6 @@
 				.catch(function (message) { alert(message); });
 			};
 			document.body.appendChild(script);
-
-			// Listen for Copy/Paste
-			document.addEventListener("keydown", function(event) {
-				if (event.ctrlKey && event.keyCode === 86) {
-					unityPaste();
-				}
-			});
 		</script>
 	</body>
 </html>

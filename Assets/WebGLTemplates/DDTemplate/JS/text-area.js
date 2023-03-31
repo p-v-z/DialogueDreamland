@@ -1,23 +1,18 @@
-function getScrollHeight(elm) {
-  var savedValue = elm.value;
-  elm.value = "";
-  elm._baseScrollHeight = elm.scrollHeight;
-  elm.value = savedValue;
-}
+const textarea = document.getElementById("txtChat");
 
-function onExpandableTextareaInput({ target: elm }) {
-  // make sure the input event originated from a textarea and it's desired to be auto-expandable
-  if (!elm.classList.contains("autoExpand") || !elm.nodeName == "TEXTAREA")
-    return;
+textarea.addEventListener("keydown", (event) => {
+	if (event.key === "Enter" || event.code === "Enter") {
+		event.preventDefault(); // Prevents default behavior, such as adding a new line
+		unitySubmitInput();
+	}
+});
 
-  var minRows = elm.getAttribute("data-min-rows") | 0,
-    rows;
-  !elm._baseScrollHeight && getScrollHeight(elm);
+// if the area is not focussed, web input should be disabled (so that Unity can handle input)
+textarea.addEventListener("blur", (event) => {
+	setWebInput(false);
+});
 
-  elm.rows = minRows;
-  rows = Math.ceil((elm.scrollHeight - elm._baseScrollHeight) / 16);
-  elm.rows = minRows + rows;
-}
-
-// global delegated event listener
-document.addEventListener("input", onExpandableTextareaInput);
+// if the area is focussed, web input should be enabled
+textarea.addEventListener("focus", (event) => {
+	setWebInput(true);
+});
