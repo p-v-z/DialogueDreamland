@@ -50,6 +50,8 @@ namespace DD.UI
 
         public static void SetItemActive<T>(T item, bool active) where T : VisualElement
         {
+            if (item == null) return;
+            
             if (active)
             {
                 item.RemoveFromClassList("hidden");

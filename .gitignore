@@ -67,3 +67,6 @@ crashlytics-build.properties
 # Addressables binary
 Assets/AddressableAssetsData/**/addressables_content_state.bin
 Assets/AddressableAssetsData/**/addressables_content_state.bin.meta
+
+# Exclude development key
+Assets/Resources/debug-key.*
