@@ -43,7 +43,12 @@ namespace DD
         {
             npcs = Object.FindObjectsOfType<Character>(false).Where(c => c is NPC).ToList();
             normalMovement = GetComponentInChildren<NormalMovement>();
+            
+#if UNITY_WEBGL && !UNITY_EDITOR
             SetMovementEnabled(false);
+#else 
+            SetMovementEnabled(true);
+#endif
             
             GameUI.Instance.btnTalk.clicked += HandleTalk;
         }

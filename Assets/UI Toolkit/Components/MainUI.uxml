@@ -4,4 +4,8 @@
         <ui:Button text="Talk" display-tooltip-when-elided="true" name="BtnTalk" class="button" style="width: 50%;" />
     </ui:GroupBox>
     <ui:Button text="Change API Key" display-tooltip-when-elided="true" name="BtnClearCache" enable-rich-text="true" class="button" style="font-size: 11px; -unity-font-style: normal; display: none;" />
+    <ui:GroupBox name="ChatHistory" style="height: auto; flex-grow: 1;" />
+    <ui:GroupBox name="ChatInput">
+        <ui:TextField picking-mode="Ignore" label="Text Field" value="filler text" text="filler text" name="TxtInput" />
+    </ui:GroupBox>
 </ui:UXML>

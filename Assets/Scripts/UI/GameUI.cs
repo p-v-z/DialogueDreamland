@@ -12,7 +12,12 @@ namespace DD.UI
         private Button btnClear;
         private UIDocument rootDoc;
         private VisualElement root;
-
+        
+#if UNITY_EDITOR
+        private GroupBox grpChatHistory;
+        private GroupBox grpChatInput;
+        private TextField txtChatInput;
+#endif
         private bool Log { get; } = false;
         
         protected override void Awake()
@@ -29,6 +34,14 @@ namespace DD.UI
             
             SetTalkBtnActive(false);
             SetClearBtnActive(false);
+            
+#if UNITY_EDITOR
+            txtChatInput = root.Q<TextField>("TxtInput");
+            txtChatInput.RegisterCallback<KeyDownEvent>(HandleKeyDown);
+            grpChatHistory = root.Q<GroupBox>("ChatHistory");
+            grpChatInput = root.Q<GroupBox>("ChatInput");
+            SetChatInputActive(false);
+#endif
         }
         
         private void HandleClear(ClickEvent evt)
@@ -47,7 +60,7 @@ namespace DD.UI
 
         public void SetClearBtnActive(bool active) => SetItemActive(btnClear, active);
         public void SetTalkBtnActive(bool active) => SetItemActive(btnTalk, active);
-
+        
         public static void SetItemActive<T>(T item, bool active) where T : VisualElement
         {
             if (item == null) return;
@@ -61,5 +74,48 @@ namespace DD.UI
                 item.AddToClassList("hidden");
             }
         }
+
+#if UNITY_EDITOR
+        public void SetChatHistoryActive(bool active) => SetItemActive(grpChatHistory, active);
+        public void SetChatInputActive(bool active) => SetItemActive(grpChatInput, active);
+
+        private void HandleKeyDown(KeyDownEvent evt)
+        {
+            if (evt.keyCode == KeyCode.Return)
+            {
+                Speak();
+            }
+        }
+
+        private void HandleSay(ClickEvent evt)
+        {
+            Speak();
+        }
+
+        private void Speak()
+        {
+            // Get input
+            var currentInput = txtChatInput.value;
+            if (Log) Debug.Log($"Speaking: {currentInput}");
+            
+            // Add to chat history and send to DialogueManager
+            AddChatHistoryItem(true, currentInput);
+            DialogueManager.Instance.SaySomething(currentInput);
+            
+            // Clear input and disable
+            txtChatInput.value = "";
+            SetChatInputActive(false);
+        }
+        
+        public void AddChatHistoryItem(bool player, string text)
+        {
+            var item = chatDialogue.Instantiate();
+            var messageText = item.Q<TextField>("TxtSaid");
+            messageText.value = text;
+            item.AddToClassList("chat-history-item");
+            item.AddToClassList(player ? "user" : "ai");
+            grpChatHistory.Add(item);
+        }
+#endif
     }
 }

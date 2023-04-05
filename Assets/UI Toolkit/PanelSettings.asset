@@ -15,7 +15,6 @@ MonoBehaviour:
   themeUss: {fileID: -4733365628477956816, guid: 23822f1a4a9b84d77afd30f5613d8807, type: 3}
   m_TargetTexture: {fileID: 0}
   m_ScaleMode: 1
-  m_ReferenceSpritePixelsPerUnit: 100
   m_Scale: 1
   m_ReferenceDpi: 96
   m_FallbackDpi: 96
@@ -27,7 +26,6 @@ MonoBehaviour:
   m_ClearDepthStencil: 1
   m_ClearColor: 0
   m_ColorClearValue: {r: 0, g: 0, b: 0, a: 0}
-  m_VertexBudget: 0
   m_DynamicAtlasSettings:
     m_MinAtlasSize: 64
     m_MaxAtlasSize: 4096

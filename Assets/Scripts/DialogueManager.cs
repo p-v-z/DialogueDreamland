@@ -111,8 +111,14 @@ namespace DD
 			}
 
 			// Update UI
+#if UNITY_WEBGL && !UNITY_EDITOR
 			InterOp.AddChatMessage(response, false);
 			InterOp.SetInputActive(true);
+#else 
+			GameUI.Instance.SetChatHistoryActive(true);
+			GameUI.Instance.AddChatHistoryItem(false, response);
+			GameUI.Instance.SetChatInputActive(true);
+#endif
 			
 			// Invoke the intro handler
 			if (introHandler != null)
