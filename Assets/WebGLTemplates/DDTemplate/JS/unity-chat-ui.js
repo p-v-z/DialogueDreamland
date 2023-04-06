@@ -34,13 +34,13 @@ const AddToChat = (msg, player) => {
 // Show or hide the input text area
 const ShowInputAction = (show) => {
 	txtChat.classList.toggle('hidden', !show);
-	setWebInput(show);
+	SetChatActive(show);
 	if (show) {
 		txtChat.focus();
 	}
 }
 
-const setWebInput = (active) => {
+const SetChatActive = (active) => {
 	// Direct input to web UI if active, otherwise it goes to Unity
 	unityChat.classList.toggle('active', active);
 }

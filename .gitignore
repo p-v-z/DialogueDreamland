@@ -62,8 +62,12 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# macOS 
 .DS_Store
 
 # Addressables binary
 Assets/AddressableAssetsData/**/addressables_content_state.bin
 Assets/AddressableAssetsData/**/addressables_content_state.bin.meta
+
+# Exclude development key
+Assets/Resources/debug-key.*

@@ -4037,7 +4037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb7f716544e4ccdb7a1845b676c86c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chatGPTConversation: {fileID: 597659013}
   OnDialogueStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -4071,10 +4070,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb1a0cf6c5a4333bc255ea79a3e4fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useProxy: 0
+  _proxyUri: 
   _apiKey: 
   _model: 0
-  _maxTokens: 0
-  _temperature: 0
+  _maxTokens: 2048
+  _temperature: 0.5
   _chatbotName: 
   _initialPrompt: 
   chatGPTResponse:

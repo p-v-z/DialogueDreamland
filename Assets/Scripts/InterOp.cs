@@ -41,6 +41,7 @@ namespace DD.WebGl
 	#if UNITY_WEBGL && !UNITY_EDITOR
 	    [DllImport("__Internal")] private static extern void AddChatJS(string msg, bool player); 
 	    [DllImport("__Internal")] private static extern void ShowInputJS(bool active);
+	    [DllImport("__Internal")] private static extern void SetChatActiveJS(bool active);
 
 	    /// <summary>
 	    /// Add a chat message to be rendered in browser HTML
@@ -58,6 +59,14 @@ namespace DD.WebGl
 	    {
 		    WebGLInput.captureAllKeyboardInput = !active;
 		    ShowInputJS(active);
+	    }
+
+	    /// <summary>
+	    /// Set the browser HTML input to be active or not
+	    /// </summary>
+	    public static void SetChatActive(bool active)
+	    {
+		    SetChatActiveJS(active);
 	    }
 	#else
 	    public static void AddChatMessage(string message, bool fromPlayer = false) => LogWebGL("AddChatMessage");

@@ -9,10 +9,9 @@ using UnityEngine.Events;
 
 namespace DD
 {
+	[RequireComponent(typeof(CustomChatGPT))]
 	public class DialogueManager : Singleton<DialogueManager>
 	{
-		[SerializeField] CustomChatGPT chatGPTConversation;
-		
 		public UnityEvent OnDialogueStarted = new UnityEvent();
 		public UnityEvent OnDialogueEnded = new UnityEvent();
 
@@ -23,15 +22,16 @@ namespace DD
 		private NPC currentNPC;
 		private List<Conversation> currentConversation;
 		private readonly Dictionary<NPC, List<Conversation>> npcConversations = new ();
+		private CustomChatGPT chatGPTConversation;
 
 		private string lastPlayerMessage;
-
 
 		private Action<string> introHandler;
 
 		protected override void Awake()
 		{
 			base.Awake();
+			chatGPTConversation = GetComponent<CustomChatGPT>();
 			chatGPTConversation.enabled = false;
 		}
 		
@@ -111,8 +111,14 @@ namespace DD
 			}
 
 			// Update UI
+#if UNITY_WEBGL && !UNITY_EDITOR
 			InterOp.AddChatMessage(response, false);
 			InterOp.SetInputActive(true);
+#else 
+			GameUI.Instance.SetChatHistoryActive(true);
+			GameUI.Instance.AddChatHistoryItem(false, response);
+			GameUI.Instance.SetChatInputActive(true);
+#endif
 			
 			// Invoke the intro handler
 			if (introHandler != null)

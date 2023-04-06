@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UITK Text Settings
   m_EditorClassIdentifier: 
   m_Version: 
-  m_DefaultFontAsset: {fileID: 11400000, guid: 3a43d52e136350b4abf9134dd3b46ad6, type: 2}
+  m_DefaultFontAsset: {fileID: 11400000, guid: d28b45122a438b248a4387519de25a5a, type: 2}
   m_DefaultFontAssetPath: Fonts & Materials/
   m_FallbackFontAssets: []
   m_MatchMaterialPreset: 1
@@ -21,8 +21,7 @@ MonoBehaviour:
   m_ClearDynamicDataOnBuild: 1
   m_DefaultSpriteAsset: {fileID: 0}
   m_DefaultSpriteAssetPath: Sprite Assets/
-  m_FallbackSpriteAssets:
-  - {fileID: 11400000, guid: bf51f03d8faabff4ea41627efc473be9, type: 2}
+  m_FallbackSpriteAssets: []
   m_MissingSpriteCharacterUnicode: 0
   m_DefaultStyleSheet: {fileID: 0}
   m_StyleSheetsResourcePath: Text Style Sheets/
