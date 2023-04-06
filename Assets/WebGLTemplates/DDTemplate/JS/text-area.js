@@ -9,10 +9,10 @@ textarea.addEventListener("keydown", (event) => {
 
 // if the area is not focussed, web input should be disabled (so that Unity can handle input)
 textarea.addEventListener("blur", (event) => {
-	setWebInput(false);
+	SetChatActive(false);
 });
 
 // if the area is focussed, web input should be enabled
 textarea.addEventListener("focus", (event) => {
-	setWebInput(true);
+	SetChatActive(true);
 });

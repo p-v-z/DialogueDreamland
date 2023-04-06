@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DD.UI;
+using DD.WebGl;
 using Lightbug.CharacterControllerPro.Core;
 using Lightbug.CharacterControllerPro.Demo;
 using Lightbug.CharacterControllerPro.Implementation;
@@ -88,6 +89,13 @@ namespace DD
             Debug.Log("Stopping conversation");
             DialogueManager.Instance.EndDialogue();
             isTalking = false;
+            
+#if UNITY_WEBGL && !UNITY_EDITOR
+            InterOp.SetChatActive(false);
+#else   
+            GameUI.Instance.SetChatHistoryActive(false);
+            GameUI.Instance.SetChatInputActive(false);
+#endif 
         }
 
         private void Update()

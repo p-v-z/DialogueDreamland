@@ -12,12 +12,13 @@ namespace DD.UI
         private Button btnClear;
         private UIDocument rootDoc;
         private VisualElement root;
+        private GroupBox grpChatInput;
         
 #if UNITY_EDITOR
         private GroupBox grpChatHistory;
-        private GroupBox grpChatInput;
         private TextField txtChatInput;
 #endif
+        
         private bool Log { get; } = false;
         
         protected override void Awake()
@@ -35,13 +36,13 @@ namespace DD.UI
             SetTalkBtnActive(false);
             SetClearBtnActive(false);
             
+            grpChatInput = root.Q<GroupBox>("ChatInput");
 #if UNITY_EDITOR
             txtChatInput = root.Q<TextField>("TxtInput");
             txtChatInput.RegisterCallback<KeyDownEvent>(HandleKeyDown);
             grpChatHistory = root.Q<GroupBox>("ChatHistory");
-            grpChatInput = root.Q<GroupBox>("ChatInput");
-            SetChatInputActive(false);
 #endif
+            SetChatInputActive(false);
         }
         
         private void HandleClear(ClickEvent evt)
@@ -60,6 +61,7 @@ namespace DD.UI
 
         public void SetClearBtnActive(bool active) => SetItemActive(btnClear, active);
         public void SetTalkBtnActive(bool active) => SetItemActive(btnTalk, active);
+        public void SetChatInputActive(bool active) => SetItemActive(grpChatInput, active);
         
         public static void SetItemActive<T>(T item, bool active) where T : VisualElement
         {
@@ -77,7 +79,6 @@ namespace DD.UI
 
 #if UNITY_EDITOR
         public void SetChatHistoryActive(bool active) => SetItemActive(grpChatHistory, active);
-        public void SetChatInputActive(bool active) => SetItemActive(grpChatInput, active);
 
         private void HandleKeyDown(KeyDownEvent evt)
         {

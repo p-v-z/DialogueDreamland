@@ -2,6 +2,8 @@
 
 A Unity project that uses [ChatGPT](https://openai.com/blog/chatgpt/) to give NPCs personalities. It is targeted at a WebGL build that can be used in a browser.
 
+The project uses [Unity's JavaScript Interop](https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html) to handle UI issues with emojis, as it is much easier to handle emojis in HTML than with Unity. There is a UI built into the project that can be used to test in Editor (without the HTML UI), it is not used in the WebGL build. 
+
 <div align="center">
 
   # [**Play ▶️**](https://p-v-z.github.io/DialogueDreamland/WebGL/)
@@ -54,10 +56,7 @@ The following paid assets from the [Unity Asset Store](https://assetstore.unity.
 
 
 ## Upcoming Features
-- API UI - Move to HTML
-- Chat UI
-  - Replace UI Toolkit logic with js interop UI
-  - Style HTML UI
+- API UI - Style HTML UI
 - World UX
   - Fix colliders and layers so that camera doesn't clip through the floor or walls.
   - When you exit conversation, NPC should wave as it generates a 'goodbye' response.

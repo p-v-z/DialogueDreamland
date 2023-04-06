@@ -14,5 +14,10 @@ mergeInto(LibraryManager.library, {
 	// Show/hide the HTML input
 	ShowInputJS: function (action) {
 	    ShowInputAction(action);
-	}
+	},
+
+	// Show/hide chat chat UI
+	SetChatActiveJS: function (active) {
+		SetChatActive(active);
+	},
 });
