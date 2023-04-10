@@ -80,3 +80,21 @@ textarea:focus {
 #api-key {
   padding-top: 25px;
 }
+
+#clouds-svg {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: rgb(176, 223, 244);
+  
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#clouds-svg.finished {
+  opacity: 0;
+}

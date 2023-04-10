@@ -24,6 +24,11 @@
 			<button id="btnApiKey">Submit</button>
 		</div>
 
+		<!-- show img with svg src here -->
+		<div id="img-container">
+			<img id="clouds-svg" src="./Assets/clouds.svg" alt="Clouds Image">	
+		</div>
+
 		<!-- Chat UI -->
 		<div id="unity-chat">
 		 	<div id="chat-messages"></div>
@@ -71,6 +76,12 @@
 					// Store instance and hide loader
 					document.unityInstance = unityInstance;
 					loadingBar.style.display = "none"; 
+
+					// wait for unity splash screen to finish, then add class to clouds svg
+					setTimeout(function() {
+						var clouds = document.getElementById("clouds-svg");
+						clouds.classList.add("finished");
+					}, 2500);
 				})
 				.catch(function (message) { alert(message); });
 			};
