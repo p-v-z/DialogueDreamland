@@ -78,7 +78,11 @@ textarea:focus {
 }
 
 #api-key {
-  padding-top: 25px;
+  margin: 25px;
+  background-color: #80e4ffc4;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 15px;
 }
 
 #clouds-svg {
