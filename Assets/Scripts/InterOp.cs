@@ -12,6 +12,12 @@ namespace DD.WebGl
 	/// </summary>
     public class InterOp : MonoBehaviour
     {
+		void Awake()
+		{
+			// Disable keyboard input capture by default
+			WebGLInput.captureAllKeyboardInput = false;
+		}
+
 #region JS -> Unity
 	    /// <summary>
 	    /// Submit a chat message that the player entered into the HTML input
@@ -23,6 +29,7 @@ namespace DD.WebGl
             // Enable player
             PlayerController.Instance.SetMovementEnabled(true);
 		    Debug.Log("Set Unity api key from HTML input 🗝️");
+			WebGLInput.captureAllKeyboardInput = true;
 	    }
 
 	    /// <summary>
