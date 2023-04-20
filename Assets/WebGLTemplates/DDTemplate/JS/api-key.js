@@ -20,19 +20,22 @@ keyInput.addEventListener("keydown", (event) => {
 
 // Validate key when pasting into the input
 keyInput.addEventListener("paste", (event) => {
-	// Get the pasted text
-	navigator.clipboard.readText().then((copiedText) => {
-		keyInput.value = copiedText;
-		updateKey();
-	});
+	updateKey();
 });
 
 // Abstract the validation handling
 const updateKey = () => {
-	var valid = validateKey(keyInput.value);
-	btnSubmit.disabled = !valid;
-	keyInput.classList.toggle('valid', valid);
-	keyInput.classList.toggle('invalid', !valid);
+	setTimeout(() => {
+		var valid = validateKey(keyInput.value);
+		btnSubmit.disabled = !valid;
+		keyInput.classList.toggle('valid', valid);
+		keyInput.classList.toggle('invalid', !valid);
+		
+		if (valid) {
+			keyInput.blur();
+			btnSubmit.focus();
+		}
+	}, 100);
 }
 
 // Send entered key to Unity
