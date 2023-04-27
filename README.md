@@ -87,7 +87,7 @@ git clone https://github.com/p-v-z/DialogueDreamland.git
 ```
 
 ### 2. Import the excluded assets 
-Import the [Excluded Assets❗](#excluded-assets) using Unity's package manager, place the assets into the following folder structure `/DialogueDreamland/Assets/DDAssets/`. Import the plugins (Odin and DOTween) into `/DialogueDreamland/Assets/Plugins/`
+Import the [Excluded Assets❗](#excluded-assets) using Unity's package manager, place the assets into the following folder structure `/DialogueDreamland/Assets/DDAssets/`. Import the plugins (Odin and DOTween) into `/DialogueDreamland/Assets/Plugins/`.
 
 ### 3. Install submodule
 Clone [ChatGPTWrapper](https://github.com/p-v-z/ChatGPT-Wrapper-For-Unity) (or a fork of it) into the `/Assets/Scripts` folder of the project.
