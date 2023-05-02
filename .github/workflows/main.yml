@@ -76,15 +76,6 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           lfs: true
 
-      # List Assets contents
-      - name: List Assets contents
-        run: |
-          echo "Current directory contents ($PWD) :"
-          ls -al
-          cd Assets/DDAssets
-          echo "DDAssets contents:"
-          ls -al
-
       # Cache
       - uses: actions/cache@v2
         with:
