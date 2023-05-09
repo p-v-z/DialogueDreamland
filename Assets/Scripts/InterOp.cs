@@ -12,13 +12,16 @@ namespace DD.WebGl
 	/// </summary>
     public class InterOp : MonoBehaviour
     {
-		void Awake()
+#if UNITY_WEBGL && !UNITY_EDITOR
+		private void Awake()
 		{
 			// Disable keyboard input capture by default
 			WebGLInput.captureAllKeyboardInput = false;
 		}
+#endif
 
-#region JS -> Unity
+	// TODO: Abstract regions into separate files
+	#region JS -> Unity
 	    /// <summary>
 	    /// Submit a chat message that the player entered into the HTML input
 	    /// </summary>
@@ -41,11 +44,16 @@ namespace DD.WebGl
 		    DialogueManager.Instance.SaySomething(message);
 		    AddChatMessage(message, true);
 	    }
-#endregion
+
+	    /// <summary>
+	    /// Sets the looped background music to be active or not
+	    /// </summary>
+	    public void SetMusicActive(bool active) => Camera.main.GetComponent<AudioSource>().mute = !active;
+	#endregion
 
 	    
-#region Unity -> JS
-	#if UNITY_WEBGL && !UNITY_EDITOR
+	#region Unity -> JS
+#if UNITY_WEBGL && !UNITY_EDITOR
 	    [DllImport("__Internal")] private static extern void AddChatJS(string msg, bool player); 
 	    [DllImport("__Internal")] private static extern void ShowInputJS(bool active);
 	    [DllImport("__Internal")] private static extern void SetChatActiveJS(bool active);
@@ -75,12 +83,12 @@ namespace DD.WebGl
 	    {
 		    SetChatActiveJS(active);
 	    }
-	#else
+#else
 	    public static void AddChatMessage(string message, bool fromPlayer = false) => LogWebGL("AddChatMessage");
 	    public static void SetInputActive(bool active) => LogWebGL("SetInputActive");
 
 	    private static void LogWebGL(string message) => Debug.Log($"WebGL IO function called: {message}");
-	#endif
-#endregion
+#endif
+	#endregion
     }
 }
