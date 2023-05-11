@@ -19,6 +19,7 @@ const unitySubmitInput = () => {
 	var input = document.getElementById("txtChat");
 	console.log("Submit input to Unity, value: " + input.value);
 	getUnityInstance().SendMessage("InterOp", "SubmitChatMessage", input.value);
+	AddToChat(input.value, true);
 	ShowInputAction(false);
 	input.value = "";
 }

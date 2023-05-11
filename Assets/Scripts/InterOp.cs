@@ -1,94 +1,25 @@
-using System;
 using UnityEngine;
-
-#if UNITY_WEBGL
-using System.Runtime.InteropServices;
-#endif
 
 namespace DD.WebGl
 {
 	/// <summary>
-	/// This class handles communication between Unity and the browser
+	/// This class is a wrapper for the InterOp classes that handles io communication between Unity and the browser JS.
+	/// It acts as an interface, and a single point of entry for all communication - the InterOp game object.
+	/// See <see cref="InterOpUnityToJs"/> and <see cref="InterOpJsToUnity"/> for more details.
 	/// </summary>
     public class InterOp : MonoBehaviour
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-		private void Awake()
-		{
-			// Disable keyboard input capture by default
-			WebGLInput.captureAllKeyboardInput = false;
-		}
-#endif
+#region Browser JS to Unity
+	    public void SubmitApiKey(string key) => InterOpJsToUnity.SubmitApiKey(key);
+	    public void SubmitChatMessage(string message) => InterOpJsToUnity.SubmitChatMessage(message);
+	    public void SetMusicActive(bool active) => InterOpJsToUnity.SetMusicActive(active);
+#endregion
 
-	// TODO: Abstract regions into separate files
-	#region JS -> Unity
-	    /// <summary>
-	    /// Submit a chat message that the player entered into the HTML input
-	    /// </summary>
-	    public void SubmitApiKey(string key)
-	    {
-			// Store the key
-			PlayerPrefs.SetString("API_KEY", key);
-            // Enable player
-            PlayerController.Instance.SetMovementEnabled(true);
-		    Debug.Log("Set Unity api key from HTML input 🗝️");
-			WebGLInput.captureAllKeyboardInput = true;
-	    }
 
-	    /// <summary>
-	    /// Submit a chat message that the player entered into the HTML input
-	    /// </summary>
-	    public void SubmitChatMessage(string message)
-	    {
-		    Debug.Log("Unity handle chat submit from browser");
-		    DialogueManager.Instance.SaySomething(message);
-		    AddChatMessage(message, true);
-	    }
-
-	    /// <summary>
-	    /// Sets the looped background music to be active or not
-	    /// </summary>
-	    public void SetMusicActive(bool active) => Camera.main.GetComponent<AudioSource>().mute = !active;
-	#endregion
-
-	    
-	#region Unity -> JS
-#if UNITY_WEBGL && !UNITY_EDITOR
-	    [DllImport("__Internal")] private static extern void AddChatJS(string msg, bool player); 
-	    [DllImport("__Internal")] private static extern void ShowInputJS(bool active);
-	    [DllImport("__Internal")] private static extern void SetChatActiveJS(bool active);
-
-	    /// <summary>
-	    /// Add a chat message to be rendered in browser HTML
-	    /// </summary>
-	    public static void AddChatMessage(string message, bool fromPlayer = false)
-	    {
-		    Debug.Log($"Calling JS from Unity, input: {message}");
-            AddChatJS(message, fromPlayer);
-	    }
-        
-	    /// <summary>
-	    /// Set the browser HTML input to be active or not
-	    /// </summary>
-	    public static void SetInputActive(bool active)
-	    {
-		    WebGLInput.captureAllKeyboardInput = !active;
-		    ShowInputJS(active);
-	    }
-
-	    /// <summary>
-	    /// Set the browser HTML input to be active or not
-	    /// </summary>
-	    public static void SetChatActive(bool active)
-	    {
-		    SetChatActiveJS(active);
-	    }
-#else
-	    public static void AddChatMessage(string message, bool fromPlayer = false) => LogWebGL("AddChatMessage");
-	    public static void SetInputActive(bool active) => LogWebGL("SetInputActive");
-
-	    private static void LogWebGL(string message) => Debug.Log($"WebGL IO function called: {message}");
-#endif
-	#endregion
+#region Unity to Browser JS
+	    public static void AddChatMessage(string message, bool fromPlayer = false) => InterOpUnityToJs.AddChatMessage(message, fromPlayer);
+	    public static void SetInputActive(bool active) => InterOpUnityToJs.SetInputActive(active);
+	    public static void SetChatActive(bool active) => InterOpUnityToJs.SetChatActive(active);
+#endregion
     }
 }
