@@ -21,14 +21,14 @@ Dialogue Dreamland is a Unity project that uses [ChatGPT](https://openai.com/blo
 </div>
 
 # 📖 Table of Contents 
-- [🚀 Introduction](#🚀-introduction)
-- [🎥 Showcase](#🎥-showcase)
-- [⚙️ Installation](#⚙️-installation)
-- [🗓️ Upcoming Features](#🗓️-upcoming-features)
-- [💡 Future Ideas](#💡-future-ideas)
-- [🤝 Contribution Guidelines](#🤝-contribution-guidelines)
-- [🏅 Credits](#🏅-credits)
-- [📝 License](#📝-license)
+- [🚀 Introduction](#-introduction)
+- [🎥 Showcase](#-showcase)
+- [⚙️ Installation](#-installation)
+- [🗓️ Upcoming Features](#-upcoming-features)
+- [💡 Future Ideas](#-future-ideas)
+- [🤝 Contribution Guidelines](#-contribution-guidelines)
+- [🏅 Credits](#-credits)
+- [📝 License](#-license)
 
 # 🚀 Introduction 
 Welcome to Dialogue Dreamland, an immersive and innovative Unity project that harnesses the power of OpenAI's ChatGPT to breathe life into non-player characters (NPCs) in a WebGL build accessible right from your browser. By integrating state-of-the-art natural language processing technology, this project delivers engaging, interactive dialogues and unique NPC personalities, creating a dynamic and captivating gaming experience unlike any other. Dive into the world of Dialogue Dreamland and witness the fusion of artificial intelligence and game development come alive.
