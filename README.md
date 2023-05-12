@@ -23,8 +23,8 @@ Dialogue Dreamland is a Unity project that uses [ChatGPT](https://openai.com/blo
 # 📖 Table of Contents 
 - [🚀 Introduction](#-introduction)
 - [🎥 Showcase](#-showcase)
-- [⚙️ Installation](#-installation)
-- [🗓️ Upcoming Features](#-upcoming-features)
+- [💾 Installation](#-installation)
+- [📅 Upcoming Features](#-upcoming-features) 
 - [💡 Future Ideas](#-future-ideas)
 - [🤝 Contribution Guidelines](#-contribution-guidelines)
 - [🏅 Credits](#-credits)
@@ -58,7 +58,7 @@ The project uses [Unity's JavaScript Interop](https://docs.unity3d.com/Manual/we
 ## Tools
 This project includes a submodule, [ChatGPTWrapper](https://github.com/p-v-z/ChatGPT-Wrapper-For-Unity), a fork of [ChatGPT-Wrapper-For-Unity](https://github.com/GraesonB/ChatGPT-Wrapper-For-Unity) - which is a wrapper for the [ChatGPT API](https://openai.com/blog/chatgpt/) that allows you to use it in Unity.
 
-# ⚙️ Installation
+# 💾 Installation
 
 ## Prerequisites
 - Unity version [2021.3.20f1](./ProjectSettings/ProjectVersion.txt) or higher 🎮
@@ -94,7 +94,7 @@ Clone [ChatGPTWrapper](https://github.com/p-v-z/ChatGPT-Wrapper-For-Unity) (or a
 
 You should now be able to open the project and run it in the Unity Editor. If you have any issues, please feel free to reach out.
 
-# 🗓️ Upcoming Features
+# 📅 Upcoming Features
 - World UX
   - Fix colliders and layers so that camera doesn't clip through the floor or walls.
   - When you exit conversation, NPC should wave as it generates a 'goodbye' response.
