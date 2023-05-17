@@ -13,9 +13,16 @@
 		<!-- Main canvas -->
 		<canvas id="unity-canvas"></canvas>
 
+		<div class="underlay black"></div>
+		<div class="underlay gradient">
+			<h1 id="title-header" class="absolute-center">Dialogue Dreamland</h1>
+		</div>
+
 		<!-- Loading bar -->
-		<div id="unity-loading-bar">
+		<div id="unity-loading-bar" class="fader">
 			<div id="unity-progress-bar"></div>
+			<small id="unity-loading-percent" class="absolute-center"></small>
+			<p id="unity-loading-status" class="absolute-center">Loading</p>
 		</div>
 
 		<!-- API Key -->
@@ -25,9 +32,9 @@
 			<button id="btnApiKey">Submit</button>
 		</div>
 
-		<!-- show img with svg src here -->
+		<!-- Clouds SVG FX -->
 		<div id="img-container">
-			<img id="clouds-svg" src="./Assets/clouds.svg" alt="Clouds Image">	
+			<img id="clouds-svg" class="fader fade-in" src="./Assets/clouds.svg" alt="Clouds Image">	
 		</div>
 
 		<!-- Chat UI -->
@@ -58,30 +65,46 @@
 				productName: "{{{ PRODUCT_NAME }}}",
 				productVersion: "{{{ PRODUCT_VERSION }}}",
 			}
+			var buildUrl = "Build";
+			var loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
 
 			var canvas = document.querySelector("#unity-canvas");
 			var loadingBar = document.querySelector("#unity-loading-bar");
 			var progressBar = document.querySelector("#unity-progress-bar");
+			var loadingPercent = document.querySelector("#unity-loading-percent");
 			var script = document.createElement("script");
 			
 			// Load build js script
-			var buildUrl = "Build";
-			var loaderUrl = buildUrl + "/{{{ LOADER_FILENAME }}}";
 			script.src = loaderUrl;
 			script.onload = function () {
 				// Create Unity instance
 				createUnityInstance(canvas, config, function (progress) {
 					progressBar.style.width = 100 * progress + "%";
+					loadingPercent.innerText = Math.floor(1000 * progress) / 10 + "%";
 				})
 				.then(function (unityInstance) { 
 					// Store instance and hide loader
 					document.unityInstance = unityInstance;
 					loadingBar.style.display = "none"; 
 
+					const underlay = document.querySelector(".underlay.gradient");
+					underlay.classList.add("ftb");
+					
+					var clouds = document.getElementById("clouds-svg");
+					clouds.classList.remove("fade-in");
+					clouds.classList.add("fade-out");
+					
 					// wait for unity splash screen to finish, then add class to clouds svg
 					setTimeout(function() {
-						var clouds = document.getElementById("clouds-svg");
-						clouds.classList.add("finished");
+						// destroy underlay-gradient html element
+						underlay.remove();
+
+						const underlayBlack = document.querySelector(".black");
+						underlayBlack.classList.add("finished");
+
+						const keyUI = document.getElementById("api-key");
+						keyUI.classList.add("visible");
+						keyUI.classList.add("fader");
 					}, 2500);
 				})
 				.catch(function (message) { alert(message); });
