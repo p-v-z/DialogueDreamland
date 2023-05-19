@@ -1,6 +1,8 @@
 ﻿* {
   padding: 0;
   margin: 0;
+  
+  font-family: Arial;
 }
 
 html, body {
@@ -83,17 +85,76 @@ textarea:focus {
 }
 
 #txtApiKey {
+  width: 80%;
   outline-style: ridge;
 }
 
 #api-key {
   margin: 25px;
-  background-color: #80e4ffc4;
+  background-color: #badef2ce;
   border-radius: 5px;
   display: inline-block;
-  padding: 15px;
+  padding: 25px;
   
   opacity: 0;
+}
+
+#api-key label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+#api-key input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#api-key p {
+  font-size: 0.9em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#api-key small {
+  opacity: 0.8;
+  font-size: 0.8em;
+}
+
+#api-key button {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3973b8;
+  color: white;
+  cursor: pointer;
+  left: 25%;
+  position: relative;
+  margin: 15px;
+}
+
+/* Disabled button: */
+#api-key button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Only hover when not disabled: */
+#api-key button:not([disabled]):hover {
+  background-color: #2a5386;
+}
+
+#api-key #error-message {
+  color: red;
+}
+
+#api-key #success-message {
+  color: green;
 }
 
 #api-key.visible {
@@ -145,7 +206,6 @@ textarea:focus {
 
 #title-header {
   top: 20%;
-  font-family: Arial;
   font-size: xxx-large;
   color: black;
   opacity: 65%;
