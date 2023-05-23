@@ -7,6 +7,7 @@
 		<link rel="icon" href="./favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="./Styles/styles.css">
 		<link rel="stylesheet" href="./Styles/chat.css">
+		<link rel="stylesheet" href="./Styles/controls.css">
 	</head>
 
 	<body oncontextmenu="return false">
@@ -44,6 +45,11 @@
 		 	<div id="chat-messages"></div>
 			<textarea id="txtChat" class='autoExpand' rows='3' data-min-rows='3' placeholder='Type here to chat...' autofocus></textarea>
 		</div>
+
+		<!-- Controls -->
+		<div id="controls-reminder" class="hidden">
+			<p>Move around with <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></p>
+		</div>	
 
 		<!-- Scripts -->
 		<script src="Build/{{{ LOADER_FILENAME }}}"></script>

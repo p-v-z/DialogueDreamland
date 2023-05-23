@@ -12,6 +12,9 @@ var unityInstance = getUnityInstance();
 const unitySubmitApiKey = (key) => {
 	console.log("Submit api key to Unity");
 	getUnityInstance().SendMessage("InterOp", "SubmitApiKey", key);
+
+	const controls = document.getElementById("controls-reminder");
+	controls.classList.remove('hidden');
 }
 
 // Submit a chat message to Unity
