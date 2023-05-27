@@ -13,3 +13,19 @@
     border: 1px solid #fff;
     border-radius: 3px;
 }
+
+#camera-rotation-reminder {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#camera-rotation-reminder kbd {
+    padding: 2px 4px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
