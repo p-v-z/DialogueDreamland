@@ -48,6 +48,9 @@ This project makes use of [game-ci](https://game.ci/), a GitHub Action that allo
 ## Unity's JavaScript Interop for Emoji Handling
 The project uses [Unity's JavaScript Interop](https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html) to handle UI issues with emojis, as it is much easier to handle emojis in HTML than with Unity. There is a UI built into the project that can be used to test in Editor (without the HTML UI), it is not used in the WebGL build.  
 
+## AI-Generated Music
+Dialogue Dreamland features AI-generated background music created by [Soundraw](https://soundraw.io/). 
+
 ## Unity Packages
 - [Cinemachine](https://unity.com/unity/features/editor/art-and-design/cinemachine) to manage the camera.
 - [Unity Addressables](https://docs.unity3d.com/Manual/com.unity.addressables.html) to load assets at runtime.

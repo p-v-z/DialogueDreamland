@@ -47,7 +47,7 @@
 		</div>
 
 		<!-- Controls -->
-		<div id="camera-rotation-reminder">
+		<div id="camera-rotation-reminder" class="hidden">
 			<p>Rotate the camera with <kbd>Right Click</kbd></p>
 		</div>
 		<div id="controls-reminder" class="hidden">
@@ -116,6 +116,9 @@
 						const keyUI = document.getElementById("api-key");
 						keyUI.classList.add("visible");
 						keyUI.classList.add("fader");
+
+						const rotationUI = document.getElementById("camera-rotation-reminder");
+						rotationUI.classList.remove('hidden');
 					}, 2500);
 				})
 				.catch(function (message) { alert(message); });
